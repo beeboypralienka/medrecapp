@@ -21,7 +21,6 @@ import medrecapp.Gui.Internal.FrmIntPoliklinik;
 import medrecapp.Gui.Internal.FrmIntDokter;
 import medrecapp.Gui.Internal.FrmIntObat;
 import medrecapp.Gui.Internal.FrmIntPendaftaran;
-import medrecapp.Gui.Internal.FrmIntSettingUser;
 import java.awt.Dimension;
 import medrecapp.Gui.Internal.FrmIntTindakan;
 
@@ -52,7 +51,6 @@ public class FrmUtama extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuFile = new javax.swing.JMenu();
-        menuSettingUser = new javax.swing.JMenuItem();
         menuExit = new javax.swing.JMenuItem();
         menuMaster = new javax.swing.JMenu();
         menuSpesialis = new javax.swing.JMenuItem();
@@ -81,14 +79,6 @@ public class FrmUtama extends javax.swing.JFrame {
         jDesktopPane1.setBackground(new java.awt.Color(127, 208, 215));
 
         menuFile.setText("File");
-
-        menuSettingUser.setText("Setting User");
-        menuSettingUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuSettingUserActionPerformed(evt);
-            }
-        });
-        menuFile.add(menuSettingUser);
 
         menuExit.setText("Exit");
         menuFile.add(menuExit);
@@ -338,19 +328,6 @@ public class FrmUtama extends javax.swing.JFrame {
         fis.toFront();
     }//GEN-LAST:event_menuPendaftaranPasLamaActionPerformed
 
-    private void menuSettingUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSettingUserActionPerformed
-        // TODO add your handling code here:
-        jDesktopPane1.removeAll();
-        jDesktopPane1.repaint();
-        FrmIntSettingUser fis = new FrmIntSettingUser();        
-        Dimension parentSize = jDesktopPane1.getSize();
-        Dimension childSize = fis.getSize();
-        fis.setLocation((parentSize.width - childSize.width) / 2, (parentSize.height - childSize.height) / 2);        
-        jDesktopPane1.add(fis);
-        fis.show();
-        fis.toFront();
-    }//GEN-LAST:event_menuSettingUserActionPerformed
-
     private void menuPoliJantungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPoliJantungActionPerformed
         // TODO add your handling code here:
         jDesktopPane1.removeAll();
@@ -496,7 +473,6 @@ public class FrmUtama extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuPoliJantung;
     private javax.swing.JMenuItem menuPoliParu;
     private javax.swing.JMenuItem menuRekmedPasien;
-    private javax.swing.JMenuItem menuSettingUser;
     private javax.swing.JMenuItem menuSpesialis;
     private javax.swing.JMenuItem menuStaf;
     // End of variables declaration//GEN-END:variables
