@@ -206,7 +206,7 @@ public class FrmDlgPasien extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        btnSimpan.setText("SIMPAN");
+        btnSimpan.setText("UPDATE");
         btnSimpan.setName("btnSimpan"); // NOI18N
         btnSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

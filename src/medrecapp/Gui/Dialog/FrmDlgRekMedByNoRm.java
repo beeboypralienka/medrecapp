@@ -128,7 +128,7 @@ public class FrmDlgRekMedByNoRm extends javax.swing.JDialog {
         ));
         jScrollPane1.setViewportView(tabelRekmedPasien);
 
-        btnDetilRekamMedis.setText("Detil Rekam Medis");
+        btnDetilRekamMedis.setText("Rekam Medis By No Daftar");
         btnDetilRekamMedis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDetilRekamMedisActionPerformed(evt);

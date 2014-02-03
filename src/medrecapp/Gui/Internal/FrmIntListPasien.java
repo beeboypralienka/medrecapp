@@ -43,8 +43,7 @@ public class FrmIntListPasien extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, PasienDao.hasilGetAll,"Get All Pasien Gagal!", JOptionPane.ERROR_MESSAGE);
         }
         sesuaikan();
-
-        btnTambah.setEnabled(true);
+        
         btnUbah.setEnabled(false);
         btnHapus.setEnabled(false);
         btnRekamMedis.setEnabled(false);
@@ -60,8 +59,7 @@ public class FrmIntListPasien extends javax.swing.JInternalFrame {
                     tglLahir = tabelPasien.getValueAt(row, 3).toString();
                     agama = tabelPasien.getValueAt(row, 4).toString();
                     alamat = tabelPasien.getValueAt(row, 5).toString();
-                }
-                btnTambah.setEnabled(false);
+                }                
                 btnUbah.setEnabled(true);
                 btnHapus.setEnabled(true);
                 btnRekamMedis.setEnabled(true);
@@ -87,8 +85,7 @@ public class FrmIntListPasien extends javax.swing.JInternalFrame {
     }
 
     public void refresh(){
-        tabelModelPasien.setData(ps.serviceGetAllPasien());
-        btnTambah.setEnabled(true);
+        tabelModelPasien.setData(ps.serviceGetAllPasien());        
         btnUbah.setEnabled(false);
         btnHapus.setEnabled(false);
         btnRekamMedis.setEnabled(false);
@@ -112,7 +109,6 @@ public class FrmIntListPasien extends javax.swing.JInternalFrame {
         tabelPasien = new javax.swing.JTable();
         btnRekamMedis = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        btnTambah = new javax.swing.JButton();
         btnUbah = new javax.swing.JButton();
         btnHapus = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
@@ -142,7 +138,7 @@ public class FrmIntListPasien extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tabelPasien);
 
-        btnRekamMedis.setText("LIHAT REKAM MEDIS");
+        btnRekamMedis.setText("LIHAT REKAM MEDIS BY NO RM");
         btnRekamMedis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRekamMedisActionPerformed(evt);
@@ -150,13 +146,6 @@ public class FrmIntListPasien extends javax.swing.JInternalFrame {
         });
 
         jLabel2.setText(":");
-
-        btnTambah.setText("TAMBAH");
-        btnTambah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTambahActionPerformed(evt);
-            }
-        });
 
         btnUbah.setText("UBAH");
         btnUbah.addActionListener(new java.awt.event.ActionListener() {
@@ -191,17 +180,15 @@ public class FrmIntListPasien extends javax.swing.JInternalFrame {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnRekamMedis, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(420, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 377, Short.MAX_VALUE)
+                .addComponent(btnRekamMedis, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnUbah, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 363, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 501, Short.MAX_VALUE)
                 .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 933, Short.MAX_VALUE)
@@ -221,11 +208,11 @@ public class FrmIntListPasien extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnUbah, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                    .addComponent(btnTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnUbah, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -237,14 +224,6 @@ public class FrmIntListPasien extends javax.swing.JInternalFrame {
         FrmDlgRekMedByNoRm fDB = new FrmDlgRekMedByNoRm(null, true);
         fDB.setVisible(true);
     }//GEN-LAST:event_btnRekamMedisActionPerformed
-
-    private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
-        // TODO add your handling code here:
-        judul = "Tambah Pasien";
-        FrmDlgPasien fDB = new FrmDlgPasien(null, true);
-        fDB.setVisible(true);        
-        refresh();
-    }//GEN-LAST:event_btnTambahActionPerformed
 
     private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
         // TODO add your handling code here:
@@ -289,8 +268,7 @@ public class FrmIntListPasien extends javax.swing.JInternalFrame {
         tabelModelPasien.setData(ps.serviceGetAllPasienByNoRm(txtCari.getText()));
         if (tabelModelPasien.getRowCount() == 0) {
             tabelModelPasien.setData(ps.serviceGetAllPasienByNama(txtCari.getText()));
-        }
-        btnTambah.setEnabled(true);
+        }        
         btnUbah.setEnabled(false);
         btnHapus.setEnabled(false);
         btnRekamMedis.setEnabled(false);
@@ -300,7 +278,6 @@ public class FrmIntListPasien extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnRekamMedis;
-    private javax.swing.JButton btnTambah;
     private javax.swing.JButton btnUbah;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

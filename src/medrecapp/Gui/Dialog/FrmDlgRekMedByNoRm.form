@@ -23,9 +23,9 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="756" max="32767" attributes="0"/>
+              <EmptySpace pref="756" max="32767" attributes="1"/>
               <Component id="btnDetilRekamMedis" min="-2" pref="176" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
@@ -73,7 +73,7 @@
     </Container>
     <Component class="javax.swing.JButton" name="btnDetilRekamMedis">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Detil Rekam Medis"/>
+        <Property name="text" type="java.lang.String" value="Rekam Medis By No Daftar"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDetilRekamMedisActionPerformed"/>
