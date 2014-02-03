@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="asus-PC" name="medrecapp.Gui.FrmUtamaTest" skipped="0" tests="7" time="108.238" timestamp="2014-02-01T03:58:42">
+<testsuite errors="0" failures="0" hostname="asus-PC" name="medrecapp.Gui.FrmUtamaTest" skipped="0" tests="7" time="104.942" timestamp="2014-02-02T10:35:17">
   <properties>
     <property name="default.javac.source" value="1.7" />
     <property name="file.encoding.pkg" value="sun.io" />
@@ -79,7 +79,7 @@
     <property name="ant.project.default-target" value="default" />
     <property name="libs.hibernate-persistence.javadoc" value="" />
     <property name="libs.ejb3-persistence.classpath" value="C:\Program Files\NetBeans 6.9.1\java\modules\ext\hibernate\ejb3-persistence.jar" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner medrecapp.Gui.FrmUtamaTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\test\results\TEST-medrecapp.Gui.FrmUtamaTest.xml crashfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junitvmwatcher2282162989611069997.properties propsfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junit6600345409194456803.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner medrecapp.Gui.FrmUtamaTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\test\results\TEST-medrecapp.Gui.FrmUtamaTest.xml crashfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junitvmwatcher1825372322310530583.properties propsfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junit3884670321179114072.properties" />
     <property name="built-jar.properties" value="C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\built-jar.properties" />
     <property name="libs.junit.src" value="" />
     <property name="ant.file" value="C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build.xml" />
@@ -272,13 +272,13 @@
     <property name="libs.JWSAntTasks.javadoc" value="" />
     <property name="sun.arch.data.model" value="64" />
   </properties>
-  <testcase classname="medrecapp.Gui.FrmUtamaTest" name="a_insertDataSpesialis" time="14.873" />
-  <testcase classname="medrecapp.Gui.FrmUtamaTest" name="b_insertDataDokter" time="13.443" />
-  <testcase classname="medrecapp.Gui.FrmUtamaTest" name="c_insertDataPerawat" time="11.759" />
-  <testcase classname="medrecapp.Gui.FrmUtamaTest" name="d_insertDataStaf" time="10.912" />
-  <testcase classname="medrecapp.Gui.FrmUtamaTest" name="e_insertDataJaminan" time="24.728" />
-  <testcase classname="medrecapp.Gui.FrmUtamaTest" name="f_insertRegistrasiPasien" time="13.783" />
-  <testcase classname="medrecapp.Gui.FrmUtamaTest" name="g_updateRekmedMasukPoli" time="15.418" />
+  <testcase classname="medrecapp.Gui.FrmUtamaTest" name="a_insertDataSpesialis" time="14.333" />
+  <testcase classname="medrecapp.Gui.FrmUtamaTest" name="b_insertDataDokter" time="13.514" />
+  <testcase classname="medrecapp.Gui.FrmUtamaTest" name="c_insertDataPerawat" time="11.615" />
+  <testcase classname="medrecapp.Gui.FrmUtamaTest" name="d_insertDataStaf" time="10.905" />
+  <testcase classname="medrecapp.Gui.FrmUtamaTest" name="e_insertDataJaminan" time="24.972" />
+  <testcase classname="medrecapp.Gui.FrmUtamaTest" name="f_insertRegistrasiPasien" time="13.028" />
+  <testcase classname="medrecapp.Gui.FrmUtamaTest" name="g_updateRekmedMasukPoli" time="15.206" />
   <system-out><![CDATA[1. insertDataSpesialisMata
 2. insertDataDokter
 3. insertDataPerawat

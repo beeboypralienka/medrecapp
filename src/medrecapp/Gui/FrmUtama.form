@@ -99,12 +99,12 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Pendaftaran"/>
+            <Property name="text" type="java.lang.String" value="Front Office"/>
           </Properties>
           <SubComponents>
             <Menu class="javax.swing.JMenu" name="jMenu3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Registrasi Pasien"/>
+                <Property name="text" type="java.lang.String" value="Out Patient"/>
               </Properties>
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="menuPendaftaranPasBaru">

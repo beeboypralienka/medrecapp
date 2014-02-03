@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="asus-PC" name="medrecapp.Services.PasienServiceTest" skipped="0" tests="4" time="0.438" timestamp="2014-02-01T04:00:35">
+<testsuite errors="0" failures="0" hostname="asus-PC" name="medrecapp.Services.PasienServiceTest" skipped="0" tests="4" time="0.449" timestamp="2014-02-02T10:37:07">
   <properties>
     <property name="default.javac.source" value="1.7" />
     <property name="file.encoding.pkg" value="sun.io" />
@@ -79,7 +79,7 @@
     <property name="ant.project.default-target" value="default" />
     <property name="libs.hibernate-persistence.javadoc" value="" />
     <property name="libs.ejb3-persistence.classpath" value="C:\Program Files\NetBeans 6.9.1\java\modules\ext\hibernate\ejb3-persistence.jar" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner medrecapp.Services.PasienServiceTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\test\results\TEST-medrecapp.Services.PasienServiceTest.xml crashfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junitvmwatcher5909585325756292614.properties propsfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junit2509231793934276240.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner medrecapp.Services.PasienServiceTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\test\results\TEST-medrecapp.Services.PasienServiceTest.xml crashfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junitvmwatcher3047549287138417257.properties propsfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junit5686403941608157833.properties" />
     <property name="built-jar.properties" value="C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\built-jar.properties" />
     <property name="libs.junit.src" value="" />
     <property name="ant.file" value="C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build.xml" />
@@ -272,9 +272,9 @@
     <property name="libs.JWSAntTasks.javadoc" value="" />
     <property name="sun.arch.data.model" value="64" />
   </properties>
-  <testcase classname="medrecapp.Services.PasienServiceTest" name="a_insertPasien" time="0.279" />
+  <testcase classname="medrecapp.Services.PasienServiceTest" name="a_insertPasien" time="0.328" />
   <testcase classname="medrecapp.Services.PasienServiceTest" name="b_updatePasien" time="0.003" />
-  <testcase classname="medrecapp.Services.PasienServiceTest" name="c_deletePasien" time="0.067" />
+  <testcase classname="medrecapp.Services.PasienServiceTest" name="c_deletePasien" time="0.002" />
   <testcase classname="medrecapp.Services.PasienServiceTest" name="d_getAllPasien" time="0.001" />
   <system-out><![CDATA[1. serviceInsertPasien
 2. serviceUpdatePasien

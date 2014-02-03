@@ -159,9 +159,9 @@ public class FrmUtama extends javax.swing.JFrame {
 
         jMenuBar1.add(menuMaster);
 
-        jMenu2.setText("Pendaftaran");
+        jMenu2.setText("Front Office");
 
-        jMenu3.setText("Registrasi Pasien");
+        jMenu3.setText("Out Patient");
 
         menuPendaftaranPasBaru.setText("Pasien Baru");
         menuPendaftaranPasBaru.setName("menuPasienBaru"); // NOI18N

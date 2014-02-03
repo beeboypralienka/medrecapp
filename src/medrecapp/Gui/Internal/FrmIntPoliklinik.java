@@ -55,11 +55,11 @@ public class FrmIntPoliklinik extends javax.swing.JInternalFrame {
         tabelModelRekmedPasienPoli.setData(rms.serviceGetRekamMedisPasienAntri(FrmUtama.poliTujuan, tglPendaftaran.getText()));
         sesuaikanAntrian();
 
-        btnMasuk.setEnabled(false);
-        btnAwal.setEnabled(false);
-        btnLanjutan.setEnabled(false);
-        btnPelayanan.setEnabled(false);
-        btnResep.setEnabled(false);
+//        btnMasuk.setEnabled(false);
+//        btnAwal.setEnabled(false);
+//        btnLanjutan.setEnabled(false);
+//        btnPelayanan.setEnabled(false);
+//        btnResep.setEnabled(false);
 
         tabelAntrian.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
 
@@ -152,9 +152,10 @@ public class FrmIntPoliklinik extends javax.swing.JInternalFrame {
 
     public void refreshPasienPoli(){
         tabelModelRekmedPasienPoli.setData(rms.serviceGetRekamMedisPasienPoli(FrmUtama.poliTujuan, tglPendaftaran.getText()));
-        btnAwal.setEnabled(false);
-        btnLanjutan.setEnabled(false);
+//        btnAwal.setEnabled(false);
+//        btnLanjutan.setEnabled(false);
         sesuaikanPoli();
+
 //        btnPelayanan.setEnabled(false);
 //        btnResep.setEnabled(false);
     }

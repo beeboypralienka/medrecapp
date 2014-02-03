@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="asus-PC" name="medrecapp.Services.StafServiceTest" skipped="0" tests="4" time="0.449" timestamp="2014-02-01T04:00:46">
+<testsuite errors="0" failures="0" hostname="asus-PC" name="medrecapp.Services.StafServiceTest" skipped="0" tests="4" time="0.417" timestamp="2014-02-02T10:37:21">
   <properties>
     <property name="default.javac.source" value="1.7" />
     <property name="file.encoding.pkg" value="sun.io" />
@@ -79,7 +79,7 @@
     <property name="ant.project.default-target" value="default" />
     <property name="libs.hibernate-persistence.javadoc" value="" />
     <property name="libs.ejb3-persistence.classpath" value="C:\Program Files\NetBeans 6.9.1\java\modules\ext\hibernate\ejb3-persistence.jar" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner medrecapp.Services.StafServiceTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\test\results\TEST-medrecapp.Services.StafServiceTest.xml crashfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junitvmwatcher5488549472407415289.properties propsfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junit4245050107537941277.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner medrecapp.Services.StafServiceTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\test\results\TEST-medrecapp.Services.StafServiceTest.xml crashfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junitvmwatcher5521410975157696795.properties propsfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junit4547788437954094348.properties" />
     <property name="built-jar.properties" value="C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\built-jar.properties" />
     <property name="libs.junit.src" value="" />
     <property name="ant.file" value="C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build.xml" />
@@ -272,10 +272,10 @@
     <property name="libs.JWSAntTasks.javadoc" value="" />
     <property name="sun.arch.data.model" value="64" />
   </properties>
-  <testcase classname="medrecapp.Services.StafServiceTest" name="a_insertStaf" time="0.294" />
-  <testcase classname="medrecapp.Services.StafServiceTest" name="b_updateStaf" time="0.069" />
-  <testcase classname="medrecapp.Services.StafServiceTest" name="c_deleteStaf" time="0.002" />
-  <testcase classname="medrecapp.Services.StafServiceTest" name="d_getAllStaf" time="0.0" />
+  <testcase classname="medrecapp.Services.StafServiceTest" name="a_insertStaf" time="0.297" />
+  <testcase classname="medrecapp.Services.StafServiceTest" name="b_updateStaf" time="0.003" />
+  <testcase classname="medrecapp.Services.StafServiceTest" name="c_deleteStaf" time="0.003" />
+  <testcase classname="medrecapp.Services.StafServiceTest" name="d_getAllStaf" time="0.001" />
   <system-out><![CDATA[1. serviceInsertStaf
 2. serviceUpdateStaf
 3. serviceDeleteStaf
