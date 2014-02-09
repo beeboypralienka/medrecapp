@@ -400,52 +400,61 @@ public class FrmIntPendaftaran extends javax.swing.JInternalFrame {
 
     private void btnDaftarkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDaftarkanActionPerformed
         // TODO add your handling code here:
-
-        /* Format Tanggal untuk Nomor Pendaftaran */
-        SimpleDateFormat sdf = new SimpleDateFormat("ddMMyyyy");
-        String tglNoDaftar = sdf.format(tglPendaftaran.getDate());
-
-        /* Format tanggal untuk pengisian tanggal ke database */
-        SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
-        String tglDaftar = sdf2.format(tglPendaftaran.getDate());
-
-        /* Panggil nilai maximal pendaftaran */
-        String nomor = rms.serviceGenerateNomorDaftar(tglNoDaftar);
-        if (!RekamMedisDao.hasilGenerateNomor.equals("ok")) {
-            JOptionPane.showMessageDialog(null, RekamMedisDao.hasilGenerateNomor, "Generate Max Nomor Pendaftaran Gagal!", JOptionPane.ERROR_MESSAGE);
-        }
-
-        /* Nomor Rekam Medis */
-        String teksRm = txtNoRm.getText();
-
-        /* Nomor Staf */
-        String staf = sfs.serviceGetIDStaf(pilihStaf.getSelectedItem().toString());
-
-        /* ID Spesialis */
-        String spesialis = ss.serviceGetIDSpesialis(pilihPoliTujuan.getSelectedItem().toString());
-
-        /* ID Jaminan */
-        String jaminan = pilihJaminan.getSelectedItem().toString();
-
-        /* Nomor Dokter */
-        String dokter = ds.serviceGetNoDokerByNama(pilihNamaDokter.getSelectedItem().toString());
-
-        RekamMedis rm = new RekamMedis();
-        rm.setNoDaftar(nomor);
-        rm.setNoRm(teksRm);
-        rm.setNoStaf(staf);
-        rm.setBagianSpesialis(spesialis);
-        rm.setIdJaminan(jaminan);
-        rm.setNoDokter(dokter);
-        rm.setStatus("Antri");
-        rm.setTglDaftar(tglDaftar);
-        rms.serviceInsertRekamMedis(rm);
-
-        if (RekamMedisDao.hasilInsertRekamMedis.equals("ok")) {
-            JOptionPane.showMessageDialog(null, "Data rekam medis berhasil ditambah!", "Insert Rekam Medis", JOptionPane.INFORMATION_MESSAGE);
-            refresh();
+        String namaPasien = txtNamaPasien.getText();
+        int poliTujuan = pilihPoliTujuan.getSelectedIndex();
+        int pilihanDokter = pilihNamaDokter.getSelectedIndex();
+        int pilihanJaminan = pilihJaminan.getSelectedIndex();
+        int pilihanStaf = pilihStaf.getSelectedIndex();
+        if ((namaPasien.equals("")) || (poliTujuan == 0) || (pilihanDokter == 0) || (pilihanJaminan == 0) || (pilihanStaf == 0)) {
+            JOptionPane.showMessageDialog(null, "Data tidak boleh kosong!", "Insert Rekam Medis Gagal!", JOptionPane.ERROR_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, RekamMedisDao.hasilInsertRekamMedis, "Insert Rekam Medis Gagal!", JOptionPane.ERROR_MESSAGE);
+
+            /* Format Tanggal untuk Nomor Pendaftaran */
+            SimpleDateFormat sdf = new SimpleDateFormat("ddMMyyyy");
+            String tglNoDaftar = sdf.format(tglPendaftaran.getDate());
+
+            /* Format tanggal untuk pengisian tanggal ke database */
+            SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
+            String tglDaftar = sdf2.format(tglPendaftaran.getDate());
+
+            /* Panggil nilai maximal pendaftaran */
+            String nomor = rms.serviceGenerateNomorDaftar(tglNoDaftar);
+            if (!RekamMedisDao.hasilGenerateNomor.equals("ok")) {
+                JOptionPane.showMessageDialog(null, RekamMedisDao.hasilGenerateNomor, "Generate Max Nomor Pendaftaran Gagal!", JOptionPane.ERROR_MESSAGE);
+            }
+
+            /* Nomor Rekam Medis */
+            String teksRm = txtNoRm.getText();
+
+            /* Nomor Staf */
+            String staf = sfs.serviceGetIDStaf(pilihStaf.getSelectedItem().toString());
+
+            /* ID Spesialis */
+            String spesialis = ss.serviceGetIDSpesialis(pilihPoliTujuan.getSelectedItem().toString());
+
+            /* ID Jaminan */
+            String jaminan = pilihJaminan.getSelectedItem().toString();
+
+            /* Nomor Dokter */
+            String dokter = ds.serviceGetNoDokerByNama(pilihNamaDokter.getSelectedItem().toString());
+
+            RekamMedis rm = new RekamMedis();
+            rm.setNoDaftar(nomor);
+            rm.setNoRm(teksRm);
+            rm.setNoStaf(staf);
+            rm.setBagianSpesialis(spesialis);
+            rm.setIdJaminan(jaminan);
+            rm.setNoDokter(dokter);
+            rm.setStatus("Antri");
+            rm.setTglDaftar(tglDaftar);
+            rms.serviceInsertRekamMedis(rm);
+
+            if (RekamMedisDao.hasilInsertRekamMedis.equals("ok")) {
+                JOptionPane.showMessageDialog(null, "Data rekam medis berhasil ditambah!", "Insert Rekam Medis", JOptionPane.INFORMATION_MESSAGE);
+                refresh();
+            } else {
+                JOptionPane.showMessageDialog(null, RekamMedisDao.hasilInsertRekamMedis, "Insert Rekam Medis Gagal!", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }//GEN-LAST:event_btnDaftarkanActionPerformed
 
@@ -455,7 +464,7 @@ public class FrmIntPendaftaran extends javax.swing.JInternalFrame {
         String jenkel = null;
         tmp.setData(ps.serviceGetPasienByNo(noRm));
         if (!PasienDao.hasilGetPasienByNo.equals("ok")) {
-            JOptionPane.showMessageDialog(null, PasienDao.hasilGetPasienByNo,"Get Pasien By Nomor Rekam Medis Gagal!", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, PasienDao.hasilGetPasienByNo, "Get Pasien By Nomor Rekam Medis Gagal!", JOptionPane.ERROR_MESSAGE);
         } else {
             if (tmp.getRowCount() == 0) {
                 txtNamaPasien.setText("");

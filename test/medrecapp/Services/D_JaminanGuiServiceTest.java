@@ -6,7 +6,7 @@
 package medrecapp.Services;
 
 import javax.swing.JFrame;
-import medrecapp.Gui.FrmUtamaTest;
+import medrecapp.Gui.FrmTestUtama;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -41,7 +41,7 @@ public class D_JaminanGuiServiceTest {
         try {
             UIManager.setLookAndFeel(new NimbusLookAndFeel());
         } catch (UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(FrmUtamaTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FrmTestUtama.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         fu = new FrmUtama();

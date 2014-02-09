@@ -6,7 +6,7 @@
 package medrecapp.Services;
 
 import javax.swing.JFrame;
-import medrecapp.Gui.FrmUtamaTest;
+import medrecapp.Gui.FrmTestUtama;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -41,7 +41,7 @@ public class J_PasienGuiServiceTest {
         try {
             UIManager.setLookAndFeel(new NimbusLookAndFeel());
         } catch (UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(FrmUtamaTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FrmTestUtama.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         fu = new FrmUtama();
@@ -65,9 +65,6 @@ public class J_PasienGuiServiceTest {
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
     @Test
     public void a_insertDataPasienKosong() {
         System.out.println("1. InsertDataPasienKosong");
@@ -97,9 +94,6 @@ public class J_PasienGuiServiceTest {
         frame.menuItem("menuRekamMedisPasien").click();
         
         frame.table("tabelPasien").selectRows(0);
-        //frame.textBox("txtNmPasien").deleteText();
-        //frame.textBox("txtTglLahir").deleteText();
-        //frame.textBox("txtAlamat").deleteText();
         frame.button("btnUbah").click();
 
         frame.dialog("frmDlgAWTPasien").textBox("txtNmPasien").deleteText();
@@ -117,12 +111,11 @@ public class J_PasienGuiServiceTest {
         frame.dialog("frmDlgAWTPasien").textBox("txtNmPasien").enterText("Ruminta");
         frame.dialog("frmDlgAWTPasien").radioButton("radioLaki").click();
         frame.dialog("frmDlgAWTPasien").textBox("txtTglLahir").enterText("1999-09-09");
-        frame.dialog("frmDlgAWTPasien").comboBox("pilihAgama").selectItem("Islam");
+        frame.dialog("frmDlgAWTPasien").comboBox("pilihAgama").selectItem("Hindu");
         frame.dialog("frmDlgAWTPasien").textBox("txtAlamat").enterText("Medan");
         frame.dialog("frmDlgAWTPasien").button("btnUpdate").click();
         frame.dialog("frmDlgAWTPasien").optionPane().requireTitle("Update Pasien");
-        frame.dialog("frmDlgAWTPasien").optionPane().okButton().click();
-        //frame.dialog("frmDlgAWTPasien").close();
+        frame.dialog("frmDlgAWTPasien").optionPane().okButton().click();        
     }
 
     @Test

@@ -64,24 +64,19 @@ public class R_RekamMedisGuiServiceTest {
         pns.serviceDeletePasien("000001");
 
         PerawatService ps = new PerawatService();
-        ps.serviceDeletePerawat("PER.001");
-        ps.serviceDeletePerawat("PER.002");
+        ps.serviceDeletePerawat("PER.001");        
 
         DokterService ds = new DokterService();
-        ds.serviceDeleteDokter("DOK.001");
-        ds.serviceDeleteDokter("DOK.002");
+        ds.serviceDeleteDokter("DOK.001");        
 
         StafService sfs = new StafService();
-        sfs.serviceDeleteStaf("STF.001");
-        sfs.serviceDeleteStaf("STF.002");
+        sfs.serviceDeleteStaf("STF.001");        
 
         SpesialisService ss = new SpesialisService();
-        ss.serviceDeleteSpesialis("Sp.PD");
-        ss.serviceDeleteSpesialis("Sp.BD");
+        ss.serviceDeleteSpesialis("Sp.PD");        
 
         JaminanService js = new JaminanService();
-        js.serviceDeleteJaminan("KJS");
-        js.serviceDeleteJaminan("BPJS Kesehatan");
+        js.serviceDeleteJaminan("KJS");        
     }
 
     @Before
@@ -94,7 +89,7 @@ public class R_RekamMedisGuiServiceTest {
 
     @Test
     public void a_insertDataSpesialis() {
-        System.out.println("1. insertDataSpesialisMata");
+        System.out.println("1. insertDataSpesialis");
         frame.menuItem("menuDataSpesialis").click();
         frame.textBox("txtIDSpesialis").enterText("Sp.PD");
         frame.textBox("txtNamaSpesialis").enterText("Spesialis Penyakit Dalam");
@@ -102,27 +97,12 @@ public class R_RekamMedisGuiServiceTest {
         frame.button("btnInsert").click();
         frame.optionPane().requireTitle("Insert Spesialis");
         frame.optionPane().okButton().click();
-
-        frame.textBox("txtIDSpesialis").enterText("Sp.BD");
-        frame.textBox("txtNamaSpesialis").enterText("Spesialis Bedah");
-        frame.textBox("txtTarifKonsul").enterText("95000");
-        frame.button("btnInsert").click();
-        frame.optionPane().requireTitle("Insert Spesialis");
-        frame.optionPane().okButton().click();
     }
 
     @Test
-    public void b_insertDataDokter() {
-        System.out.println("2. insertDataDokter");
+    public void d_insertDataDokter() {
+        System.out.println("4. insertDataDokter");
         frame.menuItem("menuDataDokter").click();
-
-        frame.textBox("txtNamaDokter").enterText("Fuad Suhadi");
-        frame.comboBox("pilihSpesialis").selectItem("Spesialis Bedah");
-        frame.textBox("txtTglKerja").enterText("2013-09-02");
-        frame.textBox("txtAlamat").enterText("Jakarta");
-        frame.button("btnInsert").click();
-        frame.optionPane().requireTitle("Insert Dokter");
-        frame.optionPane().okButton().click();
 
         frame.textBox("txtNamaDokter").enterText("Yudi Kusnaedi");
         frame.comboBox("pilihSpesialis").selectItem("Spesialis Penyakit Dalam");
@@ -134,16 +114,9 @@ public class R_RekamMedisGuiServiceTest {
     }
 
     @Test
-    public void c_insertDataPerawat() {
-        System.out.println("3. insertDataPerawat");
+    public void e_insertDataPerawat() {
+        System.out.println("5. insertDataPerawat");
         frame.menuItem("menuDataPerawat").click();
-
-        frame.textBox("txtNamaPerawat").enterText("Fitriya Rahmawati");
-        frame.textBox("txtTanggalKerja").enterText("2011-10-09");
-        frame.comboBox("pilihBagian").selectItem("Spesialis Bedah");
-        frame.button("btnInsert").click();
-        frame.optionPane().requireTitle("Insert Perawat");
-        frame.optionPane().okButton().click();
 
         frame.textBox("txtNamaPerawat").enterText("Prima Puspitasari");
         frame.textBox("txtTanggalKerja").enterText("2009-04-10");
@@ -154,8 +127,8 @@ public class R_RekamMedisGuiServiceTest {
     }
 
     @Test
-    public void d_insertDataStaf() {
-        System.out.println("4. insertDataStaf");
+    public void c_insertDataStaf() {
+        System.out.println("3. insertDataStaf");
         frame.menuItem("menuDataStaf").click();
 
         frame.textBox("txtNamaStaf").enterText("Ashar Kurniawan");
@@ -163,48 +136,49 @@ public class R_RekamMedisGuiServiceTest {
         frame.button("btnInsert").click();
         frame.optionPane().requireTitle("Insert Staf");
         frame.optionPane().okButton().click();
-
-        frame.textBox("txtNamaStaf").enterText("Rudi Siahaan");
-        frame.textBox("txtAlamat").enterText("Jakarta Timur");
-        frame.button("btnInsert").click();
-        frame.optionPane().requireTitle("Insert Staf");
-        frame.optionPane().okButton().click();
     }
 
     @Test
-    public void e_insertDataJaminan() {
-        System.out.println("5. insertDataJaminan");
+    public void b_insertDataJaminan() {
+        System.out.println("2. insertDataJaminan");
         frame.menuItem("menuDataJaminan").click();
 
         frame.textBox("txtIDJaminan").enterText("KJS");
         frame.textBox("txtNamaJaminan").enterText("Kartu Jakarta Sehat");
-        frame.textBox("txtKeterangan").enterText("Jaminan kesehatan warga DKI Jakarta");
-        frame.button("btnInsert").click();
-        frame.optionPane().requireTitle("Insert Jaminan");
-        frame.optionPane().okButton().click();
-
-        frame.textBox("txtIDJaminan").enterText("BPJS Kesehatan");
-        frame.textBox("txtNamaJaminan").enterText("Badan Penyelenggara Jaminan Sosial");
-        frame.textBox("txtKeterangan").enterText("Jaminan kesehatan untuk seluruh WNI");
+        frame.textBox("txtKeterangan").enterText("Khusus warga DKI");
         frame.button("btnInsert").click();
         frame.optionPane().requireTitle("Insert Jaminan");
         frame.optionPane().okButton().click();
     }
 
     @Test
-    public void f_insertRegistrasiPasien(){
-        System.out.println("6. insertRegistrasiPasien");
+    public void f_insertRegistrasiKosongKePoli(){
+        System.out.println("6. insertRegistrasiKosongKePoli");
         frame.menuItem("menuDataPasienBaru").click();
 
         frame.textBox("txtNmPasien").enterText("Udin Sumardin");
+        frame.radioButton("radioPerempuan").click();
         frame.radioButton("radioLaki").click();
         frame.textBox("txtTglLahir").enterText("1990-09-09");
         frame.comboBox("pilihAgama").selectItem("Islam");
-        frame.textBox("txtAlamat").enterText("Jl. Cisitu Lama No. 33 Bandung");
+        frame.textBox("txtAlamat").enterText("Cisitu Lama");
         frame.button("btnInsert").click();
         frame.optionPane().requireTitle("Insert Pasien");
         frame.optionPane().okButton().click();
 
+        frame.textBox("txtNoRm").deleteText();
+        frame.button("btnDaftarkan").click();
+        frame.optionPane().requireTitle("Insert Rekam Medis Gagal!");
+        frame.optionPane().okButton().click();
+    }
+
+    @Test
+    public void g_insertRegistrasiKePoli(){
+        System.out.println("6. insertRegistrasiKePoli");        
+
+        frame.textBox("txtNoRm").enterText("000002");
+        frame.textBox("txtNoRm").selectText(5, 6);
+        frame.textBox("txtNoRm").enterText("1");
         frame.comboBox("pilihPoli").selectItem("Spesialis Penyakit Dalam");
         frame.comboBox("pilihDokter").selectItem("YUDI KUSNAEDI");
         frame.comboBox("pilihJaminan").selectItem("KJS");
@@ -215,7 +189,7 @@ public class R_RekamMedisGuiServiceTest {
     }
 
     @Test
-    public void g_updateRekmedMasukPoli(){
+    public void h_updateRekmedMasukPoli(){
         System.out.println("7. updateRekmedMasukPoli");
         frame.menuItem("menuPoliPenyakitDalam").click();
 
@@ -249,6 +223,26 @@ public class R_RekamMedisGuiServiceTest {
         frame.dialog("periksaLanjutan").optionPane().requireTitle("Update Pemeriksaan Lanjutan");
         frame.dialog("periksaLanjutan").optionPane().okButton().click();
 
+    }
+
+    @Test
+    public void i_lihatDataRekamMedis(){
+        System.out.println("9. lihatDataRekamMedis");
+
+        frame.menuItem("menuRekamMedisPasien").click();
+        frame.table("tabelPasien").selectRows(0);
+        frame.button("btnRekmedByNoRm").click();
+
+//        frame.textBox("txtNoRm").enterText("000002");
+//        frame.textBox("txtNoRm").selectText(5, 6);
+//        frame.textBox("txtNoRm").enterText("1");
+//        frame.comboBox("pilihPoli").selectItem("Spesialis Penyakit Dalam");
+//        frame.comboBox("pilihDokter").selectItem("YUDI KUSNAEDI");
+//        frame.comboBox("pilihJaminan").selectItem("KJS");
+//        frame.comboBox("pilihStaf").selectItem("Ashar Kurniawan");
+//        frame.button("btnDaftarkan").click();
+//        frame.optionPane().requireTitle("Insert Rekam Medis");
+//        frame.optionPane().okButton().click();
     }
 
 }
