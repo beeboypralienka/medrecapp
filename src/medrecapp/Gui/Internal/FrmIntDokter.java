@@ -13,6 +13,7 @@ package medrecapp.Gui.Internal;
 import java.awt.Component;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.sql.Connection;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -37,6 +38,7 @@ public class FrmIntDokter extends javax.swing.JInternalFrame {
     TabelModelDokter tabelModelDokter = new TabelModelDokter();
     SpesialisService ss = new SpesialisService();
     TabelModelSpesialis tabelModelSpesialis = new TabelModelSpesialis();
+    Connection connection;
 
     /** Creates new form FrmIntDokter */
     public FrmIntDokter() {
@@ -57,7 +59,7 @@ public class FrmIntDokter extends javax.swing.JInternalFrame {
             public void valueChanged(ListSelectionEvent e) {
                 int row = tabelDokter.getSelectedRow();
                 if (row != -1) {
-                    String ID = tabelDokter.getValueAt(row, 0).toString();
+
                     String nama = tabelDokter.getValueAt(row, 1).toString();
                     String spesialis = tabelDokter.getValueAt(row, 2).toString();
                     String tglKerja = tabelDokter.getValueAt(row, 3).toString();
@@ -359,6 +361,11 @@ public class FrmIntDokter extends javax.swing.JInternalFrame {
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         // TODO add your handling code here:
+        String nmDokter = txtNmDokter.getText();
+        String tglKerja = txtTglKerja.getText();
+        String alamat = txtAlamat.getText();
+        int spesialis = pilihSpesialis.getSelectedIndex();
+
         if (pilihSpesialis.getSelectedItem() == null) {
             JOptionPane.showMessageDialog(rootPane, "null", "Error - Get ID Spesialis", JOptionPane.ERROR_MESSAGE);
         } else {

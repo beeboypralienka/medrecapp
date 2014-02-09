@@ -146,6 +146,11 @@ public class FrmIntStaf extends javax.swing.JInternalFrame {
         jLabel6.setText(":");
 
         txtNamaStaf.setName("txtNamaStaf"); // NOI18N
+        txtNamaStaf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNamaStafActionPerformed(evt);
+            }
+        });
 
         txtAlamat.setColumns(20);
         txtAlamat.setFont(new java.awt.Font("Tahoma", 0, 11));
@@ -282,7 +287,7 @@ public class FrmIntStaf extends javax.swing.JInternalFrame {
                     .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnInsert, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -295,35 +300,51 @@ public class FrmIntStaf extends javax.swing.JInternalFrame {
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         // TODO add your handling code here:
-        Staf s = new Staf();
-        s.setNoStaf("STF." + ss.serviceGetMaxNoStaf());
-        s.setNmStaf(txtNamaStaf.getText());
-        s.setAlamatStaf(txtAlamat.getText());
-        ss.serviceInsertStaf(s);
+        String nmStaf = txtNamaStaf.getText();
+        String alamatStaf = txtAlamat.getText();
 
-        if (StafDao.hasilInsert.equals("ok")) {
-            JOptionPane.showMessageDialog(null, "Data staf berhasil ditambah!", "Insert Staf", JOptionPane.INFORMATION_MESSAGE);
-            clear();
+        if ((nmStaf.equals("")) || (alamatStaf.equals(""))) {
+            JOptionPane.showMessageDialog(null, "Data tidak boleh kosong!", "Insert Staf Gagal!", JOptionPane.ERROR_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, StafDao.hasilInsert, "Insert Staf Gagal!", JOptionPane.ERROR_MESSAGE);
+            Staf s = new Staf();
+            s.setNoStaf("STF." + ss.serviceGetMaxNoStaf());
+            s.setNmStaf(nmStaf);
+            s.setAlamatStaf(alamatStaf);
+            ss.serviceInsertStaf(s);
+
+            if (StafDao.hasilInsert.equals("ok")) {
+                JOptionPane.showMessageDialog(null, "Data staf berhasil ditambah!", "Insert Staf", JOptionPane.INFORMATION_MESSAGE);
+                clear();
+            } else {
+                JOptionPane.showMessageDialog(null, StafDao.hasilInsert, "Insert Staf Gagal!", JOptionPane.ERROR_MESSAGE);
+            }
         }
+
+
     }//GEN-LAST:event_btnInsertActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        Staf s = new Staf();
-        s.setNmStaf(txtNamaStaf.getText());
-        s.setAlamatStaf(txtAlamat.getText());
+        String nmStaf = txtNamaStaf.getText();
+        String alamatStaf = txtAlamat.getText();
 
-        int row = tabelStaf.getSelectedRow();
-        if (row != -1) {
-            ss.serviceUpdateStaf(s, tabelStaf.getValueAt(row, 0).toString());
+        if ((nmStaf.equals("")) || (alamatStaf.equals(""))) {
+            JOptionPane.showMessageDialog(null, "Data tidak boleh kosong!", "Update Staf Gagal!", JOptionPane.ERROR_MESSAGE);
+        } else {
+            Staf s = new Staf();
+            s.setNmStaf(txtNamaStaf.getText());
+            s.setAlamatStaf(txtAlamat.getText());
 
-            if (StafDao.hasilUpdate.equals("ok")) {
-                JOptionPane.showMessageDialog(null, "Data staf berhasil diubah!", "Update Staf", JOptionPane.INFORMATION_MESSAGE);
-                clear();
-            } else {
-                JOptionPane.showMessageDialog(null, StafDao.hasilUpdate, "Update Staf Gagal!", JOptionPane.ERROR_MESSAGE);
+            int row = tabelStaf.getSelectedRow();
+            if (row != -1) {
+                ss.serviceUpdateStaf(s, tabelStaf.getValueAt(row, 0).toString());
+
+                if (StafDao.hasilUpdate.equals("ok")) {
+                    JOptionPane.showMessageDialog(null, "Data staf berhasil diubah!", "Update Staf", JOptionPane.INFORMATION_MESSAGE);
+                    clear();
+                } else {
+                    JOptionPane.showMessageDialog(null, StafDao.hasilUpdate, "Update Staf Gagal!", JOptionPane.ERROR_MESSAGE);
+                }
             }
         }
 
@@ -373,6 +394,10 @@ public class FrmIntStaf extends javax.swing.JInternalFrame {
         btnUpdate.setEnabled(false);
         btnDelete.setEnabled(false);
     }//GEN-LAST:event_txtCariKeyReleased
+
+    private void txtNamaStafActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamaStafActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNamaStafActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnInsert;
