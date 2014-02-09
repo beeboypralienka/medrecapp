@@ -19,8 +19,7 @@ import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 import medrecapp.Dao.PasienDao;
 import medrecapp.Gui.Dialog.FrmDlgAWTPasien;
-import medrecapp.Gui.Dialog.FrmDlgPasien;
-import medrecapp.Gui.Dialog.FrmDlgRekMedByNoRm;
+import medrecapp.Gui.Dialog.FrmDlgAWTRekMedByNoRm;
 import medrecapp.Services.PasienService;
 import medrecapp.TabelModel.TabelModelPasien;
 
@@ -226,7 +225,8 @@ public class FrmIntListPasien extends javax.swing.JInternalFrame {
 
     private void btnRekamMedisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRekamMedisActionPerformed
         // TODO add your handling code here:
-        FrmDlgRekMedByNoRm fDB = new FrmDlgRekMedByNoRm(null, true);
+        //FrmDlgRekMedByNoRm fDB = new FrmDlgRekMedByNoRm(null, true);
+        FrmDlgAWTRekMedByNoRm fDB = new FrmDlgAWTRekMedByNoRm(null, true);
         fDB.setVisible(true);
     }//GEN-LAST:event_btnRekamMedisActionPerformed
 
