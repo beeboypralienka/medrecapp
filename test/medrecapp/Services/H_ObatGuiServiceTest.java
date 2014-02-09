@@ -52,6 +52,8 @@ public class H_ObatGuiServiceTest {
 
     @AfterClass
     public static void tearDownClass() throws Exception {
+        ObatService os = new ObatService();
+        os.serviceDeleteObat("Omeprazol");
     }
 
     @Before
@@ -72,52 +74,48 @@ public class H_ObatGuiServiceTest {
     }
 
     @Test
-    public void b_insertDataSpesialis() {
+    public void b_insertDataObat() {
         System.out.println("2. InsertDataObat");
 
-//        frame.textBox("txtIDSpesialis").enterText("Sp.PD");
-//        frame.textBox("txtNamaSpesialis").enterText("Penyakit Dalam");
-//        frame.textBox("txtTarifKonsul").enterText("80000");
-//        frame.button("btnInsert").click();
-//        frame.optionPane().requireTitle("Insert Obat");
-//        frame.optionPane().okButton().click();
+        frame.textBox("txtIdObat").enterText("Omeprazol");
+        frame.textBox("txtKeterangan").enterText("Obat Lambung");
+        frame.button("btnInsert").click();
+        frame.optionPane().requireTitle("Insert Obat");
+        frame.optionPane().okButton().click();
     }
 
     @Test
-    public void c_updateDataSpesialisKosong() {
+    public void c_updateDataObatKosong() {
         System.out.println("3. UpdateDataObatKosong");
 
-//        frame.table("tabelSpesialis").selectRows(0);
-//        frame.textBox("txtNamaSpesialis").deleteText();
-//        frame.textBox("txtTarifKonsul").deleteText();
-//        frame.button("btnUpdate").click();
-//        frame.optionPane().requireTitle("Update Obat Gagal!");
-//        frame.optionPane().okButton().click();
+        frame.table("tabelObat").selectRows(0);
+        frame.textBox("txtKeterangan").deleteText();
+        frame.button("btnUpdate").click();
+        frame.optionPane().requireTitle("Update Obat Gagal!");
+        frame.optionPane().okButton().click();
     }
 
     @Test
-    public void d_updateDataSpesialis() {
+    public void d_updateDataObat() {
         System.out.println("4. UpdateDataObat");
 
-//        frame.table("tabelSpesialis").selectRows(0);
-//        frame.textBox("txtNamaSpesialis").selectText(0, 0);
-//        frame.textBox("txtNamaSpesialis").enterText("Spesialis Penyakit Dalam");
-//        frame.textBox("txtTarifKonsul").enterText("95000");
-//        frame.button("btnUpdate").click();
-//        frame.optionPane().requireTitle("Update Obat");
-//        frame.optionPane().okButton().click();
+        frame.table("tabelObat").selectRows(0);
+        frame.textBox("txtKeterangan").enterText("Obat Penyakit Lambung");
+        frame.button("btnUpdate").click();
+        frame.optionPane().requireTitle("Update Obat");
+        frame.optionPane().okButton().click();
     }
 
     @Test
-    public void e_deleteDataSpesialis() {
+    public void e_deleteDataObat() {
         System.out.println("5. DeleteDataObat");
 
-//        frame.table("tabelSpesialis").selectRows(0);
-//        frame.button("btnDelete").click();
-//        frame.optionPane().requireTitle("Konfirmasi");
-//        frame.optionPane().yesButton().click();
-//        frame.optionPane().requireTitle("Delete Obat");
-//        frame.optionPane().okButton().click();
+        frame.table("tabelObat").selectRows(0);
+        frame.button("btnDelete").click();
+        frame.optionPane().requireTitle("Konfirmasi");
+        frame.optionPane().yesButton().click();
+        frame.optionPane().requireTitle("Delete Obat");
+        frame.optionPane().okButton().click();
     }
 
 }
