@@ -57,6 +57,7 @@ public class FrmIntJaminan extends javax.swing.JInternalFrame {
                     btnInsert.setEnabled(false);
                     btnUpdate.setEnabled(true);
                     btnDelete.setEnabled(true);
+                    txtIdJaminan.setEnabled(false);
                 }
             }
         });
@@ -102,6 +103,7 @@ public class FrmIntJaminan extends javax.swing.JInternalFrame {
         btnInsert.setEnabled(true);
         btnUpdate.setEnabled(false);
         btnDelete.setEnabled(false);
+        txtIdJaminan.setEnabled(true);
 
         txtIdJaminan.setText("");
         txtNamaJaminan.setText("");
@@ -321,33 +323,48 @@ public class FrmIntJaminan extends javax.swing.JInternalFrame {
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         // TODO add your handling code here:
-        Jaminan j = new Jaminan();
-        j.setIdJaminan(txtIdJaminan.getText());
-        j.setNmJaminan(txtNamaJaminan.getText());
-        j.setKetJaminan(txtKeterangan.getText());
-        js.serviceInsertJaminan(j);
-        if (JaminanDao.hasilInsert.equals("ok")) {
-            JOptionPane.showMessageDialog(null, "Data jaminan berhasil ditambah!", "Insert Jaminan", JOptionPane.INFORMATION_MESSAGE);
-            clear();
+        String idJaminan = txtIdJaminan.getText();
+        String nmJaminan = txtNamaJaminan.getText();
+        String keterangan = txtKeterangan.getText();
+
+        if ((idJaminan.equals("")) || (nmJaminan.equals("")) || (keterangan.equals(""))) {
+            JOptionPane.showMessageDialog(null, "Data tidak boleh kosong!", "Insert Jaminan Gagal!", JOptionPane.ERROR_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, JaminanDao.hasilInsert, "Insert Jaminan Gagal!", JOptionPane.ERROR_MESSAGE);
+            Jaminan j = new Jaminan();
+            j.setIdJaminan(idJaminan);
+            j.setNmJaminan(nmJaminan);
+            j.setKetJaminan(keterangan);
+            js.serviceInsertJaminan(j);
+            if (JaminanDao.hasilInsert.equals("ok")) {
+                JOptionPane.showMessageDialog(null, "Data jaminan berhasil ditambah!", "Insert Jaminan", JOptionPane.INFORMATION_MESSAGE);
+                clear();
+            } else {
+                JOptionPane.showMessageDialog(null, JaminanDao.hasilInsert, "Insert Jaminan Gagal!", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }//GEN-LAST:event_btnInsertActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        Jaminan j = new Jaminan();
-        j.setNmJaminan(txtNamaJaminan.getText());
-        j.setKetJaminan(txtKeterangan.getText());
+        String nmJaminan = txtNamaJaminan.getText();
+        String keterangan = txtKeterangan.getText();
 
-        int row = tabelJaminan.getSelectedRow();
-        if (row != -1) {
-            js.serviceUpdateJaminan(j, tabelJaminan.getValueAt(row, 0).toString());
-            if (JaminanDao.hasilUpdate.equals("ok")) {
-                JOptionPane.showMessageDialog(null, "Data jaminan berhasil diubah", "Update Jaminan", JOptionPane.INFORMATION_MESSAGE);
-                clear();
-            } else {
-                JOptionPane.showMessageDialog(null, JaminanDao.hasilUpdate, "Update Jaminan Gagal", JOptionPane.ERROR_MESSAGE);
+        if ((nmJaminan.equals("")) || (keterangan.equals(""))) {
+            JOptionPane.showMessageDialog(null, "Data tidak boleh kosong!", "Update Jaminan Gagal!", JOptionPane.ERROR_MESSAGE);
+        } else {
+            Jaminan j = new Jaminan();
+            j.setNmJaminan(txtNamaJaminan.getText());
+            j.setKetJaminan(txtKeterangan.getText());
+
+            int row = tabelJaminan.getSelectedRow();
+            if (row != -1) {
+                js.serviceUpdateJaminan(j, tabelJaminan.getValueAt(row, 0).toString());
+                if (JaminanDao.hasilUpdate.equals("ok")) {
+                    JOptionPane.showMessageDialog(null, "Data jaminan berhasil diubah", "Update Jaminan", JOptionPane.INFORMATION_MESSAGE);
+                    clear();
+                } else {
+                    JOptionPane.showMessageDialog(null, JaminanDao.hasilUpdate, "Update Jaminan Gagal", JOptionPane.ERROR_MESSAGE);
+                }
             }
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
@@ -358,14 +375,20 @@ public class FrmIntJaminan extends javax.swing.JInternalFrame {
         if (row == -1) {
             return;
         }
-        js.serviceDeleteJaminan(tabelJaminan.getValueAt(row, 0).toString());
-        if (JaminanDao.hasilDelete.equals("ok")) {
-            JOptionPane.showMessageDialog(null, "Data jaminan berhasil dihapus", "Delete jaminan", JOptionPane.INFORMATION_MESSAGE);
-            clear();
-        }else{
-            JOptionPane.showMessageDialog(null, JaminanDao.hasilDelete,"Hapus jaminan gagal!",JOptionPane.ERROR_MESSAGE);
-        }
 
+        int pilih = JOptionPane.showConfirmDialog(rootPane,
+                "Yakin ingin mengahapus data yang dipilih?",
+                "Konfirmasi",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (pilih == JOptionPane.OK_OPTION) {
+            js.serviceDeleteJaminan(tabelJaminan.getValueAt(row, 0).toString());
+            if (JaminanDao.hasilDelete.equals("ok")) {
+                JOptionPane.showMessageDialog(null, "Data jaminan berhasil dihapus", "Delete Jaminan", JOptionPane.INFORMATION_MESSAGE);
+                clear();
+            } else {
+                JOptionPane.showMessageDialog(null, JaminanDao.hasilDelete, "Delete Jaminan Gagal!", JOptionPane.ERROR_MESSAGE);
+            }
+        }
 
     }//GEN-LAST:event_btnDeleteActionPerformed
 
@@ -387,6 +410,7 @@ public class FrmIntJaminan extends javax.swing.JInternalFrame {
         btnInsert.setEnabled(true);
         btnUpdate.setEnabled(false);
         btnDelete.setEnabled(false);
+        txtIdJaminan.setEnabled(true);
     }//GEN-LAST:event_txtCariKeyReleased
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;

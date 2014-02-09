@@ -61,6 +61,7 @@ public class FrmIntSpesialis extends javax.swing.JInternalFrame {
                     btnInsert.setEnabled(false);
                     btnUpdate.setEnabled(true);
                     btnDelete.setEnabled(true);
+                    txtIdSpesialis.setEnabled(false);
                 }
             }
         });
@@ -96,9 +97,11 @@ public class FrmIntSpesialis extends javax.swing.JInternalFrame {
         btnUpdate.setEnabled(false);
         btnDelete.setEnabled(false);
 
+        txtIdSpesialis.setEnabled(true);
         txtIdSpesialis.setText("");
         txtNmSpesialis.setText("");
         txtTarifSpesialis.setText("");
+        txtCari.setText("");
         tabelModelSpesialis.setData(ss.serviceGetAllSpesialis());
         txtIdSpesialis.requestFocus();
     }
@@ -220,6 +223,7 @@ public class FrmIntSpesialis extends javax.swing.JInternalFrame {
         });
 
         btnDelete.setText("Delete");
+        btnDelete.setName("btnDelete"); // NOI18N
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
@@ -291,7 +295,7 @@ public class FrmIntSpesialis extends javax.swing.JInternalFrame {
                     .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -304,36 +308,51 @@ public class FrmIntSpesialis extends javax.swing.JInternalFrame {
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         // TODO add your handling code here:
-        Spesialis s = new Spesialis();
-        s.setIdSpesialis(txtIdSpesialis.getText());
-        s.setNmSpesialis(txtNmSpesialis.getText());
-        s.setTarifKonsul(Integer.parseInt(txtTarifSpesialis.getText()));
-        ss.serviceInsertSpesialis(s);
+        String idSpesialis = txtIdSpesialis.getText();
+        String nmSpesialis = txtNmSpesialis.getText();
+        String tarifKonsul = txtTarifSpesialis.getText();
 
-        if (SpesialisDao.hasilInsert.equals("ok")) {
-            JOptionPane.showMessageDialog(null, "Data spesialis berhasil ditambah!", "Insert Spesialis", JOptionPane.INFORMATION_MESSAGE);
-            clear();
+        if ((idSpesialis.equals("")) || (nmSpesialis.equals("")) || (tarifKonsul.equals("")) ){
+            JOptionPane.showMessageDialog(null, "Data tidak boleh kosong!", "Insert Spesialis Gagal!", JOptionPane.ERROR_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, SpesialisDao.hasilInsert, "Insert Spesialis Gagal!", JOptionPane.ERROR_MESSAGE);
+            Spesialis s = new Spesialis();
+            s.setIdSpesialis(idSpesialis);
+            s.setNmSpesialis(nmSpesialis);
+            s.setTarifKonsul(Integer.parseInt(tarifKonsul));
+            ss.serviceInsertSpesialis(s);
+
+            if (SpesialisDao.hasilInsert.equals("ok")) {
+                JOptionPane.showMessageDialog(null, "Data spesialis berhasil ditambah!", "Insert Spesialis", JOptionPane.INFORMATION_MESSAGE);
+                clear();
+            } else {
+                JOptionPane.showMessageDialog(null, SpesialisDao.hasilInsert, "Insert Spesialis Gagal!", JOptionPane.ERROR_MESSAGE);
+            }
         }
 
     }//GEN-LAST:event_btnInsertActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        Spesialis s = new Spesialis();
-        s.setNmSpesialis(txtNmSpesialis.getText());
-        s.setTarifKonsul(Integer.parseInt(txtTarifSpesialis.getText()));
+        String nmSpesialis = txtNmSpesialis.getText();
+        String tarifKonsul = txtTarifSpesialis.getText();
 
-        int row = tabelSpesialis.getSelectedRow();
-        if (row != -1) {
-            ss.serviceUpdateSpesialis(s, tabelSpesialis.getValueAt(row, 0).toString());
+        if ((nmSpesialis.equals("")) || (tarifKonsul.equals("")) ){
+            JOptionPane.showMessageDialog(null, "Data tidak boleh kosong!", "Update Spesialis Gagal!", JOptionPane.ERROR_MESSAGE);
+        } else {
+            Spesialis s = new Spesialis();
+            s.setNmSpesialis(nmSpesialis);
+            s.setTarifKonsul(Integer.parseInt(tarifKonsul));
 
-            if (SpesialisDao.hasilUpdate.equals("ok")) {
-                JOptionPane.showMessageDialog(null, "Data spesialis berhasil diubah!", "Update Spesialis", JOptionPane.INFORMATION_MESSAGE);
-                clear();
-            } else {
-                JOptionPane.showMessageDialog(null, SpesialisDao.hasilUpdate, "Update Spesialis Gagal!", JOptionPane.ERROR_MESSAGE);
+            int row = tabelSpesialis.getSelectedRow();
+            if (row != -1) {
+                ss.serviceUpdateSpesialis(s, tabelSpesialis.getValueAt(row, 0).toString());
+
+                if (SpesialisDao.hasilUpdate.equals("ok")) {
+                    JOptionPane.showMessageDialog(null, "Data spesialis berhasil diubah!", "Update Spesialis", JOptionPane.INFORMATION_MESSAGE);
+                    clear();
+                } else {
+                    JOptionPane.showMessageDialog(null, SpesialisDao.hasilUpdate, "Update Spesialis Gagal!", JOptionPane.ERROR_MESSAGE);
+                }
             }
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
@@ -381,6 +400,7 @@ public class FrmIntSpesialis extends javax.swing.JInternalFrame {
         btnInsert.setEnabled(true);
         btnUpdate.setEnabled(false);
         btnDelete.setEnabled(false);
+        txtIdSpesialis.setEnabled(true);
     }//GEN-LAST:event_txtCariKeyReleased
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btRefresh;

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package medrecapp.Gui.Internal;
 
 import com.mysql.jdbc.Connection;
@@ -24,6 +23,7 @@ import medrecapp.TabelModel.TabelModelObat;
  * @author Hady
  */
 public class FrmIntObat extends javax.swing.JInternalFrame {
+
     ObatService os = new ObatService();
     TabelModelObat tabelModelObat = new TabelModelObat();
     Connection connection;
@@ -35,8 +35,8 @@ public class FrmIntObat extends javax.swing.JInternalFrame {
         initComponents();
         tabelObat.setModel(tabelModelObat);
         tabelModelObat.setData(os.serviceGetAllObat());
-        if(!ObatDao.hasilGetAll.equals("ok")){
-            JOptionPane.showMessageDialog(null, ObatDao.hasilGetAll,"Get All Dokter Gagal!", JOptionPane.ERROR_MESSAGE);
+        if (!ObatDao.hasilGetAll.equals("ok")) {
+            JOptionPane.showMessageDialog(null, ObatDao.hasilGetAll, "Get All Dokter Gagal!", JOptionPane.ERROR_MESSAGE);
         }
         sesuaikan();
 
@@ -57,12 +57,12 @@ public class FrmIntObat extends javax.swing.JInternalFrame {
             }
         });
     }
-    
-    public final void sesuaikan(){
+
+    public final void sesuaikan() {
         TableColumnModel tcm = tabelObat.getColumnModel();
-        for(int kolom=0; kolom<tcm.getColumnCount(); kolom++){
-            int lebarKolomMax=0;
-            for(int baris=0; baris<tabelObat.getRowCount(); baris++){
+        for (int kolom = 0; kolom < tcm.getColumnCount(); kolom++) {
+            int lebarKolomMax = 0;
+            for (int baris = 0; baris < tabelObat.getRowCount(); baris++) {
                 TableCellRenderer tcr = tabelObat.getCellRenderer(baris, kolom);
                 Object nilaiTable = tabelObat.getValueAt(baris, kolom);
                 Component comp = tcr.getTableCellRendererComponent(tabelObat, nilaiTable,
@@ -80,8 +80,8 @@ public class FrmIntObat extends javax.swing.JInternalFrame {
         btnUpdate.setEnabled(false);
         btnDelete.setEnabled(false);
     }
-    
-    public void clear(){
+
+    public void clear() {
         txtIdObat.setText("");
         txtKeterangan.setText("");
         txtCari.setText("");
@@ -298,26 +298,42 @@ public class FrmIntObat extends javax.swing.JInternalFrame {
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         // TODO add your handling code here:
-        Obat o = new Obat();
-        o.setIdObat(txtIdObat.getText());
-        o.setKetObat(txtKeterangan.getText());
-        os.serviceInsertObat(o);
-        clear();
+        String idObat = txtIdObat.getText();
+        String ketObat = txtKeterangan.getText();
+
+        if ((idObat.equals("")) || (ketObat.equals(""))) {
+            JOptionPane.showMessageDialog(null, "Data tidak boleh kosong!", "Insert Obat Gagal!", JOptionPane.ERROR_MESSAGE);
+        } else {
+            Obat o = new Obat();
+            o.setIdObat(idObat);
+            o.setKetObat(ketObat);
+            os.serviceInsertObat(o);
+
+            if (ObatDao.hasilInsert.equals("ok")) {
+                JOptionPane.showMessageDialog(null, "Data obat berhasil ditambah!", "Insert Obat", JOptionPane.INFORMATION_MESSAGE);
+                clear();
+            } else {
+                JOptionPane.showMessageDialog(null, ObatDao.hasilInsert, "Insert Obat Gagal!", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }//GEN-LAST:event_btnInsertActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+
         Obat o = new Obat();
         o.setKetObat(txtKeterangan.getText());
         os.serviceUpdateObat(o, txtIdObat.getText());
+
+
+
         clear();
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         int row = tabelObat.getSelectedRow();
-        if (row == -1)
-        {
+        if (row == -1) {
             return;
         }
         os.serviceDeleteObat(tabelObat.getValueAt(row, 0).toString());
@@ -340,8 +356,6 @@ public class FrmIntObat extends javax.swing.JInternalFrame {
         btnUpdate.setEnabled(false);
         btnDelete.setEnabled(false);
     }//GEN-LAST:event_txtCariKeyReleased
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnInsert;
