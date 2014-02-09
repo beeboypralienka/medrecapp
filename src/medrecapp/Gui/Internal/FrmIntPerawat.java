@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package medrecapp.Gui.Internal;
 
 import com.mysql.jdbc.Connection;
@@ -26,6 +25,7 @@ import medrecapp.TabelModel.TabelModelSpesialis;
  * @author Hady
  */
 public class FrmIntPerawat extends javax.swing.JInternalFrame {
+
     PerawatService ps = new PerawatService();
     TabelModelPerawat tabelModelPerawat = new TabelModelPerawat();
     Connection connection;
@@ -41,10 +41,10 @@ public class FrmIntPerawat extends javax.swing.JInternalFrame {
         tabelModelPerawat.setData(ps.serviceGetAllPerawat());
 
         // cek hasilGetAllPerawat
-        if(!PerawatDao.hasilGetAllPerawat.equals("ok")){
-            JOptionPane.showMessageDialog(null, PerawatDao.hasilGetAllPerawat,"Get All Perawat Gagal!", JOptionPane.ERROR_MESSAGE);
+        if (!PerawatDao.hasilGetAllPerawat.equals("ok")) {
+            JOptionPane.showMessageDialog(null, PerawatDao.hasilGetAllPerawat, "Get All Perawat Gagal!", JOptionPane.ERROR_MESSAGE);
         }
-        sesuaikan();        
+        sesuaikan();
 
         tabelModelSpesialis.setData(ss.serviceGetAllSpesialis());
         int a = tabelModelSpesialis.getRowCount();
@@ -55,21 +55,21 @@ public class FrmIntPerawat extends javax.swing.JInternalFrame {
             public void valueChanged(ListSelectionEvent e) {
                 int row = tabelPerawat.getSelectedRow();
                 if (row != -1) {
-                    
+
                     String nmPerawat = tabelPerawat.getValueAt(row, 1).toString();
                     String tglKerja = tabelPerawat.getValueAt(row, 2).toString();
-                    String idUnitRs = tabelPerawat.getValueAt(row, 3).toString();                    
+                    String idUnitRs = tabelPerawat.getValueAt(row, 3).toString();
                     txtNamaPerawat.setText(nmPerawat);
                     txtTglKerja.setText(tglKerja);
                     pilihBagian.setSelectedItem(idUnitRs);
-                    
+
                     btnInsert.setEnabled(false);
                     btnUpdate.setEnabled(true);
                     btnDelete.setEnabled(true);
                 }
             }
         });
-        
+
         btnInsert.setEnabled(true);
         btnUpdate.setEnabled(false);
         btnDelete.setEnabled(false);
@@ -79,12 +79,12 @@ public class FrmIntPerawat extends javax.swing.JInternalFrame {
         pilihBagian.setSelectedIndex(0);
         txtNamaPerawat.requestFocus();
     }
-    
-    public final void sesuaikan(){
+
+    public final void sesuaikan() {
         TableColumnModel tcm = tabelPerawat.getColumnModel();
-        for(int kolom=0; kolom<tcm.getColumnCount(); kolom++){
-            int lebarKolomMax=0;
-            for(int baris=0; baris<tabelPerawat.getRowCount(); baris++){
+        for (int kolom = 0; kolom < tcm.getColumnCount(); kolom++) {
+            int lebarKolomMax = 0;
+            for (int baris = 0; baris < tabelPerawat.getRowCount(); baris++) {
                 TableCellRenderer tcr = tabelPerawat.getCellRenderer(baris, kolom);
                 Object nilaiTable = tabelPerawat.getValueAt(baris, kolom);
                 Component comp = tcr.getTableCellRendererComponent(tabelPerawat, nilaiTable,
@@ -95,12 +95,12 @@ public class FrmIntPerawat extends javax.swing.JInternalFrame {
             tc.setPreferredWidth(lebarKolomMax);
         }
     }
-    
-    public void clear(){
+
+    public void clear() {
         btnInsert.setEnabled(true);
         btnUpdate.setEnabled(false);
         btnDelete.setEnabled(false);
-        txtNamaPerawat.setText("");        
+        txtNamaPerawat.setText("");
         txtTglKerja.setText("");
         txtCari.setText("");
         pilihBagian.setSelectedIndex(0);
@@ -311,58 +311,79 @@ public class FrmIntPerawat extends javax.swing.JInternalFrame {
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         // TODO add your handling code here:
-        String id = ss.serviceGetIDSpesialis(pilihBagian.getSelectedItem().toString());
-        Perawat p = new Perawat();
-        p.setNoPerawat("PER." + ps.serviceGetMaxNoPerawat());
-        p.setNmPerawat(txtNamaPerawat.getText());
-        p.setTglKerjaPer(txtTglKerja.getText());        
-        p.setPerSpesialis(id);
-        ps.serviceInsertPerawat(p);
+        String nmPerawat = txtNamaPerawat.getText();
+        String tglKerja = txtTglKerja.getText();
+        int bagian = pilihBagian.getSelectedIndex();
 
-        if(PerawatDao.hasilInsertPerawat.equals("ok")){
-            JOptionPane.showMessageDialog(null, "Data perawat berhasil ditambah!", "Insert Perawat", JOptionPane.INFORMATION_MESSAGE);
-            clear();
-        }else{
-            JOptionPane.showMessageDialog(null, PerawatDao.hasilInsertPerawat,"Insert Perawat Gagal!",JOptionPane.ERROR_MESSAGE);
+        if ((nmPerawat.equals("")) || (tglKerja.equals("")) || (bagian == 0)) {
+            JOptionPane.showMessageDialog(null, "Data tidak boleh kosong!", "Insert Perawat Gagal!", JOptionPane.ERROR_MESSAGE);
+        } else {
+            String id = ss.serviceGetIDSpesialis(pilihBagian.getSelectedItem().toString());
+            Perawat p = new Perawat();
+            p.setNoPerawat("PER." + ps.serviceGetMaxNoPerawat());
+            p.setNmPerawat(nmPerawat);
+            p.setTglKerjaPer(tglKerja);
+            p.setPerSpesialis(id);
+            ps.serviceInsertPerawat(p);
+
+            if (PerawatDao.hasilInsertPerawat.equals("ok")) {
+                JOptionPane.showMessageDialog(null, "Data perawat berhasil ditambah!", "Insert Perawat", JOptionPane.INFORMATION_MESSAGE);
+                clear();
+            } else {
+                JOptionPane.showMessageDialog(null, PerawatDao.hasilInsertPerawat, "Insert Perawat Gagal!", JOptionPane.ERROR_MESSAGE);
+            }
         }
-        
+
     }//GEN-LAST:event_btnInsertActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        String id = ss.serviceGetIDSpesialis(pilihBagian.getSelectedItem().toString());
-        Perawat p = new Perawat();
-        p.setNmPerawat(txtNamaPerawat.getText());
-        p.setTglKerjaPer(txtTglKerja.getText());
-        p.setPerSpesialis(id);
+        String nmPerawat = txtNamaPerawat.getText();
+        String tglKerja = txtTglKerja.getText();
+        int bagian = pilihBagian.getSelectedIndex();
 
-        int row = tabelPerawat.getSelectedRow();
-        if(row != -1){
-            ps.serviceUpdatePerawat(p, tabelPerawat.getValueAt(row, 0).toString());
-            if(PerawatDao.hasilUpdatePerawat.equals("ok")){
-                JOptionPane.showMessageDialog(null, "Data perawat berhasil diubah!", "Update Perawat", JOptionPane.INFORMATION_MESSAGE);
-                clear();
-            }else{
-                JOptionPane.showMessageDialog(null, PerawatDao.hasilUpdatePerawat,"Update Perawat Gagal!",JOptionPane.ERROR_MESSAGE);
+        if ((nmPerawat.equals("")) || (tglKerja.equals("")) || (bagian == 0)) {
+            JOptionPane.showMessageDialog(null, "Data tidak boleh kosong!", "Update Perawat Gagal!", JOptionPane.ERROR_MESSAGE);
+        } else {
+            String id = ss.serviceGetIDSpesialis(pilihBagian.getSelectedItem().toString());
+            Perawat p = new Perawat();
+            p.setNmPerawat(txtNamaPerawat.getText());
+            p.setTglKerjaPer(txtTglKerja.getText());
+            p.setPerSpesialis(id);
+
+            int row = tabelPerawat.getSelectedRow();
+            if (row != -1) {
+                ps.serviceUpdatePerawat(p, tabelPerawat.getValueAt(row, 0).toString());
+                if (PerawatDao.hasilUpdatePerawat.equals("ok")) {
+                    JOptionPane.showMessageDialog(null, "Data perawat berhasil diubah!", "Update Perawat", JOptionPane.INFORMATION_MESSAGE);
+                    clear();
+                } else {
+                    JOptionPane.showMessageDialog(null, PerawatDao.hasilUpdatePerawat, "Update Perawat Gagal!", JOptionPane.ERROR_MESSAGE);
+                }
             }
-        }        
+        }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         int row = tabelPerawat.getSelectedRow();
-        if(row == -1)
-        {
+        if (row == -1) {
             return;
         }
-        ps.serviceDeletePerawat(tabelPerawat.getValueAt(row, 0).toString());
-        if(PerawatDao.hasilDeletePerawat.equals("ok")){
-            JOptionPane.showMessageDialog(null, "Data perawat berhasil dihapus!","Delete Perawat",JOptionPane.INFORMATION_MESSAGE);
-            clear();
-        }else{
-            JOptionPane.showMessageDialog(null, PerawatDao.hasilDeletePerawat,"Delete Perawat Gagal!",JOptionPane.ERROR_MESSAGE);
+
+        int pilih = JOptionPane.showConfirmDialog(rootPane,
+                "Yakin ingin mengahapus data yang dipilih?",
+                "Konfirmasi",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (pilih == JOptionPane.OK_OPTION) {
+            ps.serviceDeletePerawat(tabelPerawat.getValueAt(row, 0).toString());
+            if (PerawatDao.hasilDeletePerawat.equals("ok")) {
+                JOptionPane.showMessageDialog(null, "Data perawat berhasil dihapus!", "Delete Perawat", JOptionPane.INFORMATION_MESSAGE);
+                clear();
+            } else {
+                JOptionPane.showMessageDialog(null, PerawatDao.hasilDeletePerawat, "Delete Perawat Gagal!", JOptionPane.ERROR_MESSAGE);
+            }
         }
-        
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
@@ -384,8 +405,6 @@ public class FrmIntPerawat extends javax.swing.JInternalFrame {
         btnUpdate.setEnabled(false);
         btnDelete.setEnabled(false);
     }//GEN-LAST:event_txtCariKeyReleased
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnInsert;
