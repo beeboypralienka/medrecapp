@@ -91,11 +91,11 @@ public class FrmIntPasien extends javax.swing.JInternalFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Pasien"));
 
-        pilihAgama.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Islam", "Katolik", "Protestan", "Hindu", "Budha" }));
+        pilihAgama.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Islam", "Katholik", "Protestan", "Hindu", "Budha" }));
         pilihAgama.setName("pilihAgama"); // NOI18N
 
         txtAlamat.setColumns(20);
-        txtAlamat.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        txtAlamat.setFont(new java.awt.Font("Tahoma", 0, 11));
         txtAlamat.setLineWrap(true);
         txtAlamat.setRows(5);
         txtAlamat.setName("txtAlamat"); // NOI18N
@@ -231,50 +231,56 @@ public class FrmIntPasien extends javax.swing.JInternalFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
-        // TODO add your handling code here:        
-        Pasien p = new Pasien();
-
-        ID = ps.serviceGetMaxNoRm();
+        // TODO add your handling code here:
         nama = txtNmPasien.getText();
         tglLahir = txtTglLahir.getText();
-        agama = pilihAgama.getSelectedItem().toString();
         alamat = txtAlamat.getText();
-        if (radioLaki.isSelected()) {
-            p.setJkPas("L");
-            jk = "Laki-laki";
-        } else {
-            p.setJkPas("P");
-            jk = "Perempuan";
-        }
 
-        FrmIntPendaftaran fip = new FrmIntPendaftaran();
-        p.setNoRm(ID);
-        p.setNmPas(nama);
-        p.setTglLahir(tglLahir);
-        p.setAgama(agama);
-        p.setAlamatPas(alamat);
-        ps.serviceInsertPasien(p);
-
-        if (PasienDao.hasilInsert.equals("ok")) {
-            JOptionPane.showMessageDialog(null, "Data pasien berhasil ditambah!", "Insert Pasien", JOptionPane.INFORMATION_MESSAGE);            
-            Dimension parentSize = this.getParent().getSize();
-            Dimension childSize = fip.getSize();
-            fip.setLocation((parentSize.width - childSize.width) / 2, (parentSize.height - childSize.height) / 2);
-            this.getParent().add(fip);
-            this.dispose();
-            fip.show();
-            fip.toFront();
+        if ((nama.equals("")) || (tglLahir.equals("")) || (alamat.equals(""))) {
+            JOptionPane.showMessageDialog(null, "Data tidak boleh kosong!", "Insert Pasien Gagal!", JOptionPane.ERROR_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, PasienDao.hasilInsert, "Insert Pasien Gagal!", JOptionPane.ERROR_MESSAGE);
-            ID = "";
-            jk = "";
+
+            Pasien p = new Pasien();
+
+            ID = ps.serviceGetMaxNoRm();
+            agama = pilihAgama.getSelectedItem().toString();
+            if (radioLaki.isSelected()) {
+                p.setJkPas("L");
+                jk = "Laki-laki";
+            } else {
+                p.setJkPas("P");
+                jk = "Perempuan";
+            }
+
+            FrmIntPendaftaran fip = new FrmIntPendaftaran();
+            p.setNoRm(ID);
+            p.setNmPas(nama);
+            p.setTglLahir(tglLahir);
+            p.setAgama(agama);
+            p.setAlamatPas(alamat);
+            ps.serviceInsertPasien(p);
+
+            if (PasienDao.hasilInsert.equals("ok")) {
+                JOptionPane.showMessageDialog(null, "Data pasien berhasil ditambah!", "Insert Pasien", JOptionPane.INFORMATION_MESSAGE);
+                Dimension parentSize = this.getParent().getSize();
+                Dimension childSize = fip.getSize();
+                fip.setLocation((parentSize.width - childSize.width) / 2, (parentSize.height - childSize.height) / 2);
+                this.getParent().add(fip);
+                this.dispose();
+                fip.show();
+                fip.toFront();
+            } else {
+                JOptionPane.showMessageDialog(null, PasienDao.hasilInsert, "Insert Pasien Gagal!", JOptionPane.ERROR_MESSAGE);
+                ID = "";
+                jk = "";
+            }
         }
 
     }//GEN-LAST:event_btnInsertActionPerformed

@@ -18,6 +18,7 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 import medrecapp.Dao.PasienDao;
+import medrecapp.Gui.Dialog.FrmDlgAWTPasien;
 import medrecapp.Gui.Dialog.FrmDlgPasien;
 import medrecapp.Gui.Dialog.FrmDlgRekMedByNoRm;
 import medrecapp.Services.PasienService;
@@ -136,6 +137,7 @@ public class FrmIntListPasien extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tabelPasien.setName("tabelPasien"); // NOI18N
         jScrollPane1.setViewportView(tabelPasien);
 
         btnRekamMedis.setText("LIHAT REKAM MEDIS BY NO RM");
@@ -148,6 +150,7 @@ public class FrmIntListPasien extends javax.swing.JInternalFrame {
         jLabel2.setText(":");
 
         btnUbah.setText("UBAH");
+        btnUbah.setName("btnUbah"); // NOI18N
         btnUbah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUbahActionPerformed(evt);
@@ -155,6 +158,7 @@ public class FrmIntListPasien extends javax.swing.JInternalFrame {
         });
 
         btnHapus.setText("HAPUS");
+        btnHapus.setName("btnHapus"); // NOI18N
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHapusActionPerformed(evt);
@@ -213,7 +217,7 @@ public class FrmIntListPasien extends javax.swing.JInternalFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnUbah, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -228,8 +232,10 @@ public class FrmIntListPasien extends javax.swing.JInternalFrame {
     private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
         // TODO add your handling code here:
         judul = "Ubah Pasien";
-        FrmDlgPasien fDB = new FrmDlgPasien(null, true);
-        fDB.setVisible(true);
+        //FrmDlgPasien fDB = new FrmDlgPasien(null, true);
+        //fDB.setVisible(true);
+        FrmDlgAWTPasien fdb = new FrmDlgAWTPasien(null, true);
+        fdb.setVisible(true);       
         refresh();
     }//GEN-LAST:event_btnUbahActionPerformed
 

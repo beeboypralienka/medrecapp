@@ -5,6 +5,17 @@
 
 package medrecapp.Services;
 
+import javax.swing.JFrame;
+import medrecapp.Gui.FrmUtamaTest;
+import java.util.logging.Logger;
+import java.util.logging.Level;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
+import javax.swing.UIManager;
+import medrecapp.Gui.FrmUtama;
+import org.fest.swing.fixture.FrameFixture;
+import org.junit.runners.MethodSorters;
+import org.junit.FixMethodOrder;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,17 +27,34 @@ import static org.junit.Assert.*;
  *
  * @author Fachrul Pralienka BM
  */
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+
 public class J_PasienGuiServiceTest {
+  private static FrmUtama fu;
+  private static FrameFixture frame;
 
     public J_PasienGuiServiceTest() {
     }
 
-    @BeforeClass
+   @BeforeClass
     public static void setUpClass() throws Exception {
+        try {
+            UIManager.setLookAndFeel(new NimbusLookAndFeel());
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(FrmUtamaTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        fu = new FrmUtama();
+        fu.setExtendedState(fu.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+        frame = new FrameFixture(fu);
+        frame.show();
+        frame.menuItem("menuDataPasienBaru").click();
     }
 
-    @AfterClass
+     @AfterClass
     public static void tearDownClass() throws Exception {
+        PasienService ps = new PasienService();
+        ps.serviceDeletePasien("000001");
     }
 
     @Before
@@ -40,7 +68,74 @@ public class J_PasienGuiServiceTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-    // @Test
-    // public void hello() {}
+    @Test
+    public void a_insertDataPasienKosong() {
+        System.out.println("1. InsertDataPasienKosong");
+
+        frame.button("btnInsert").click();
+        frame.optionPane().requireTitle("Insert Pasien Gagal!");
+        frame.optionPane().okButton().click();
+    }
+
+     @Test
+    public void b_insertDataPasien() {
+        System.out.println("2. InsertDataPasien");
+
+        frame.textBox("txtNmPasien").enterText("Merinda");
+        frame.radioButton("radioPerempuan").click();
+        frame.textBox("txtTglLahir").enterText("1999-09-09");
+        frame.comboBox("pilihAgama").selectItem("Katholik");
+        frame.textBox("txtAlamat").enterText("Sumedang");
+        frame.button("btnInsert").click();
+        frame.optionPane().requireTitle("Insert Pasien");
+        frame.optionPane().okButton().click();
+    }
+
+      @Test
+    public void c_updateDataPasienKosong() {
+        System.out.println("3. UpdateDataPasienKosong");
+        frame.menuItem("menuRekamMedisPasien").click();
+        
+        frame.table("tabelPasien").selectRows(0);
+        //frame.textBox("txtNmPasien").deleteText();
+        //frame.textBox("txtTglLahir").deleteText();
+        //frame.textBox("txtAlamat").deleteText();
+        frame.button("btnUbah").click();
+
+        frame.dialog("frmDlgAWTPasien").textBox("txtNmPasien").deleteText();
+        frame.dialog("frmDlgAWTPasien").textBox("txtTglLahir").deleteText();
+        frame.dialog("frmDlgAWTPasien").textBox("txtAlamat").deleteText();
+        frame.dialog("frmDlgAWTPasien").button("btnUpdate").click();
+        frame.dialog("frmDlgAWTPasien").optionPane().requireTitle("Update Pasien Gagal!");
+        frame.dialog("frmDlgAWTPasien").optionPane().okButton().click();
+    }
+
+    @Test
+    public void d_updateDataPasien() {
+        System.out.println("4. UpdateDataPasien");
+
+        frame.dialog("frmDlgAWTPasien").textBox("txtNmPasien").enterText("Ruminta");
+        frame.dialog("frmDlgAWTPasien").radioButton("radioLaki").click();
+        frame.dialog("frmDlgAWTPasien").textBox("txtTglLahir").enterText("1999-09-09");
+        frame.dialog("frmDlgAWTPasien").comboBox("pilihAgama").selectItem("Islam");
+        frame.dialog("frmDlgAWTPasien").textBox("txtAlamat").enterText("Medan");
+        frame.dialog("frmDlgAWTPasien").button("btnUpdate").click();
+        frame.dialog("frmDlgAWTPasien").optionPane().requireTitle("Update Pasien");
+        frame.dialog("frmDlgAWTPasien").optionPane().okButton().click();
+        //frame.dialog("frmDlgAWTPasien").close();
+    }
+
+    @Test
+    public void e_deleteDataPasien() {
+        System.out.println("5. DeleteDataPasien");
+
+        frame.table("tabelPasien").selectRows(0);
+        frame.button("btnHapus").click();
+        frame.optionPane().requireTitle("Konfirmasi");
+        frame.optionPane().yesButton().click();
+        frame.optionPane().requireTitle("Delete Pasien");
+        frame.optionPane().okButton().click();
+    }
+
 
 }
