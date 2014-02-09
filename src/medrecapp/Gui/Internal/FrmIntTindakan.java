@@ -3,18 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package medrecapp.Gui.Internal;
 
 import com.mysql.jdbc.Connection;
 import java.awt.Component;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
+import medrecapp.Dao.TindakanDao;
 import medrecapp.Entity.Tindakan;
 import medrecapp.Services.SpesialisService;
 import medrecapp.Services.TindakanService;
@@ -26,7 +27,7 @@ import medrecapp.TabelModel.TabelModelTindakan;
  * @author Hady
  */
 public class FrmIntTindakan extends javax.swing.JInternalFrame {
-    
+
     TindakanService ts = new TindakanService();
     TabelModelTindakan tabelModelTindakan = new TabelModelTindakan();
     Connection connection;
@@ -44,9 +45,10 @@ public class FrmIntTindakan extends javax.swing.JInternalFrame {
 
         tabelModelSpesialis.setData(ss.serviceGetAllSpesialis());
         int a = tabelModelSpesialis.getRowCount();
-        pilihTindakan.setModel( new javax.swing.DefaultComboBoxModel( ss.serviceGetAllNamaSpesialis(a) ) );
+        pilihTindakan.setModel(new javax.swing.DefaultComboBoxModel(ss.serviceGetAllNamaSpesialis(a)));
 
         tabelTindakan.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+
             public void valueChanged(ListSelectionEvent e) {
                 int row = tabelTindakan.getSelectedRow();
                 if (row != -1) {
@@ -54,7 +56,7 @@ public class FrmIntTindakan extends javax.swing.JInternalFrame {
                     String nama = tabelTindakan.getValueAt(row, 1).toString();
                     String spesialis = tabelTindakan.getValueAt(row, 2).toString();
                     String keterangan = tabelTindakan.getValueAt(row, 3).toString();
-                    
+
                     txtNamaTindakan.setText(nama);
                     pilihTindakan.setSelectedItem(spesialis);
                     txtKeterangan.setText(keterangan);
@@ -67,9 +69,10 @@ public class FrmIntTindakan extends javax.swing.JInternalFrame {
         });
 
         txtKeterangan.addKeyListener(new KeyAdapter() {
+
             @Override
-            public void keyPressed(KeyEvent e){
-                if(e.getKeyCode()==KeyEvent.VK_TAB){                    
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_TAB) {
                     txtKeterangan.transferFocus();
                     e.consume();
                 }
@@ -78,8 +81,8 @@ public class FrmIntTindakan extends javax.swing.JInternalFrame {
 
         clear();
     }
-    
-    public void clear() {        
+
+    public void clear() {
         btnInsert.setEnabled(true);
         btnUpdate.setEnabled(false);
         btnDelete.setEnabled(false);
@@ -92,12 +95,12 @@ public class FrmIntTindakan extends javax.swing.JInternalFrame {
         pilihTindakan.setSelectedIndex(0);
         sesuaikan();
     }
-    
-    public final void sesuaikan(){
+
+    public final void sesuaikan() {
         TableColumnModel tcm = tabelTindakan.getColumnModel();
-        for(int kolom=0; kolom<tcm.getColumnCount(); kolom++){
-            int lebarKolomMax=0;
-            for(int baris=0; baris<tabelTindakan.getRowCount(); baris++){
+        for (int kolom = 0; kolom < tcm.getColumnCount(); kolom++) {
+            int lebarKolomMax = 0;
+            for (int baris = 0; baris < tabelTindakan.getRowCount(); baris++) {
                 TableCellRenderer tcr = tabelTindakan.getCellRenderer(baris, kolom);
                 Object nilaiTable = tabelTindakan.getValueAt(baris, kolom);
                 Component comp = tcr.getTableCellRendererComponent(tabelTindakan, nilaiTable,
@@ -321,34 +324,74 @@ public class FrmIntTindakan extends javax.swing.JInternalFrame {
         if (row == -1) {
             return;
         }
-        ts.serviceDeleteTindakan(tabelTindakan.getValueAt(row, 0).toString());
-        clear();
+
+        int pilih = JOptionPane.showConfirmDialog(rootPane,
+                "Yakin ingin mengahapus data yang dipilih?",
+                "Konfirmasi",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (pilih == JOptionPane.OK_OPTION) {
+            ts.serviceDeleteTindakan(tabelTindakan.getValueAt(row, 0).toString());
+            if (TindakanDao.hasilDelete.equals("ok")) {
+                JOptionPane.showMessageDialog(null, "Data tindakan berhasil dihapus!", "Delete Tindakan", JOptionPane.INFORMATION_MESSAGE);
+                clear();
+            } else {
+                JOptionPane.showMessageDialog(null, TindakanDao.hasilDelete, "Delete Tindakan Gagal!", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         // TODO add your handling code here:
-        String id = ss.serviceGetIDSpesialis(pilihTindakan.getSelectedItem().toString());
-        Tindakan t = new Tindakan();
-        t.setNoTindakan("TIND."+ts.serviceGetMaxNoTindakan());
-        t.setNmTindakan(txtNamaTindakan.getText());
-        t.setTindakanSpesialis(id);
-        t.setKetTindakan(txtKeterangan.getText());
-        ts.serviceInsertTindakan(t);
-        clear();
+        String namaTindakan = txtNamaTindakan.getText();
+        int spesialis = pilihTindakan.getSelectedIndex();
+        String keterangan = txtKeterangan.getText();
+
+        if ((namaTindakan.equals("")) || (keterangan.equals("")) || (spesialis == 0)) {
+            JOptionPane.showMessageDialog(null, "Data tidak boleh kosong!", "Insert Tindakan Gagal!", JOptionPane.ERROR_MESSAGE);
+        } else {
+            String id = ss.serviceGetIDSpesialis(pilihTindakan.getSelectedItem().toString());
+            Tindakan t = new Tindakan();
+            t.setNoTindakan("TIND." + ts.serviceGetMaxNoTindakan());
+            t.setNmTindakan(namaTindakan);
+            t.setTindakanSpesialis(id);
+            t.setKetTindakan(keterangan);
+            ts.serviceInsertTindakan(t);
+
+            if (TindakanDao.hasilInsert.equals("ok")) {
+                JOptionPane.showMessageDialog(null, "Data tindakan berhasil ditambah!", "Insert Tindakan", JOptionPane.INFORMATION_MESSAGE);
+                clear();
+            } else {
+                JOptionPane.showMessageDialog(null, TindakanDao.hasilInsert, "Insert Tindakan Gagal!", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }//GEN-LAST:event_btnInsertActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        String id = ss.serviceGetIDSpesialis(pilihTindakan.getSelectedItem().toString());
-        Tindakan t = new Tindakan();
-        t.setNmTindakan(txtNamaTindakan.getText());
-        t.setTindakanSpesialis(id);
-        t.setKetTindakan(txtKeterangan.getText());
-        int row = tabelTindakan.getSelectedRow();
-        if(row != -1){
-            ts.serviceUpdateTindakan(t, tabelTindakan.getValueAt(row, 0).toString());
+        String namaTindakan = txtNamaTindakan.getText();
+        int spesialis = pilihTindakan.getSelectedIndex();
+        String keterangan = txtKeterangan.getText();
+
+        if ((namaTindakan.equals("")) || (keterangan.equals("")) || (spesialis == 0)) {
+            JOptionPane.showMessageDialog(null, "Data tidak boleh kosong!", "Update Tindakan Gagal!", JOptionPane.ERROR_MESSAGE);
+        } else {
+            String id = ss.serviceGetIDSpesialis(pilihTindakan.getSelectedItem().toString());
+            Tindakan t = new Tindakan();
+            t.setNmTindakan(txtNamaTindakan.getText());
+            t.setTindakanSpesialis(id);
+            t.setKetTindakan(txtKeterangan.getText());
+
+            int row = tabelTindakan.getSelectedRow();
+            if (row != -1) {
+                ts.serviceUpdateTindakan(t, tabelTindakan.getValueAt(row, 0).toString());
+                if (TindakanDao.hasilUpdate.equals("ok")) {
+                    JOptionPane.showMessageDialog(null, "Data tindakan berhasil diubah!", "Update Tindakan", JOptionPane.INFORMATION_MESSAGE);
+                    clear();
+                } else {
+                    JOptionPane.showMessageDialog(null, TindakanDao.hasilUpdate, "Update Tindakan Gagal!", JOptionPane.ERROR_MESSAGE);
+                }
+            }
         }
-        clear();
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
@@ -370,8 +413,6 @@ public class FrmIntTindakan extends javax.swing.JInternalFrame {
         btnUpdate.setEnabled(false);
         btnDelete.setEnabled(false);
     }//GEN-LAST:event_txtCariKeyReleased
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnInsert;
