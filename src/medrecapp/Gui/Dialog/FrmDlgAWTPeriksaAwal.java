@@ -8,7 +8,6 @@
  *
  * Created on Jan 18, 2014, 12:26:53 PM
  */
-
 package medrecapp.Gui.Dialog;
 
 import javax.swing.JOptionPane;
@@ -28,10 +27,8 @@ public class FrmDlgAWTPeriksaAwal extends java.awt.Dialog {
 
     PerawatService ps = new PerawatService();
     TabelModelPerawat tabelModelPerawat = new TabelModelPerawat();
-
     RekamMedisService rms = new RekamMedisService();
     TabelModelRekmedByNoDaftar tabelModelRekamMedisByNoDaftar = new TabelModelRekmedByNoDaftar();
-
     String noPendaftaran = FrmIntPoliklinik.noPendaftaranPoli;
 
     /** Creates new form FrmDlgAWTPeriksaAwal */
@@ -39,7 +36,7 @@ public class FrmDlgAWTPeriksaAwal extends java.awt.Dialog {
         super(parent, modal);
         initComponents();
 
-        setLocationRelativeTo(this);       
+        setLocationRelativeTo(this);
 
         tabelModelRekamMedisByNoDaftar.setData(rms.serviceGetRekamMedisByNoDaftar(noPendaftaran));
 
@@ -372,35 +369,50 @@ public class FrmDlgAWTPeriksaAwal extends java.awt.Dialog {
 
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
         // TODO add your handling code here:
+        int perawat = pilihPerawat.getSelectedIndex();
+        int sadar = pilihKesadaran.getSelectedIndex();
+        String massaBadan = txtMassaBadan3.getText();
+        String tinggiBadan = txtTinggiBadan3.getText();
+        String tekananDarah = txtTekananDarah3.getText();
+        String nadi = txtNadi3.getText();
+        String temperatur = txtTemperatur3.getText();
+        String pernapasan = txtPernapasan3.getText();
 
-        String noPerawat = ps.serviceGetNoPerawat(pilihPerawat.getSelectedItem().toString());
-        RekamMedis rm = new RekamMedis();
-        rm.setBeratBdn(Float.parseFloat(txtMassaBadan3.getText()));
-        rm.setTinggiBdn(Float.parseFloat(txtTinggiBadan3.getText()));
-        rm.setTensiDarah(txtTekananDarah3.getText());
-        rm.setNadi(Integer.parseInt(txtNadi3.getText()));
-        rm.setTemperatur(Integer.parseInt(txtTemperatur3.getText()));
-        rm.setPernapasan(Integer.parseInt(txtPernapasan3.getText()));
-        rm.setKesadaran(pilihKesadaran.getSelectedItem().toString());
-        rm.setNoPerawat(noPerawat);
+        if ((perawat == 0) || (sadar == 0) || (massaBadan.equals("")) || (tinggiBadan.equals("")) || (tekananDarah.equals("")) || (nadi.equals("")) || (temperatur.equals("")) || (pernapasan.equals(""))) {
+            JOptionPane.showMessageDialog(null, "Data tidak boleh kosong!", "Update Pemeriksaan Awal Gagal!", JOptionPane.ERROR_MESSAGE);
+        } else {
 
-        rms.serviceUpdatePemeriksaanAwal(rm, noPendaftaran);
-        if(RekamMedisDao.hasilUpdatePemeriksaanAwal.equals("ok")){
-            JOptionPane.showMessageDialog(null, "Data pemeriksaan awal berhasil diubah!", "Update Pemeriksaan Awal", JOptionPane.INFORMATION_MESSAGE);
-            dispose();
-        }else{
-            JOptionPane.showMessageDialog(null, RekamMedisDao.hasilUpdatePemeriksaanAwal,"Update Pemeriksaan Awal Gagal!",JOptionPane.ERROR_MESSAGE);
+            String noPerawat = ps.serviceGetNoPerawat(pilihPerawat.getSelectedItem().toString());
+            RekamMedis rm = new RekamMedis();
+            rm.setBeratBdn(Float.parseFloat(massaBadan));
+            rm.setTinggiBdn(Float.parseFloat(tinggiBadan));
+            rm.setTensiDarah(tekananDarah);
+            rm.setNadi(Integer.parseInt(nadi));
+            rm.setTemperatur(Integer.parseInt(temperatur));
+            rm.setPernapasan(Integer.parseInt(pernapasan));
+            rm.setKesadaran(pilihKesadaran.getSelectedItem().toString());
+            rm.setNoPerawat(noPerawat);
+
+            rms.serviceUpdatePemeriksaanAwal(rm, noPendaftaran);
+            if (RekamMedisDao.hasilUpdatePemeriksaanAwal.equals("ok")) {
+                JOptionPane.showMessageDialog(null, "Data pemeriksaan awal berhasil diubah!", "Update Pemeriksaan Awal", JOptionPane.INFORMATION_MESSAGE);
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, RekamMedisDao.hasilUpdatePemeriksaanAwal, "Update Pemeriksaan Awal Gagal!", JOptionPane.ERROR_MESSAGE);
+            }
         }
 }//GEN-LAST:event_btnSimpanActionPerformed
 
     /**
-    * @param args the command line arguments
-    */
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
                 FrmDlgAWTPeriksaAwal dialog = new FrmDlgAWTPeriksaAwal(new java.awt.Frame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+
                     public void windowClosing(java.awt.event.WindowEvent e) {
                         System.exit(0);
                     }
@@ -409,8 +421,6 @@ public class FrmDlgAWTPeriksaAwal extends java.awt.Dialog {
             }
         });
     }
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSimpan;
     private javax.swing.JLabel jLabel10;
@@ -446,5 +456,4 @@ public class FrmDlgAWTPeriksaAwal extends java.awt.Dialog {
     private javax.swing.JTextField txtTemperatur3;
     private javax.swing.JTextField txtTinggiBadan3;
     // End of variables declaration//GEN-END:variables
-
 }

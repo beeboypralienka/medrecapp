@@ -174,7 +174,7 @@ public class R_RekamMedisGuiServiceTest {
 
     @Test
     public void g_insertRegistrasiKePoli(){
-        System.out.println("6. insertRegistrasiKePoli");        
+        System.out.println("7. insertRegistrasiKePoli");
 
         frame.textBox("txtNoRm").enterText("000002");
         frame.textBox("txtNoRm").selectText(5, 6);
@@ -190,18 +190,31 @@ public class R_RekamMedisGuiServiceTest {
 
     @Test
     public void h_updateRekmedMasukPoli(){
-        System.out.println("7. updateRekmedMasukPoli");
+        System.out.println("8. updateRekmedMasukPoli");
         frame.menuItem("menuPoliPenyakitDalam").click();
 
         frame.table("tabelAntriPoli").selectRows(0);
         frame.button("tombolMasukPoli").click();
         frame.optionPane().requireTitle("Update Rekam Medis");
-        frame.optionPane().okButton().click();
+        frame.optionPane().okButton().click();        
+    }
 
+    @Test
+    public void i_updateRekmedPeriksaAwalKosong(){
+        System.out.println("9. updateRekmedPeriksaAwalKosong");
         frame.tabbedPane("panelPasienPoli").selectTab(1);
 
         frame.table("tabelPasienPoli").selectRows(0);
         frame.button("tombolAwal").click();
+
+        frame.dialog("periksaAwal").button("tombolSimpan").click();
+        frame.dialog("periksaAwal").optionPane().requireTitle("Update Pemeriksaan Awal Gagal!");
+        frame.dialog("periksaAwal").optionPane().okButton().click();
+    }
+
+    @Test
+    public void j_updateRekmedPeriksaAwal(){
+        System.out.println("10. updateRekmedPeriksaAwal");
         frame.dialog("periksaAwal").comboBox("pilihPerawat").selectItem("Prima Puspitasari");
         frame.dialog("periksaAwal").textBox("txtMassaBadan").enterText("65");
         frame.dialog("periksaAwal").textBox("txtTinggiBadan").enterText("170");
@@ -213,36 +226,40 @@ public class R_RekamMedisGuiServiceTest {
         frame.dialog("periksaAwal").button("tombolSimpan").click();
         frame.dialog("periksaAwal").optionPane().requireTitle("Update Pemeriksaan Awal");
         frame.dialog("periksaAwal").optionPane().okButton().click();
+    }
 
+    @Test
+    public void k_updateRekmedPeriksaLanjutanKosong(){
+        System.out.println("11. updateRekmedPeriksaLanjutanKosong");
         frame.table("tabelPasienPoli").selectRows(0);
         frame.button("tombolLanjutan").click();
+        frame.dialog("periksaLanjutan").button("tombolOK").click();
+        frame.dialog("periksaLanjutan").optionPane().requireTitle("Update Pemeriksaan Lanjutan Gagal!");
+        frame.dialog("periksaLanjutan").optionPane().okButton().click();
+    }
+
+    @Test
+    public void l_updateRekmedPeriksaLanjutan(){
+        System.out.println("12. updateRekmedPeriksaLanjutan");
         frame.dialog("periksaLanjutan").textBox("txtAnamnesa").enterText("Sakit perut");
         frame.dialog("periksaLanjutan").textBox("txtDiagnosis").enterText("Radang lambung");
         frame.dialog("periksaLanjutan").textBox("txtTerapi").enterText("Terapi Energi");
         frame.dialog("periksaLanjutan").button("tombolOK").click();
         frame.dialog("periksaLanjutan").optionPane().requireTitle("Update Pemeriksaan Lanjutan");
         frame.dialog("periksaLanjutan").optionPane().okButton().click();
-
     }
 
     @Test
-    public void i_lihatDataRekamMedis(){
-        System.out.println("9. lihatDataRekamMedis");
+    public void m_lihatDataRekamMedis(){
+        System.out.println("12. lihatDataRekamMedis");
 
         frame.menuItem("menuRekamMedisPasien").click();
         frame.table("tabelPasien").selectRows(0);
         frame.button("btnRekmedByNoRm").click();
+        frame.dialog("frmDlgAWTRekMedByNoRm").table("tabelRekmedByNoRm").selectRows(0);
+        frame.dialog("frmDlgAWTRekMedByNoRm").button("btnRekmedByNoDaftar").click();
+        frame.dialog("frmDlgAWTRekMedByNoDaftar").button("btnOK").click();
 
-//        frame.textBox("txtNoRm").enterText("000002");
-//        frame.textBox("txtNoRm").selectText(5, 6);
-//        frame.textBox("txtNoRm").enterText("1");
-//        frame.comboBox("pilihPoli").selectItem("Spesialis Penyakit Dalam");
-//        frame.comboBox("pilihDokter").selectItem("YUDI KUSNAEDI");
-//        frame.comboBox("pilihJaminan").selectItem("KJS");
-//        frame.comboBox("pilihStaf").selectItem("Ashar Kurniawan");
-//        frame.button("btnDaftarkan").click();
-//        frame.optionPane().requireTitle("Insert Rekam Medis");
-//        frame.optionPane().okButton().click();
     }
 
 }
