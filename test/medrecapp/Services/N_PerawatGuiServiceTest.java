@@ -5,6 +5,10 @@
 
 package medrecapp.Services;
 
+import org.fest.swing.fixture.FrameFixture;
+import medrecapp.Gui.FrmUtama;
+import org.junit.runners.MethodSorters;
+import org.junit.FixMethodOrder;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,7 +20,11 @@ import static org.junit.Assert.*;
  *
  * @author Fachrul Pralienka BM
  */
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class N_PerawatGuiServiceTest {
+
+    private static FrmUtama fu;
+    private static FrameFixture frame;
 
     public N_PerawatGuiServiceTest() {
     }
@@ -37,10 +45,6 @@ public class N_PerawatGuiServiceTest {
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+
 
 }

@@ -320,14 +320,27 @@ public class FrmIntObat extends javax.swing.JInternalFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+        String idObat = txtIdObat.getText();
+        String ketObat = txtKeterangan.getText();
 
-        Obat o = new Obat();
-        o.setKetObat(txtKeterangan.getText());
-        os.serviceUpdateObat(o, txtIdObat.getText());
-
-
-
-        clear();
+        if ((idObat.equals("")) || (ketObat.equals(""))) {
+            JOptionPane.showMessageDialog(null, "Data tidak boleh kosong!", "Update Obat Gagal!", JOptionPane.ERROR_MESSAGE);
+        } else {
+            Obat o = new Obat();
+            o.setKetObat(txtKeterangan.getText());
+                        
+            int row = tabelObat.getSelectedRow();
+            if (row != -1) {
+                os.serviceUpdateObat(o, tabelObat.getValueAt(row, 0).toString());
+                //os.serviceUpdateObat(o, txtIdObat.getText());
+                if (ObatDao.hasilUpdate.equals("ok")) {
+                    JOptionPane.showMessageDialog(null, "Data Obat berhasil diubah!", "Update Obat", JOptionPane.INFORMATION_MESSAGE);
+                    clear();
+                } else {
+                    JOptionPane.showMessageDialog(null, ObatDao.hasilUpdate, "Update Obat Gagal!", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -336,8 +349,20 @@ public class FrmIntObat extends javax.swing.JInternalFrame {
         if (row == -1) {
             return;
         }
-        os.serviceDeleteObat(tabelObat.getValueAt(row, 0).toString());
-        clear();
+        
+        int pilih = JOptionPane.showConfirmDialog(rootPane,
+                "Yakin ingin mengahapus data yang dipilih?",
+                "Konfirmasi",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (pilih == JOptionPane.OK_OPTION) {
+            os.serviceDeleteObat(tabelObat.getValueAt(row, 0).toString());
+            if (ObatDao.hasilDelete.equals("ok")) {
+                JOptionPane.showMessageDialog(null, "Data obat berhasil dihapus!", "Delete Obat", JOptionPane.INFORMATION_MESSAGE);
+                clear();
+            } else {
+                JOptionPane.showMessageDialog(null, ObatDao.hasilDelete, "Delete Obat Gagal!", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
