@@ -59,7 +59,7 @@ public class FrmIntDokter extends javax.swing.JInternalFrame {
             public void valueChanged(ListSelectionEvent e) {
                 int row = tabelDokter.getSelectedRow();
                 if (row != -1) {
-
+                    
                     String nama = tabelDokter.getValueAt(row, 1).toString();
                     String spesialis = tabelDokter.getValueAt(row, 2).toString();
                     String tglKerja = tabelDokter.getValueAt(row, 3).toString();
@@ -366,7 +366,7 @@ public class FrmIntDokter extends javax.swing.JInternalFrame {
         String alamat = txtAlamat.getText();
         int spesialis = pilihSpesialis.getSelectedIndex();
 
-        if (pilihSpesialis.getSelectedItem() == null) {
+        if ((nmDokter.equals("")) || (spesialis==0) || (tglKerja.equals("")) || (alamat.equals(""))) {
             JOptionPane.showMessageDialog(rootPane, "null", "Error - Get ID Spesialis", JOptionPane.ERROR_MESSAGE);
         } else {
             String id = ss.serviceGetIDSpesialis(pilihSpesialis.getSelectedItem().toString());

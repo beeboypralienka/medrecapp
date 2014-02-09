@@ -14,6 +14,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import javax.swing.UIManager;
 import org.fest.swing.fixture.JComboBoxFixture;
+import org.fest.swing.fixture.JOptionPaneFixture;
 import org.junit.runners.MethodSorters;
 import org.junit.FixMethodOrder;
 import org.junit.After;
