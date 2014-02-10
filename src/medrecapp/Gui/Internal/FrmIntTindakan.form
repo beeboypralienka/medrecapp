@@ -55,13 +55,13 @@
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnInsert" pref="41" max="32767" attributes="0"/>
-                  <Component id="btnUpdate" alignment="0" pref="41" max="32767" attributes="0"/>
-                  <Component id="btnDelete" alignment="0" pref="41" max="32767" attributes="0"/>
-                  <Component id="btnRefresh" alignment="0" pref="41" max="32767" attributes="0"/>
+                  <Component id="btnInsert" pref="43" max="32767" attributes="0"/>
+                  <Component id="btnUpdate" alignment="0" pref="43" max="32767" attributes="0"/>
+                  <Component id="btnDelete" alignment="0" pref="43" max="32767" attributes="0"/>
+                  <Component id="btnRefresh" alignment="0" pref="43" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Component id="jScrollPane2" pref="179" max="32767" attributes="0"/>
+              <Component id="jScrollPane2" pref="181" max="32767" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>

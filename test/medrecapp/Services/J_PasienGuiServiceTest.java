@@ -72,16 +72,32 @@ public class J_PasienGuiServiceTest {
         frame.button("btnInsert").click();
         frame.optionPane().requireTitle("Insert Pasien Gagal!");
         frame.optionPane().okButton().click();
+
+        frame.textBox("txtNmPasien").enterText("Merinda");
+        frame.button("btnInsert").click();
+        frame.optionPane().requireTitle("Insert Pasien Gagal!");
+        frame.optionPane().okButton().click();
+
+        frame.radioButton("radioPerempuan").click();
+        frame.button("btnInsert").click();
+        frame.optionPane().requireTitle("Insert Pasien Gagal!");
+        frame.optionPane().okButton().click();
+
+        frame.textBox("txtTglLahir").enterText("1999-09-09");
+        frame.button("btnInsert").click();
+        frame.optionPane().requireTitle("Insert Pasien Gagal!");
+        frame.optionPane().okButton().click();
+
+        frame.comboBox("pilihAgama").selectItem("Katholik");
+        frame.button("btnInsert").click();
+        frame.optionPane().requireTitle("Insert Pasien Gagal!");
+        frame.optionPane().okButton().click();
     }
 
      @Test
     public void b_insertDataPasien() {
         System.out.println("2. InsertDataPasien");
-
-        frame.textBox("txtNmPasien").enterText("Merinda");
-        frame.radioButton("radioPerempuan").click();
-        frame.textBox("txtTglLahir").enterText("1999-09-09");
-        frame.comboBox("pilihAgama").selectItem("Katholik");
+                                
         frame.textBox("txtAlamat").enterText("Sumedang");
         frame.button("btnInsert").click();
         frame.optionPane().requireTitle("Insert Pasien");
@@ -92,6 +108,10 @@ public class J_PasienGuiServiceTest {
     public void c_updateDataPasienKosong() {
         System.out.println("3. UpdateDataPasienKosong");
         frame.menuItem("menuRekamMedisPasien").click();
+
+        frame.textBox("txtCari").enterText("Joko Susilo");
+        frame.textBox("txtCari").selectAll();
+        frame.textBox("txtCari").enterText("000001");
         
         frame.table("tabelPasien").selectRows(0);
         frame.button("btnUbah").click();
@@ -102,16 +122,32 @@ public class J_PasienGuiServiceTest {
         frame.dialog("frmDlgAWTPasien").button("btnUpdate").click();
         frame.dialog("frmDlgAWTPasien").optionPane().requireTitle("Update Pasien Gagal!");
         frame.dialog("frmDlgAWTPasien").optionPane().okButton().click();
+
+        frame.dialog("frmDlgAWTPasien").textBox("txtNmPasien").enterText("Ruminta");
+        frame.dialog("frmDlgAWTPasien").button("btnUpdate").click();
+        frame.dialog("frmDlgAWTPasien").optionPane().requireTitle("Update Pasien Gagal!");
+        frame.dialog("frmDlgAWTPasien").optionPane().okButton().click();
+
+        frame.dialog("frmDlgAWTPasien").radioButton("radioLaki").click();
+        frame.dialog("frmDlgAWTPasien").button("btnUpdate").click();
+        frame.dialog("frmDlgAWTPasien").optionPane().requireTitle("Update Pasien Gagal!");
+        frame.dialog("frmDlgAWTPasien").optionPane().okButton().click();
+
+        frame.dialog("frmDlgAWTPasien").textBox("txtTglLahir").enterText("1999-09-09");
+        frame.dialog("frmDlgAWTPasien").button("btnUpdate").click();
+        frame.dialog("frmDlgAWTPasien").optionPane().requireTitle("Update Pasien Gagal!");
+        frame.dialog("frmDlgAWTPasien").optionPane().okButton().click();
+
+        frame.dialog("frmDlgAWTPasien").comboBox("pilihAgama").selectItem("Hindu");
+        frame.dialog("frmDlgAWTPasien").button("btnUpdate").click();
+        frame.dialog("frmDlgAWTPasien").optionPane().requireTitle("Update Pasien Gagal!");
+        frame.dialog("frmDlgAWTPasien").optionPane().okButton().click();
     }
 
     @Test
     public void d_updateDataPasien() {
         System.out.println("4. UpdateDataPasien");
-
-        frame.dialog("frmDlgAWTPasien").textBox("txtNmPasien").enterText("Ruminta");
-        frame.dialog("frmDlgAWTPasien").radioButton("radioLaki").click();
-        frame.dialog("frmDlgAWTPasien").textBox("txtTglLahir").enterText("1999-09-09");
-        frame.dialog("frmDlgAWTPasien").comboBox("pilihAgama").selectItem("Hindu");
+                                
         frame.dialog("frmDlgAWTPasien").textBox("txtAlamat").enterText("Medan");
         frame.dialog("frmDlgAWTPasien").button("btnUpdate").click();
         frame.dialog("frmDlgAWTPasien").optionPane().requireTitle("Update Pasien");

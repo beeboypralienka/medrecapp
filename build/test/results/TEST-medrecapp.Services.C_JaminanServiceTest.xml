@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="asus-PC" name="medrecapp.Services.C_JaminanServiceTest" skipped="0" tests="4" time="0.336" timestamp="2014-02-10T07:48:30">
+<testsuite errors="0" failures="0" hostname="asus-PC" name="medrecapp.Services.C_JaminanServiceTest" skipped="0" tests="4" time="0.407" timestamp="2014-02-10T12:54:44">
   <properties>
     <property name="default.javac.source" value="1.7" />
     <property name="file.encoding.pkg" value="sun.io" />
@@ -79,7 +79,7 @@
     <property name="ant.project.default-target" value="default" />
     <property name="libs.hibernate-persistence.javadoc" value="" />
     <property name="libs.ejb3-persistence.classpath" value="C:\Program Files\NetBeans 6.9.1\java\modules\ext\hibernate\ejb3-persistence.jar" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner medrecapp.Services.C_JaminanServiceTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\test\results\TEST-medrecapp.Services.C_JaminanServiceTest.xml crashfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junitvmwatcher6065241170328619983.properties propsfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junit117342619787708099.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner medrecapp.Services.C_JaminanServiceTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\test\results\TEST-medrecapp.Services.C_JaminanServiceTest.xml crashfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junitvmwatcher6550415645747682322.properties propsfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junit6109619682446265141.properties" />
     <property name="built-jar.properties" value="C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\built-jar.properties" />
     <property name="libs.CopyLibs.displayName" value="CopyLibs Task" />
     <property name="libs.junit.src" value="" />
@@ -277,10 +277,10 @@
     <property name="sun.arch.data.model" value="64" />
     <property name="" value="======" />
   </properties>
-  <testcase classname="medrecapp.Services.C_JaminanServiceTest" name="a_insertJaminan" time="0.253" />
-  <testcase classname="medrecapp.Services.C_JaminanServiceTest" name="b_updateJaminan" time="0.003" />
+  <testcase classname="medrecapp.Services.C_JaminanServiceTest" name="a_insertJaminan" time="0.315" />
+  <testcase classname="medrecapp.Services.C_JaminanServiceTest" name="b_updateJaminan" time="0.004" />
   <testcase classname="medrecapp.Services.C_JaminanServiceTest" name="c_deleteJaminan" time="0.002" />
-  <testcase classname="medrecapp.Services.C_JaminanServiceTest" name="d_getAllJaminan" time="0.001" />
+  <testcase classname="medrecapp.Services.C_JaminanServiceTest" name="d_getAllJaminan" time="0.003" />
   <system-out><![CDATA[1. serviceInsertJaminan
 2. serviceUpdateJaminan
 3. serviceDeleteJaminan

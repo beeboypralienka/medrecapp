@@ -25,7 +25,6 @@ import static org.junit.Assert.*;
  *
  * @author Fachrul Pralienka BM
  */
-
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class L_DokterGuiServiceTest {
 
@@ -46,7 +45,7 @@ public class L_DokterGuiServiceTest {
         fu = new FrmUtama();
         fu.setExtendedState(fu.getExtendedState() | JFrame.MAXIMIZED_BOTH);
         frame = new FrameFixture(fu);
-        frame.show();        
+        frame.show();
     }
 
     @AfterClass
@@ -96,15 +95,27 @@ public class L_DokterGuiServiceTest {
         frame.button("btnInsert").click();
         frame.optionPane().requireTitle("Insert Dokter Gagal!");
         frame.optionPane().okButton().click();
+
+        frame.textBox("txtNamaDokter").enterText("Amalia");
+        frame.button("btnInsert").click();
+        frame.optionPane().requireTitle("Insert Dokter Gagal!");
+        frame.optionPane().okButton().click();
+
+        frame.comboBox("pilihSpesialis").selectItem("Spesialis Penyakit THT");
+        frame.button("btnInsert").click();
+        frame.optionPane().requireTitle("Insert Dokter Gagal!");
+        frame.optionPane().okButton().click();
+
+        frame.textBox("txtTglKerja").enterText("2013-10-13");
+        frame.button("btnInsert").click();
+        frame.optionPane().requireTitle("Insert Dokter Gagal!");
+        frame.optionPane().okButton().click();
     }
 
     @Test
     public void c_insertDataDokter() {
         System.out.println("3. InsertDataDokter");
-
-        frame.textBox("txtNamaDokter").enterText("Amalia");
-        frame.comboBox("pilihSpesialis").selectItem("Spesialis Penyakit THT");
-        frame.textBox("txtTglKerja").enterText("2013-10-13");
+                        
         frame.textBox("txtAlamat").enterText("Garut");
         frame.button("btnInsert").click();
         frame.optionPane().requireTitle("Insert Dokter");
@@ -132,17 +143,27 @@ public class L_DokterGuiServiceTest {
         frame.button("btnUpdate").click();
         frame.optionPane().requireTitle("Update Dokter Gagal!");
         frame.optionPane().okButton().click();
+
+        frame.textBox("txtNamaDokter").enterText("Amalia Khoirunnisa");
+        frame.button("btnUpdate").click();
+        frame.optionPane().requireTitle("Update Dokter Gagal!");
+        frame.optionPane().okButton().click();
+
+        frame.comboBox("pilihSpesialis").selectItem("Spesialis Penyakit Mata");
+        frame.button("btnUpdate").click();
+        frame.optionPane().requireTitle("Update Dokter Gagal!");
+        frame.optionPane().okButton().click();
+
+        frame.textBox("txtTglKerja").enterText("2013-10-10");
+        frame.button("btnUpdate").click();
+        frame.optionPane().requireTitle("Update Dokter Gagal!");
+        frame.optionPane().okButton().click();
     }
 
     @Test
     public void e_updateDataDokter() {
         System.out.println("5. UpdateDataDokter");
-
-        frame.table("tabelDokter").selectRows(0);
-        frame.textBox("txtNamaDokter").selectText(0, 0);
-        frame.textBox("txtNamaDokter").enterText("Amalia Khoirunnisa");
-        frame.comboBox("pilihSpesialis").selectItem("Spesialis Penyakit Mata");
-        frame.textBox("txtTglKerja").enterText("2013-10-10");
+                                
         frame.textBox("txtAlamat").enterText("Garut - Jawa Barat");
         frame.button("btnUpdate").click();
         frame.optionPane().requireTitle("Update Dokter");
@@ -157,8 +178,8 @@ public class L_DokterGuiServiceTest {
     }
 
     @Test
-    public void f_deleteDataSpesialis() {
-        System.out.println("6. DeleteDataSpesialis");
+    public void f_deleteDataSpesialisGagal() {
+        System.out.println("6. DeleteDataSpesialisGagal");
         frame.menuItem("menuDataSpesialis").click();
 
         frame.table("tabelSpesialis").selectRows(0);
@@ -196,4 +217,18 @@ public class L_DokterGuiServiceTest {
         frame.optionPane().okButton().click();
     }
 
+    @Test
+    public void h_deleteDataSpesialis() {
+        System.out.println("6. DeleteDataSpesialis");
+        frame.menuItem("menuDataSpesialis").click();
+
+        for (int i = 0; i < 2; i++) {
+            frame.table("tabelSpesialis").selectRows(0);
+            frame.button("btnDelete").click();
+            frame.optionPane().requireTitle("Konfirmasi");
+            frame.optionPane().yesButton().click();
+            frame.optionPane().requireTitle("Delete Spesialis");
+            frame.optionPane().okButton().click();
+        }
+    }
 }

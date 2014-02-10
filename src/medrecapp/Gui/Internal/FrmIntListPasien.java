@@ -119,6 +119,7 @@ public class FrmIntListPasien extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Masukkan No RM / Nama");
 
+        txtCari.setName("txtCari"); // NOI18N
         txtCari.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCariKeyReleased(evt);

@@ -6,13 +6,6 @@
 package medrecapp.Services;
 
 import medrecapp.Gui.FrmUtama;
-import medrecapp.Services.JaminanService;
-import medrecapp.Services.SpesialisService;
-import medrecapp.Services.StafService;
-import medrecapp.Services.DokterService;
-import medrecapp.Services.PerawatService;
-import medrecapp.Services.PasienService;
-import medrecapp.Services.RekamMedisService;
 import javax.swing.JFrame;
 import java.util.logging.Logger;
 import java.util.logging.Level;
@@ -170,18 +163,38 @@ public class R_RekamMedisGuiServiceTest {
         frame.button("btnDaftarkan").click();
         frame.optionPane().requireTitle("Insert Rekam Medis Gagal!");
         frame.optionPane().okButton().click();
+
+        frame.textBox("txtNoRm").enterText("857622");
+        frame.button("btnDaftarkan").click();
+        frame.optionPane().requireTitle("Insert Rekam Medis Gagal!");
+        frame.optionPane().okButton().click();
+
+        frame.textBox("txtNoRm").selectAll();
+        frame.textBox("txtNoRm").enterText("000001");
+        frame.button("btnDaftarkan").click();
+        frame.optionPane().requireTitle("Insert Rekam Medis Gagal!");
+        frame.optionPane().okButton().click();
+
+        frame.comboBox("pilihPoli").selectItem("Spesialis Penyakit Dalam");
+        frame.button("btnDaftarkan").click();
+        frame.optionPane().requireTitle("Insert Rekam Medis Gagal!");
+        frame.optionPane().okButton().click();
+
+        frame.comboBox("pilihDokter").selectItem("YUDI KUSNAEDI");
+        frame.button("btnDaftarkan").click();
+        frame.optionPane().requireTitle("Insert Rekam Medis Gagal!");
+        frame.optionPane().okButton().click();
+
+        frame.comboBox("pilihJaminan").selectItem("KJS");
+        frame.button("btnDaftarkan").click();
+        frame.optionPane().requireTitle("Insert Rekam Medis Gagal!");
+        frame.optionPane().okButton().click();
     }
 
     @Test
     public void g_insertRegistrasiKePoli(){
         System.out.println("7. insertRegistrasiKePoli");
-
-        frame.textBox("txtNoRm").enterText("000002");
-        frame.textBox("txtNoRm").selectText(5, 6);
-        frame.textBox("txtNoRm").enterText("1");
-        frame.comboBox("pilihPoli").selectItem("Spesialis Penyakit Dalam");
-        frame.comboBox("pilihDokter").selectItem("YUDI KUSNAEDI");
-        frame.comboBox("pilihJaminan").selectItem("KJS");
+                                        
         frame.comboBox("pilihStaf").selectItem("Ashar Kurniawan");
         frame.button("btnDaftarkan").click();
         frame.optionPane().requireTitle("Insert Rekam Medis");
@@ -210,18 +223,47 @@ public class R_RekamMedisGuiServiceTest {
         frame.dialog("periksaAwal").button("tombolSimpan").click();
         frame.dialog("periksaAwal").optionPane().requireTitle("Update Pemeriksaan Awal Gagal!");
         frame.dialog("periksaAwal").optionPane().okButton().click();
+
+        frame.dialog("periksaAwal").comboBox("pilihPerawat").selectItem("Prima Puspitasari");
+        frame.dialog("periksaAwal").button("tombolSimpan").click();
+        frame.dialog("periksaAwal").optionPane().requireTitle("Update Pemeriksaan Awal Gagal!");
+        frame.dialog("periksaAwal").optionPane().okButton().click();
+
+        frame.dialog("periksaAwal").textBox("txtMassaBadan").enterText("65");
+        frame.dialog("periksaAwal").button("tombolSimpan").click();
+        frame.dialog("periksaAwal").optionPane().requireTitle("Update Pemeriksaan Awal Gagal!");
+        frame.dialog("periksaAwal").optionPane().okButton().click();
+
+        frame.dialog("periksaAwal").textBox("txtTinggiBadan").enterText("170");
+        frame.dialog("periksaAwal").button("tombolSimpan").click();
+        frame.dialog("periksaAwal").optionPane().requireTitle("Update Pemeriksaan Awal Gagal!");
+        frame.dialog("periksaAwal").optionPane().okButton().click();
+
+        frame.dialog("periksaAwal").textBox("txtTekananDarah").enterText("20/30");
+        frame.dialog("periksaAwal").button("tombolSimpan").click();
+        frame.dialog("periksaAwal").optionPane().requireTitle("Update Pemeriksaan Awal Gagal!");
+        frame.dialog("periksaAwal").optionPane().okButton().click();
+
+        frame.dialog("periksaAwal").textBox("txtNadi").enterText("30");
+        frame.dialog("periksaAwal").button("tombolSimpan").click();
+        frame.dialog("periksaAwal").optionPane().requireTitle("Update Pemeriksaan Awal Gagal!");
+        frame.dialog("periksaAwal").optionPane().okButton().click();
+
+        frame.dialog("periksaAwal").textBox("txtTemperatur").enterText("30");
+        frame.dialog("periksaAwal").button("tombolSimpan").click();
+        frame.dialog("periksaAwal").optionPane().requireTitle("Update Pemeriksaan Awal Gagal!");
+        frame.dialog("periksaAwal").optionPane().okButton().click();
+
+        frame.dialog("periksaAwal").textBox("txtPernapasan").enterText("20");
+        frame.dialog("periksaAwal").button("tombolSimpan").click();
+        frame.dialog("periksaAwal").optionPane().requireTitle("Update Pemeriksaan Awal Gagal!");
+        frame.dialog("periksaAwal").optionPane().okButton().click();
     }
 
     @Test
     public void j_updateRekmedPeriksaAwal(){
         System.out.println("10. updateRekmedPeriksaAwal");
-        frame.dialog("periksaAwal").comboBox("pilihPerawat").selectItem("Prima Puspitasari");
-        frame.dialog("periksaAwal").textBox("txtMassaBadan").enterText("65");
-        frame.dialog("periksaAwal").textBox("txtTinggiBadan").enterText("170");
-        frame.dialog("periksaAwal").textBox("txtTekananDarah").enterText("20/30");
-        frame.dialog("periksaAwal").textBox("txtNadi").enterText("30");
-        frame.dialog("periksaAwal").textBox("txtTemperatur").enterText("30");
-        frame.dialog("periksaAwal").textBox("txtPernapasan").enterText("20");
+                                                        
         frame.dialog("periksaAwal").comboBox("pilihKesadaran").selectItem("Compos Mentis");
         frame.dialog("periksaAwal").button("tombolSimpan").click();
         frame.dialog("periksaAwal").optionPane().requireTitle("Update Pemeriksaan Awal");
@@ -233,6 +275,17 @@ public class R_RekamMedisGuiServiceTest {
         System.out.println("11. updateRekmedPeriksaLanjutanKosong");
         frame.table("tabelPasienPoli").selectRows(0);
         frame.button("tombolLanjutan").click();
+
+        frame.dialog("periksaLanjutan").button("tombolOK").click();
+        frame.dialog("periksaLanjutan").optionPane().requireTitle("Update Pemeriksaan Lanjutan Gagal!");
+        frame.dialog("periksaLanjutan").optionPane().okButton().click();
+
+        frame.dialog("periksaLanjutan").textBox("txtAnamnesa").enterText("Sakit perut");
+        frame.dialog("periksaLanjutan").button("tombolOK").click();
+        frame.dialog("periksaLanjutan").optionPane().requireTitle("Update Pemeriksaan Lanjutan Gagal!");
+        frame.dialog("periksaLanjutan").optionPane().okButton().click();
+
+        frame.dialog("periksaLanjutan").textBox("txtDiagnosis").enterText("Radang lambung");
         frame.dialog("periksaLanjutan").button("tombolOK").click();
         frame.dialog("periksaLanjutan").optionPane().requireTitle("Update Pemeriksaan Lanjutan Gagal!");
         frame.dialog("periksaLanjutan").optionPane().okButton().click();
@@ -241,8 +294,7 @@ public class R_RekamMedisGuiServiceTest {
     @Test
     public void l_updateRekmedPeriksaLanjutan(){
         System.out.println("12. updateRekmedPeriksaLanjutan");
-        frame.dialog("periksaLanjutan").textBox("txtAnamnesa").enterText("Sakit perut");
-        frame.dialog("periksaLanjutan").textBox("txtDiagnosis").enterText("Radang lambung");
+                
         frame.dialog("periksaLanjutan").textBox("txtTerapi").enterText("Terapi Energi");
         frame.dialog("periksaLanjutan").button("tombolOK").click();
         frame.dialog("periksaLanjutan").optionPane().requireTitle("Update Pemeriksaan Lanjutan");

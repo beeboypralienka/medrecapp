@@ -4,7 +4,7 @@
  */
 
 /*
- * FrmIntPendaftaran.java
+ * FrmIntPasienLama.java
  *
  * Created on Dec 28, 2013, 9:00:47 PM
  */
@@ -37,7 +37,7 @@ import medrecapp.TabelModel.TabelModelStaf;
  *
  * @author Fachrul Pralienka BM
  */
-public class FrmIntPendaftaran extends javax.swing.JInternalFrame {
+public class FrmIntPasienLama extends javax.swing.JInternalFrame {
 
     RekamMedisService rms = new RekamMedisService();
     PasienService ps = new PasienService();
@@ -51,16 +51,16 @@ public class FrmIntPendaftaran extends javax.swing.JInternalFrame {
     TabelModelStaf tmsf = new TabelModelStaf();
     TabelModelPasien tmp = new TabelModelPasien();
 
-    /** Creates new form FrmIntPendaftaran */
-    public FrmIntPendaftaran() {
+    /** Creates new form FrmIntPasienLama */
+    public FrmIntPasienLama() {
         initComponents();
 
         /* Memberi nilai isian pasien dari form penambahan pasien (FormInternal) */
-        txtNoRm.setText(FrmIntPasien.ID);
-        txtNamaPasien.setText(FrmIntPasien.nama);
-        txtAlamat.setText(FrmIntPasien.alamat);
-        txtJenkel.setText(FrmIntPasien.jk);
-        txtTglLahir.setText(FrmIntPasien.tglLahir);
+        txtNoRm.setText(FrmIntPasienBaru.ID);
+        txtNamaPasien.setText(FrmIntPasienBaru.nama);
+        txtAlamat.setText(FrmIntPasienBaru.alamat);
+        txtJenkel.setText(FrmIntPasienBaru.jk);
+        txtTglLahir.setText(FrmIntPasienBaru.tglLahir);
 
         /* Mengisi comboBox pilihPoliTujuan dari database */
         tms.setData(ss.serviceGetAllSpesialis());
@@ -97,11 +97,11 @@ public class FrmIntPendaftaran extends javax.swing.JInternalFrame {
                     if (pilih == JOptionPane.OK_OPTION) {
                         dispose();
                         /* Menghilangan nilai dari form penambahan pasien (internal) */
-                        FrmIntPasien.ID = "";
-                        FrmIntPasien.nama = "";
-                        FrmIntPasien.alamat = "";
-                        FrmIntPasien.jk = "";
-                        FrmIntPasien.tglLahir = "";
+                        FrmIntPasienBaru.ID = "";
+                        FrmIntPasienBaru.nama = "";
+                        FrmIntPasienBaru.alamat = "";
+                        FrmIntPasienBaru.jk = "";
+                        FrmIntPasienBaru.tglLahir = "";
                     }
                 }
             }
@@ -391,7 +391,7 @@ public class FrmIntPendaftaran extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnDaftarkan, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
+                .addComponent(btnDaftarkan, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
                 .addGap(23, 23, 23))
         );
 
@@ -405,7 +405,9 @@ public class FrmIntPendaftaran extends javax.swing.JInternalFrame {
         int pilihanDokter = pilihNamaDokter.getSelectedIndex();
         int pilihanJaminan = pilihJaminan.getSelectedIndex();
         int pilihanStaf = pilihStaf.getSelectedIndex();
-        if ((namaPasien.equals("")) || (poliTujuan == 0) || (pilihanDokter == 0) || (pilihanJaminan == 0) || (pilihanStaf == 0)) {
+        String tgl = tglPendaftaran.getDate().toString();
+        //JOptionPane.showMessageDialog(rootPane, "Poli Tujuan = "+poliTujuan+"\n"+"Max Dokter = "+pilihanDokter+"\n"+"Pilih Jaminan = "+pilihanJaminan+"\n"+"Pilih Staf = "+pilihanStaf);
+        if ((namaPasien.equals("")) || (poliTujuan == -1) || (pilihanDokter == -1) || (pilihanJaminan == -1) || (pilihanStaf == -1) || (tgl.equals(""))) {
             JOptionPane.showMessageDialog(null, "Data tidak boleh kosong!", "Insert Rekam Medis Gagal!", JOptionPane.ERROR_MESSAGE);
         } else {
 

@@ -14,13 +14,13 @@ package medrecapp.Gui;
 import medrecapp.Gui.Internal.FrmIntSpesialis;
 import medrecapp.Gui.Internal.FrmIntListPasien;
 import medrecapp.Gui.Internal.FrmIntPerawat;
-import medrecapp.Gui.Internal.FrmIntPasien;
+import medrecapp.Gui.Internal.FrmIntPasienBaru;
 import medrecapp.Gui.Internal.FrmIntJaminan;
 import medrecapp.Gui.Internal.FrmIntStaf;
 import medrecapp.Gui.Internal.FrmIntPoliklinik;
 import medrecapp.Gui.Internal.FrmIntDokter;
 import medrecapp.Gui.Internal.FrmIntObat;
-import medrecapp.Gui.Internal.FrmIntPendaftaran;
+import medrecapp.Gui.Internal.FrmIntPasienLama;
 import java.awt.Dimension;
 import medrecapp.Gui.Internal.FrmIntTindakan;
 
@@ -293,7 +293,7 @@ public class FrmUtama extends javax.swing.JFrame {
         // TODO add your handling code here:
         jDesktopPane1.removeAll();
         jDesktopPane1.repaint();
-        FrmIntPasien fis = new FrmIntPasien();
+        FrmIntPasienBaru fis = new FrmIntPasienBaru();
         Dimension parentSize = jDesktopPane1.getSize();
         Dimension childSize = fis.getSize();
         fis.setLocation((parentSize.width - childSize.width) / 2, (parentSize.height - childSize.height) / 2);        
@@ -320,7 +320,7 @@ public class FrmUtama extends javax.swing.JFrame {
         // TODO add your handling code here:
         jDesktopPane1.removeAll();
         jDesktopPane1.repaint();
-        FrmIntPendaftaran fis = new FrmIntPendaftaran();        
+        FrmIntPasienLama fis = new FrmIntPasienLama();
         Dimension parentSize = jDesktopPane1.getSize();
         Dimension childSize = fis.getSize();
         fis.setLocation((parentSize.width - childSize.width) / 2, (parentSize.height - childSize.height) / 2);        

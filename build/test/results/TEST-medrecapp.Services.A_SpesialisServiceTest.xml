@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="asus-PC" name="medrecapp.Services.A_SpesialisServiceTest" skipped="0" tests="4" time="0.397" timestamp="2014-02-10T07:47:49">
+<testsuite errors="0" failures="0" hostname="asus-PC" name="medrecapp.Services.A_SpesialisServiceTest" skipped="0" tests="4" time="0.51" timestamp="2014-02-10T12:54:01">
   <properties>
     <property name="default.javac.source" value="1.7" />
     <property name="file.encoding.pkg" value="sun.io" />
@@ -79,7 +79,7 @@
     <property name="ant.project.default-target" value="default" />
     <property name="libs.hibernate-persistence.javadoc" value="" />
     <property name="libs.ejb3-persistence.classpath" value="C:\Program Files\NetBeans 6.9.1\java\modules\ext\hibernate\ejb3-persistence.jar" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner medrecapp.Services.A_SpesialisServiceTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\test\results\TEST-medrecapp.Services.A_SpesialisServiceTest.xml crashfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junitvmwatcher5787781500354207554.properties propsfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junit4215001767987484099.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner medrecapp.Services.A_SpesialisServiceTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\test\results\TEST-medrecapp.Services.A_SpesialisServiceTest.xml crashfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junitvmwatcher4438065598645795487.properties propsfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junit5428432440083533459.properties" />
     <property name="built-jar.properties" value="C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\built-jar.properties" />
     <property name="libs.CopyLibs.displayName" value="CopyLibs Task" />
     <property name="libs.junit.src" value="" />
@@ -277,10 +277,10 @@
     <property name="sun.arch.data.model" value="64" />
     <property name="" value="======" />
   </properties>
-  <testcase classname="medrecapp.Services.A_SpesialisServiceTest" name="a_insertSpesialis" time="0.296" />
-  <testcase classname="medrecapp.Services.A_SpesialisServiceTest" name="b_updateSpesialis" time="0.003" />
-  <testcase classname="medrecapp.Services.A_SpesialisServiceTest" name="c_deleteSpesialis" time="0.002" />
-  <testcase classname="medrecapp.Services.A_SpesialisServiceTest" name="d_getAllSpesialis" time="0.001" />
+  <testcase classname="medrecapp.Services.A_SpesialisServiceTest" name="a_insertSpesialis" time="0.392" />
+  <testcase classname="medrecapp.Services.A_SpesialisServiceTest" name="b_updateSpesialis" time="0.0" />
+  <testcase classname="medrecapp.Services.A_SpesialisServiceTest" name="c_deleteSpesialis" time="0.0" />
+  <testcase classname="medrecapp.Services.A_SpesialisServiceTest" name="d_getAllSpesialis" time="0.0" />
   <system-out><![CDATA[1. serviceInsertSpesialis
 2. serviceUpdateSpesialis
 3. serviceDeleteSpesialis

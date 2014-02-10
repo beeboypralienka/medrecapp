@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="asus-PC" name="medrecapp.Services.B_SpesialisGuiServiceTest" skipped="0" tests="5" time="39.395" timestamp="2014-02-10T07:47:50">
+<testsuite errors="0" failures="0" hostname="asus-PC" name="medrecapp.Services.B_SpesialisGuiServiceTest" skipped="0" tests="5" time="40.694" timestamp="2014-02-10T12:54:03">
   <properties>
     <property name="default.javac.source" value="1.7" />
     <property name="file.encoding.pkg" value="sun.io" />
@@ -79,7 +79,7 @@
     <property name="ant.project.default-target" value="default" />
     <property name="libs.hibernate-persistence.javadoc" value="" />
     <property name="libs.ejb3-persistence.classpath" value="C:\Program Files\NetBeans 6.9.1\java\modules\ext\hibernate\ejb3-persistence.jar" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner medrecapp.Services.B_SpesialisGuiServiceTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\test\results\TEST-medrecapp.Services.B_SpesialisGuiServiceTest.xml crashfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junitvmwatcher7506036964673898544.properties propsfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junit798204358901012999.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner medrecapp.Services.B_SpesialisGuiServiceTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\test\results\TEST-medrecapp.Services.B_SpesialisGuiServiceTest.xml crashfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junitvmwatcher7854353834252378318.properties propsfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junit4872845752811787997.properties" />
     <property name="built-jar.properties" value="C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\built-jar.properties" />
     <property name="libs.CopyLibs.displayName" value="CopyLibs Task" />
     <property name="libs.junit.src" value="" />
@@ -277,11 +277,11 @@
     <property name="sun.arch.data.model" value="64" />
     <property name="" value="======" />
   </properties>
-  <testcase classname="medrecapp.Services.B_SpesialisGuiServiceTest" name="a_insertDataSpesialisKosong" time="0.587" />
-  <testcase classname="medrecapp.Services.B_SpesialisGuiServiceTest" name="b_insertDataSpesialis" time="19.622" />
-  <testcase classname="medrecapp.Services.B_SpesialisGuiServiceTest" name="c_updateDataSpesialisKosong" time="3.374" />
-  <testcase classname="medrecapp.Services.B_SpesialisGuiServiceTest" name="d_updateDataSpesialis" time="9.254" />
-  <testcase classname="medrecapp.Services.B_SpesialisGuiServiceTest" name="e_deleteDataSpesialis" time="4.089" />
+  <testcase classname="medrecapp.Services.B_SpesialisGuiServiceTest" name="a_insertDataSpesialisKosong" time="5.406" />
+  <testcase classname="medrecapp.Services.B_SpesialisGuiServiceTest" name="b_insertDataSpesialis" time="15.822" />
+  <testcase classname="medrecapp.Services.B_SpesialisGuiServiceTest" name="c_updateDataSpesialisKosong" time="7.52" />
+  <testcase classname="medrecapp.Services.B_SpesialisGuiServiceTest" name="d_updateDataSpesialis" time="5.252" />
+  <testcase classname="medrecapp.Services.B_SpesialisGuiServiceTest" name="e_deleteDataSpesialis" time="4.03" />
   <system-out><![CDATA[1. InsertDataSpesialisKosong
 2. InsertDataSpesialis
 3. UpdateDataSpesialisKosong

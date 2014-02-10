@@ -371,7 +371,7 @@ public class FrmIntDokter extends javax.swing.JInternalFrame {
         String alamat = txtAlamat.getText();
         int spesialis = pilihSpesialis.getSelectedIndex();
 
-        if ((nmDokter.equals("")) || (spesialis == 0) || (tglKerja.equals("")) || (alamat.equals(""))) {
+        if ((nmDokter.equals("")) || (spesialis == -1) || (tglKerja.equals("")) || (alamat.equals(""))) {
             JOptionPane.showMessageDialog(rootPane, "Data tidak boleh kosong!", "Insert Dokter Gagal!", JOptionPane.ERROR_MESSAGE);
         } else {
             String id = ss.serviceGetIDSpesialis(pilihSpesialis.getSelectedItem().toString());
@@ -401,7 +401,7 @@ public class FrmIntDokter extends javax.swing.JInternalFrame {
         String alamat = txtAlamat.getText();
         int spesialis = pilihSpesialis.getSelectedIndex();
 
-        if ((nmDokter.equals("")) || (spesialis == 0) || (tglKerja.equals("")) || (alamat.equals(""))) {
+        if ((nmDokter.equals("")) || (spesialis == -1) || (tglKerja.equals("")) || (alamat.equals(""))) {
             JOptionPane.showMessageDialog(rootPane, "Data tidak boleh kosong!", "Update Dokter Gagal!", JOptionPane.ERROR_MESSAGE);
         } else {
             String id = ss.serviceGetIDSpesialis(pilihSpesialis.getSelectedItem().toString());

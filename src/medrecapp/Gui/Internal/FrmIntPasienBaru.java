@@ -4,7 +4,7 @@
  */
 
 /*
- * FrmIntPasien.java
+ * FrmIntPasienBaru.java
  *
  * Created on Dec 19, 2013, 4:59:09 PM
  */
@@ -23,15 +23,15 @@ import medrecapp.Services.PasienService;
  *
  * @author Fachrul Pralienka BM
  */
-public class FrmIntPasien extends javax.swing.JInternalFrame {
+public class FrmIntPasienBaru extends javax.swing.JInternalFrame {
 
     PasienService ps = new PasienService();
     //TabelModelPasien tabelModelPasien = new TabelModelPasien();
     Connection connection;
     public static String ID, nama, jk, tglLahir, agama, alamat;
 
-    /** Creates new form FrmIntPasien */
-    public FrmIntPasien() {
+    /** Creates new form FrmIntPasienBaru */
+    public FrmIntPasienBaru() {
         initComponents();
 
         txtAlamat.addKeyListener(new KeyAdapter() {
@@ -231,7 +231,7 @@ public class FrmIntPasien extends javax.swing.JInternalFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         pack();
@@ -245,6 +245,12 @@ public class FrmIntPasien extends javax.swing.JInternalFrame {
 
         if ((nama.equals("")) || (tglLahir.equals("")) || (alamat.equals(""))) {
             JOptionPane.showMessageDialog(null, "Data tidak boleh kosong!", "Insert Pasien Gagal!", JOptionPane.ERROR_MESSAGE);
+            ID = "";
+            nama="";
+            jk="";
+            tglLahir="";
+            agama="";
+            alamat="";
         } else {
 
             Pasien p = new Pasien();
@@ -259,7 +265,7 @@ public class FrmIntPasien extends javax.swing.JInternalFrame {
                 jk = "Perempuan";
             }
 
-            FrmIntPendaftaran fip = new FrmIntPendaftaran();
+            FrmIntPasienLama fip = new FrmIntPasienLama();
             p.setNoRm(ID);
             p.setNmPas(nama);
             p.setTglLahir(tglLahir);

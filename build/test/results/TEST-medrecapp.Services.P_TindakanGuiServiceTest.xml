@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="asus-PC" name="medrecapp.Services.P_TindakanGuiServiceTest" skipped="0" tests="7" time="48.093" timestamp="2014-02-10T07:51:56">
+<testsuite errors="0" failures="0" hostname="asus-PC" name="medrecapp.Services.P_TindakanGuiServiceTest" skipped="0" tests="8" time="50.756" timestamp="2014-02-10T12:58:26">
   <properties>
     <property name="default.javac.source" value="1.7" />
     <property name="file.encoding.pkg" value="sun.io" />
@@ -79,7 +79,7 @@
     <property name="ant.project.default-target" value="default" />
     <property name="libs.hibernate-persistence.javadoc" value="" />
     <property name="libs.ejb3-persistence.classpath" value="C:\Program Files\NetBeans 6.9.1\java\modules\ext\hibernate\ejb3-persistence.jar" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner medrecapp.Services.P_TindakanGuiServiceTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\test\results\TEST-medrecapp.Services.P_TindakanGuiServiceTest.xml crashfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junitvmwatcher470774332101876480.properties propsfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junit4731803256673067315.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner medrecapp.Services.P_TindakanGuiServiceTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\test\results\TEST-medrecapp.Services.P_TindakanGuiServiceTest.xml crashfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junitvmwatcher4039827237437712315.properties propsfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junit8272121635461733568.properties" />
     <property name="built-jar.properties" value="C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\built-jar.properties" />
     <property name="libs.CopyLibs.displayName" value="CopyLibs Task" />
     <property name="libs.junit.src" value="" />
@@ -277,20 +277,22 @@
     <property name="sun.arch.data.model" value="64" />
     <property name="" value="======" />
   </properties>
-  <testcase classname="medrecapp.Services.P_TindakanGuiServiceTest" name="a_insertDataSpesialis" time="14.103" />
-  <testcase classname="medrecapp.Services.P_TindakanGuiServiceTest" name="b_insertDataTindakanKosong" time="1.444" />
-  <testcase classname="medrecapp.Services.P_TindakanGuiServiceTest" name="c_insertDataTindakan" time="9.699" />
-  <testcase classname="medrecapp.Services.P_TindakanGuiServiceTest" name="d_updateDataTindakanKosong" time="3.105" />
-  <testcase classname="medrecapp.Services.P_TindakanGuiServiceTest" name="e_updateDataTindakan" time="12.198" />
-  <testcase classname="medrecapp.Services.P_TindakanGuiServiceTest" name="f_deleteDataSpesialis" time="3.339" />
-  <testcase classname="medrecapp.Services.P_TindakanGuiServiceTest" name="g_deleteDataTindakan" time="3.17" />
+  <testcase classname="medrecapp.Services.P_TindakanGuiServiceTest" name="a_insertDataSpesialis" time="13.85" />
+  <testcase classname="medrecapp.Services.P_TindakanGuiServiceTest" name="b_insertDataTindakanKosong" time="4.86" />
+  <testcase classname="medrecapp.Services.P_TindakanGuiServiceTest" name="c_insertDataTindakan" time="7.07" />
+  <testcase classname="medrecapp.Services.P_TindakanGuiServiceTest" name="d_updateDataTindakanKosong" time="6.052" />
+  <testcase classname="medrecapp.Services.P_TindakanGuiServiceTest" name="e_updateDataTindakan" time="9.272" />
+  <testcase classname="medrecapp.Services.P_TindakanGuiServiceTest" name="f_deleteDataSpesialisGagal" time="2.82" />
+  <testcase classname="medrecapp.Services.P_TindakanGuiServiceTest" name="g_deleteDataTindakan" time="2.842" />
+  <testcase classname="medrecapp.Services.P_TindakanGuiServiceTest" name="h_deleteDataSpesialisBerhasil" time="2.852" />
   <system-out><![CDATA[1. InsertDataSpesialis
 2. InsertDataTindakanKosong
 3. InsertDataTindakan
 4. UpdateDataTindakanKosong
 5. UpdateDataTindakan
-6. DeleteDataSpesialis
+6. DeleteDataSpesialisGagal
 7. DeleteDataTindakan
+6. DeleteDataSpesialisBerhasil
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

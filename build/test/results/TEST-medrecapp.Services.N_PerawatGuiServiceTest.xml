@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="asus-PC" name="medrecapp.Services.N_PerawatGuiServiceTest" skipped="0" tests="8" time="46.464" timestamp="2014-02-10T07:51:07">
+<testsuite errors="0" failures="0" hostname="asus-PC" name="medrecapp.Services.N_PerawatGuiServiceTest" skipped="0" tests="8" time="48.137" timestamp="2014-02-10T12:57:36">
   <properties>
     <property name="default.javac.source" value="1.7" />
     <property name="file.encoding.pkg" value="sun.io" />
@@ -79,7 +79,7 @@
     <property name="ant.project.default-target" value="default" />
     <property name="libs.hibernate-persistence.javadoc" value="" />
     <property name="libs.ejb3-persistence.classpath" value="C:\Program Files\NetBeans 6.9.1\java\modules\ext\hibernate\ejb3-persistence.jar" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner medrecapp.Services.N_PerawatGuiServiceTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\test\results\TEST-medrecapp.Services.N_PerawatGuiServiceTest.xml crashfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junitvmwatcher5515959484708965166.properties propsfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junit3779774677222509591.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner medrecapp.Services.N_PerawatGuiServiceTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\test\results\TEST-medrecapp.Services.N_PerawatGuiServiceTest.xml crashfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junitvmwatcher4438404163766503811.properties propsfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junit5927590141091652513.properties" />
     <property name="built-jar.properties" value="C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\built-jar.properties" />
     <property name="libs.CopyLibs.displayName" value="CopyLibs Task" />
     <property name="libs.junit.src" value="" />
@@ -277,14 +277,14 @@
     <property name="sun.arch.data.model" value="64" />
     <property name="" value="======" />
   </properties>
-  <testcase classname="medrecapp.Services.N_PerawatGuiServiceTest" name="a_insertDataSpesialis" time="13.765" />
-  <testcase classname="medrecapp.Services.N_PerawatGuiServiceTest" name="b_insertDataPerawatKosong" time="1.886" />
-  <testcase classname="medrecapp.Services.N_PerawatGuiServiceTest" name="c_insertDataPerawat" time="8.039" />
-  <testcase classname="medrecapp.Services.N_PerawatGuiServiceTest" name="d_updateDataPerawatKosong" time="3.087" />
-  <testcase classname="medrecapp.Services.N_PerawatGuiServiceTest" name="e_updateDataPerawat" time="9.24" />
-  <testcase classname="medrecapp.Services.N_PerawatGuiServiceTest" name="f_deleteDataSpesialisGagal" time="3.172" />
-  <testcase classname="medrecapp.Services.N_PerawatGuiServiceTest" name="g_deleteDataPerawat" time="3.348" />
-  <testcase classname="medrecapp.Services.N_PerawatGuiServiceTest" name="h_deleteDataSpesialisBerhasil" time="2.871" />
+  <testcase classname="medrecapp.Services.N_PerawatGuiServiceTest" name="a_insertDataSpesialis" time="13.808" />
+  <testcase classname="medrecapp.Services.N_PerawatGuiServiceTest" name="b_insertDataPerawatKosong" time="6.94" />
+  <testcase classname="medrecapp.Services.N_PerawatGuiServiceTest" name="c_insertDataPerawat" time="4.042" />
+  <testcase classname="medrecapp.Services.N_PerawatGuiServiceTest" name="d_updateDataPerawatKosong" time="8.484" />
+  <testcase classname="medrecapp.Services.N_PerawatGuiServiceTest" name="e_updateDataPerawat" time="4.734" />
+  <testcase classname="medrecapp.Services.N_PerawatGuiServiceTest" name="f_deleteDataSpesialisGagal" time="2.811" />
+  <testcase classname="medrecapp.Services.N_PerawatGuiServiceTest" name="g_deleteDataPerawat" time="3.424" />
+  <testcase classname="medrecapp.Services.N_PerawatGuiServiceTest" name="h_deleteDataSpesialisBerhasil" time="2.81" />
   <system-out><![CDATA[1. InsertDataSpesialis
 2. InsertDataPerawatKosong
 3. InsertDataPerawat

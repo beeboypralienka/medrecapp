@@ -71,13 +71,17 @@ public class H_ObatGuiServiceTest {
         frame.button("btnInsert").click();
         frame.optionPane().requireTitle("Insert Obat Gagal!");
         frame.optionPane().okButton().click();
+
+        frame.textBox("txtIdObat").enterText("Omeprazol");
+        frame.button("btnInsert").click();
+        frame.optionPane().requireTitle("Insert Obat Gagal!");
+        frame.optionPane().okButton().click();
     }
 
     @Test
     public void b_insertDataObat() {
         System.out.println("2. InsertDataObat");
-
-        frame.textBox("txtIdObat").enterText("Omeprazol");
+        
         frame.textBox("txtKeterangan").enterText("Obat Lambung");
         frame.button("btnInsert").click();
         frame.optionPane().requireTitle("Insert Obat");
@@ -98,8 +102,7 @@ public class H_ObatGuiServiceTest {
     @Test
     public void d_updateDataObat() {
         System.out.println("4. UpdateDataObat");
-
-        frame.table("tabelObat").selectRows(0);
+        
         frame.textBox("txtKeterangan").enterText("Obat Penyakit Lambung");
         frame.button("btnUpdate").click();
         frame.optionPane().requireTitle("Update Obat");

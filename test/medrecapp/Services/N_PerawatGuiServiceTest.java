@@ -95,14 +95,22 @@ public class N_PerawatGuiServiceTest {
         frame.button("btnInsert").click();
         frame.optionPane().requireTitle("Insert Perawat Gagal!");
         frame.optionPane().okButton().click();
+
+        frame.textBox("txtNamaPerawat").enterText("Fitriya Rahmawati");
+        frame.button("btnInsert").click();
+        frame.optionPane().requireTitle("Insert Perawat Gagal!");
+        frame.optionPane().okButton().click();
+
+        frame.textBox("txtTanggalKerja").enterText("2013-05-06");
+        frame.button("btnInsert").click();
+        frame.optionPane().requireTitle("Insert Perawat Gagal!");
+        frame.optionPane().okButton().click();
     }
 
     @Test
     public void c_insertDataPerawat() {
         System.out.println("3. InsertDataPerawat");
-
-        frame.textBox("txtNamaPerawat").enterText("Fitriya Rahmawati");
-        frame.textBox("txtTanggalKerja").enterText("2013-05-06");
+                
         frame.comboBox("pilihBagian").selectItem("Spesialis Penyakit Jantung");
         frame.button("btnInsert").click();
         frame.optionPane().requireTitle("Insert Perawat");
@@ -128,15 +136,22 @@ public class N_PerawatGuiServiceTest {
         frame.button("btnUpdate").click();
         frame.optionPane().requireTitle("Update Perawat Gagal!");
         frame.optionPane().okButton().click();
+
+        frame.textBox("txtNamaPerawat").enterText("Intan Permata Yanti");
+        frame.button("btnUpdate").click();
+        frame.optionPane().requireTitle("Update Perawat Gagal!");
+        frame.optionPane().okButton().click();
+
+        frame.textBox("txtTanggalKerja").enterText("2010-05-10");
+        frame.button("btnUpdate").click();
+        frame.optionPane().requireTitle("Update Perawat Gagal!");
+        frame.optionPane().okButton().click();
     }
 
     @Test
     public void e_updateDataPerawat() {
         System.out.println("5. UpdateDataPerawat");
-
-        frame.table("tabelPerawat").selectRows(0);
-        frame.textBox("txtNamaPerawat").enterText("Intan Permata Sari");
-        frame.textBox("txtTanggalKerja").enterText("2010-05-10");
+                        
         frame.comboBox("pilihBagian").selectItem("Spesialis Penyakit Dalam");
         frame.button("btnUpdate").click();
         frame.optionPane().requireTitle("Update Perawat");

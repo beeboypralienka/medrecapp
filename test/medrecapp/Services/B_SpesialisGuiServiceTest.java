@@ -70,14 +70,22 @@ public class B_SpesialisGuiServiceTest {
         frame.button("btnInsert").click();
         frame.optionPane().requireTitle("Insert Spesialis Gagal!");
         frame.optionPane().okButton().click();
+
+        frame.textBox("txtIDSpesialis").enterText("Sp.PD");
+        frame.button("btnInsert").click();
+        frame.optionPane().requireTitle("Insert Spesialis Gagal!");
+        frame.optionPane().okButton().click();
+
+        frame.textBox("txtNamaSpesialis").enterText("Penyakit Dalam");
+        frame.button("btnInsert").click();
+        frame.optionPane().requireTitle("Insert Spesialis Gagal!");
+        frame.optionPane().okButton().click();
     }
 
     @Test
     public void b_insertDataSpesialis() {
         System.out.println("2. InsertDataSpesialis");
-
-        frame.textBox("txtIDSpesialis").enterText("Sp.PD");
-        frame.textBox("txtNamaSpesialis").enterText("Penyakit Dalam");
+        
         frame.textBox("txtTarifKonsul").enterText("80000");
         frame.button("btnInsert").click();
         frame.optionPane().requireTitle("Insert Spesialis");
@@ -116,15 +124,18 @@ public class B_SpesialisGuiServiceTest {
         frame.button("btnUpdate").click();
         frame.optionPane().requireTitle("Update Spesialis Gagal!");
         frame.optionPane().okButton().click();
+
+        frame.textBox("txtNamaSpesialis").enterText("Spesialis Penyakit Dalam");
+        frame.button("btnUpdate").click();
+        frame.optionPane().requireTitle("Update Spesialis Gagal!");
+        frame.optionPane().okButton().click();
+
     }
 
     @Test
     public void d_updateDataSpesialis() {
         System.out.println("4. UpdateDataSpesialis");
 
-        frame.table("tabelSpesialis").selectRows(0);
-        frame.textBox("txtNamaSpesialis").selectText(0, 0);
-        frame.textBox("txtNamaSpesialis").enterText("Spesialis Penyakit Dalam");
         frame.textBox("txtTarifKonsul").enterText("95000");
         frame.button("btnUpdate").click();
         frame.optionPane().requireTitle("Update Spesialis");

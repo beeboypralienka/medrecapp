@@ -70,13 +70,17 @@ public class F_StafGuiServiceTest {
         frame.button("btnInsert").click();
         frame.optionPane().requireTitle("Insert Staf Gagal!");
         frame.optionPane().okButton().click();
+
+        frame.textBox("txtNamaStaf").enterText("Syauki");
+        frame.button("btnInsert").click();
+        frame.optionPane().requireTitle("Insert Staf Gagal!");
+        frame.optionPane().okButton().click();
     }
 
     @Test
     public void b_insertDataSpesialis() {
         System.out.println("2. InsertDataStaf");
-
-        frame.textBox("txtNamaStaf").enterText("Syauki");
+        
         frame.textBox("txtAlamat").enterText("Cilegon");
         frame.button("btnInsert").click();
         frame.optionPane().requireTitle("Insert Staf");
@@ -93,15 +97,17 @@ public class F_StafGuiServiceTest {
         frame.button("btnUpdate").click();
         frame.optionPane().requireTitle("Update Staf Gagal!");
         frame.optionPane().okButton().click();
+
+        frame.textBox("txtNamaStaf").enterText("Syauki Faatih Assalaam");
+        frame.button("btnUpdate").click();
+        frame.optionPane().requireTitle("Update Staf Gagal!");
+        frame.optionPane().okButton().click();
     }
 
     @Test
     public void d_updateDataStaf() {
         System.out.println("4. UpdateDataStaf");
-
-        frame.table("tabelStaf").selectRows(0);
-        frame.textBox("txtNamaStaf").selectText(0, 0);
-        frame.textBox("txtNamaStaf").enterText("Syauki Faatih Assalaam");
+                
         frame.textBox("txtAlamat").enterText("Cilegon-Banten");
         frame.button("btnUpdate").click();
         frame.optionPane().requireTitle("Update Staf");

@@ -71,14 +71,22 @@ public class D_JaminanGuiServiceTest {
         frame.button("btnInsert").click();
         frame.optionPane().requireTitle("Insert Jaminan Gagal!");
         frame.optionPane().okButton().click();
+
+        frame.textBox("txtIDJaminan").enterText("KJS");
+        frame.button("btnInsert").click();
+        frame.optionPane().requireTitle("Insert Jaminan Gagal!");
+        frame.optionPane().okButton().click();
+
+        frame.textBox("txtNamaJaminan").enterText("Kartu JKT Sehat");
+        frame.button("btnInsert").click();
+        frame.optionPane().requireTitle("Insert Jaminan Gagal!");
+        frame.optionPane().okButton().click();
     }
 
     @Test
     public void b_insertDataJaminan() {
         System.out.println("2. InsertDataJaminan");
 
-        frame.textBox("txtIDJaminan").enterText("KJS");
-        frame.textBox("txtNamaJaminan").enterText("Kartu JKT Sehat");
         frame.textBox("txtKeterangan").enterText("Warga DKI");
         frame.button("btnInsert").click();
         frame.optionPane().requireTitle("Insert Jaminan");
@@ -117,23 +125,24 @@ public class D_JaminanGuiServiceTest {
         frame.button("btnUpdate").click();
         frame.optionPane().requireTitle("Update Jaminan Gagal!");
         frame.optionPane().okButton().click();
+
+        frame.textBox("txtNamaJaminan").enterText("Kartu Jakarta Sehat");
+        frame.button("btnUpdate").click();
+        frame.optionPane().requireTitle("Update Jaminan Gagal!");
+        frame.optionPane().okButton().click();
     }
 
     @Test
     public void d_updateDataJaminan() {
         System.out.println("4. UpdateDataJaminan");
 
-        frame.table("tabelJaminan").selectRows(0);
-        frame.textBox("txtNamaJaminan").selectText(0, 0);
-        frame.textBox("txtNamaJaminan").enterText("Kartu Jakarta Sehat");
         frame.textBox("txtKeterangan").enterText("Khusus Warga DKI");
         frame.button("btnUpdate").click();
         frame.optionPane().requireTitle("Update Jaminan");
         frame.optionPane().okButton().click();
 
         frame.textBox("txtCari").enterText("sosial");
-        frame.table("tabelJaminan").selectRows(0);
-        //frame.textBox("txtNamaJaminan").selectText(0, 0);
+        frame.table("tabelJaminan").selectRows(0);        
         frame.textBox("txtNamaJaminan").enterText(" Tenaga Kerja");
         frame.textBox("txtKeterangan").selectText(0, 0);
         frame.textBox("txtKeterangan").enterText("Jaminan ");

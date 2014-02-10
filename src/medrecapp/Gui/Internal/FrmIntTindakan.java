@@ -346,7 +346,7 @@ public class FrmIntTindakan extends javax.swing.JInternalFrame {
         int spesialis = pilihTindakan.getSelectedIndex();
         String keterangan = txtKeterangan.getText();
 
-        if ((namaTindakan.equals("")) || (keterangan.equals("")) || (spesialis == 0)) {
+        if ((namaTindakan.equals("")) || (keterangan.equals("")) || (spesialis == -1)) {
             JOptionPane.showMessageDialog(null, "Data tidak boleh kosong!", "Insert Tindakan Gagal!", JOptionPane.ERROR_MESSAGE);
         } else {
             String id = ss.serviceGetIDSpesialis(pilihTindakan.getSelectedItem().toString());
@@ -372,7 +372,7 @@ public class FrmIntTindakan extends javax.swing.JInternalFrame {
         int spesialis = pilihTindakan.getSelectedIndex();
         String keterangan = txtKeterangan.getText();
 
-        if ((namaTindakan.equals("")) || (keterangan.equals("")) || (spesialis == 0)) {
+        if ((namaTindakan.equals("")) || (keterangan.equals("")) || (spesialis == -1)) {
             JOptionPane.showMessageDialog(null, "Data tidak boleh kosong!", "Update Tindakan Gagal!", JOptionPane.ERROR_MESSAGE);
         } else {
             String id = ss.serviceGetIDSpesialis(pilihTindakan.getSelectedItem().toString());

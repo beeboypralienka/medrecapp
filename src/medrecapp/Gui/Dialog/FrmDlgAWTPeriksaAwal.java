@@ -378,7 +378,7 @@ public class FrmDlgAWTPeriksaAwal extends java.awt.Dialog {
         String temperatur = txtTemperatur3.getText();
         String pernapasan = txtPernapasan3.getText();
 
-        if ((perawat == 0) || (sadar == 0) || (massaBadan.equals("")) || (tinggiBadan.equals("")) || (tekananDarah.equals("")) || (nadi.equals("")) || (temperatur.equals("")) || (pernapasan.equals(""))) {
+        if ((perawat == -1) || (sadar == 0) || (massaBadan.equals("")) || (tinggiBadan.equals("")) || (tekananDarah.equals("")) || (nadi.equals("")) || (temperatur.equals("")) || (pernapasan.equals(""))) {
             JOptionPane.showMessageDialog(null, "Data tidak boleh kosong!", "Update Pemeriksaan Awal Gagal!", JOptionPane.ERROR_MESSAGE);
         } else {
 

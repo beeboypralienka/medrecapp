@@ -45,7 +45,7 @@ public class P_TindakanGuiServiceTest {
         fu = new FrmUtama();
         fu.setExtendedState(fu.getExtendedState() | JFrame.MAXIMIZED_BOTH);
         frame = new FrameFixture(fu);
-        frame.show();        
+        frame.show();
     }
 
     @AfterClass
@@ -95,14 +95,22 @@ public class P_TindakanGuiServiceTest {
         frame.button("btnInsert").click();
         frame.optionPane().requireTitle("Insert Tindakan Gagal!");
         frame.optionPane().okButton().click();
+
+        frame.textBox("txtNamaTindakan").enterText("GV Sedang");
+        frame.button("btnInsert").click();
+        frame.optionPane().requireTitle("Insert Tindakan Gagal!");
+        frame.optionPane().okButton().click();
+
+        frame.comboBox("pilihTindakan").selectItem("Spesialis Penyakit Dalam");
+        frame.button("btnInsert").click();
+        frame.optionPane().requireTitle("Insert Tindakan Gagal!");
+        frame.optionPane().okButton().click();
     }
 
     @Test
     public void c_insertDataTindakan() {
         System.out.println("3. InsertDataTindakan");
 
-        frame.textBox("txtNamaTindakan").enterText("GV Sedang");
-        frame.comboBox("pilihTindakan").selectItem("Spesialis Penyakit Dalam");
         frame.textBox("txtKeterangan").enterText("Tindakan VIP");
         frame.button("btnInsert").click();
         frame.optionPane().requireTitle("Insert Tindakan");
@@ -128,15 +136,22 @@ public class P_TindakanGuiServiceTest {
         frame.button("btnUpdate").click();
         frame.optionPane().requireTitle("Update Tindakan Gagal!");
         frame.optionPane().okButton().click();
+
+        frame.textBox("txtNamaTindakan").enterText("GV Sedang");
+        frame.button("btnUpdate").click();
+        frame.optionPane().requireTitle("Update Tindakan Gagal!");
+        frame.optionPane().okButton().click();
+
+        frame.comboBox("pilihTindakan").selectItem("Spesialis Penyakit Jantung");
+        frame.button("btnUpdate").click();
+        frame.optionPane().requireTitle("Update Tindakan Gagal!");
+        frame.optionPane().okButton().click();
     }
 
     @Test
     public void e_updateDataTindakan() {
         System.out.println("5. UpdateDataTindakan");
 
-        frame.table("tabelTindakan").selectRows(0);
-        frame.textBox("txtNamaTindakan").enterText("GV Sedang");
-        frame.comboBox("pilihTindakan").selectItem("Spesialis Penyakit Jantung");
         frame.textBox("txtKeterangan").enterText("Tindakan khusus untuk pasien VIP");
         frame.button("btnUpdate").click();
         frame.optionPane().requireTitle("Update Tindakan");
@@ -151,8 +166,8 @@ public class P_TindakanGuiServiceTest {
     }
 
     @Test
-    public void f_deleteDataSpesialis() {
-        System.out.println("6. DeleteDataSpesialis");
+    public void f_deleteDataSpesialisGagal() {
+        System.out.println("6. DeleteDataSpesialisGagal");
         frame.menuItem("menuDataSpesialis").click();
 
         frame.table("tabelSpesialis").selectRows(0);
@@ -188,5 +203,20 @@ public class P_TindakanGuiServiceTest {
         frame.optionPane().yesButton().click();
         frame.optionPane().requireTitle("Delete Tindakan");
         frame.optionPane().okButton().click();
+    }
+
+    @Test
+    public void h_deleteDataSpesialisBerhasil() {
+        System.out.println("6. DeleteDataSpesialisBerhasil");
+        frame.menuItem("menuDataSpesialis").click();
+
+        for (int i = 1; i <= 2; i++) {
+            frame.table("tabelSpesialis").selectRows(0);
+            frame.button("btnDelete").click();
+            frame.optionPane().requireTitle("Konfirmasi");
+            frame.optionPane().yesButton().click();
+            frame.optionPane().requireTitle("Delete Spesialis");
+            frame.optionPane().okButton().click();
+        }
     }
 }
