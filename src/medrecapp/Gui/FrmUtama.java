@@ -164,7 +164,7 @@ public class FrmUtama extends javax.swing.JFrame {
         jMenu3.setText("Out Patient");
 
         menuPendaftaranPasBaru.setText("Pasien Baru");
-        menuPendaftaranPasBaru.setName("menuPasienBaru"); // NOI18N
+        menuPendaftaranPasBaru.setName("menuDataPasienBaru"); // NOI18N
         menuPendaftaranPasBaru.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuPendaftaranPasBaruActionPerformed(evt);
@@ -224,6 +224,7 @@ public class FrmUtama extends javax.swing.JFrame {
         jMenu5.setText("Rekam Medis");
 
         menuRekmedPasien.setText("Rekam Medis Pasien");
+        menuRekmedPasien.setName("menuRekamMedisPasien"); // NOI18N
         menuRekmedPasien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuRekmedPasienActionPerformed(evt);

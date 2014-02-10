@@ -110,7 +110,7 @@
                 <MenuItem class="javax.swing.JMenuItem" name="menuPendaftaranPasBaru">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Pasien Baru"/>
-                    <Property name="name" type="java.lang.String" value="menuPasienBaru" noResource="true"/>
+                    <Property name="name" type="java.lang.String" value="menuDataPasienBaru" noResource="true"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuPendaftaranPasBaruActionPerformed"/>
@@ -176,6 +176,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="menuRekmedPasien">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Rekam Medis Pasien"/>
+                <Property name="name" type="java.lang.String" value="menuRekamMedisPasien" noResource="true"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuRekmedPasienActionPerformed"/>
