@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="asus-PC" name="medrecapp.Services.T_ResepDtServiceTest" skipped="0" tests="22" time="1.345" timestamp="2014-02-09T20:00:17">
+<testsuite errors="0" failures="0" hostname="asus-PC" name="medrecapp.Services.T_ResepDtServiceTest" skipped="0" tests="22" time="0.557" timestamp="2014-02-10T07:53:59">
   <properties>
     <property name="default.javac.source" value="1.7" />
     <property name="file.encoding.pkg" value="sun.io" />
@@ -40,7 +40,7 @@
     <property name="libs.TimingFramework.classpath" value="C:\Users\asus\Downloads\Compressed\[Project Eko] eMovie Rental\eMovieRental\lib\TimingFramework-1.0.jar" />
     <property name="libs.absolutelayout.javadoc" value="" />
     <property name="libs.junit_4.maven-pom" value="" />
-    <property name="ant.project.invoked-targets" value="test" />
+    <property name="ant.project.invoked-targets" value="default" />
     <property name="annotation.processing.run.all.processors" value="true" />
     <property name="manifest.file" value="manifest.mf" />
     <property name="mysqladmin" value="C:\xampp\mysql\bin\mysqladmin.exe" />
@@ -79,7 +79,7 @@
     <property name="ant.project.default-target" value="default" />
     <property name="libs.hibernate-persistence.javadoc" value="" />
     <property name="libs.ejb3-persistence.classpath" value="C:\Program Files\NetBeans 6.9.1\java\modules\ext\hibernate\ejb3-persistence.jar" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner medrecapp.Services.T_ResepDtServiceTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\test\results\TEST-medrecapp.Services.T_ResepDtServiceTest.xml crashfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junitvmwatcher8465665833714393489.properties propsfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junit2640986496593191498.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner medrecapp.Services.T_ResepDtServiceTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\test\results\TEST-medrecapp.Services.T_ResepDtServiceTest.xml crashfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junitvmwatcher1351695481587857587.properties propsfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junit1312556761593617389.properties" />
     <property name="built-jar.properties" value="C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\built-jar.properties" />
     <property name="libs.CopyLibs.displayName" value="CopyLibs Task" />
     <property name="libs.junit.src" value="" />
@@ -277,28 +277,28 @@
     <property name="sun.arch.data.model" value="64" />
     <property name="" value="======" />
   </properties>
-  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="a_insertDataSpesialis" time="0.772" />
-  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="b_insertDataJaminan" time="0.02" />
-  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="c_insertDataPerawat" time="0.032" />
-  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="d_insertDataDokter" time="0.019" />
-  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="e_insertDataStaf" time="0.015" />
-  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="f_insertDataPasien" time="0.016" />
-  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="g_insertRekamMedis" time="0.025" />
-  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="h_insertDataObat" time="0.024" />
-  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="i_insertResep" time="0.015" />
-  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="j_insertResepDt" time="0.011" />
-  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="k_updateResepDt" time="0.008" />
-  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="l_getAllResepDt" time="0.003" />
-  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="m_deleteResepDt" time="0.006" />
-  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="n_deleteResep" time="0.008" />
-  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="o_deleteDataObat" time="0.011" />
-  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="p_deleteDataRekmed" time="0.013" />
-  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="q_deleteDataJaminan" time="0.006" />
-  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="r_deleteDataPerawat" time="0.006" />
-  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="s_deleteDataDokter" time="0.006" />
-  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="t_deleteDataStaf" time="0.005" />
-  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="u_deleteDataPasien" time="0.006" />
-  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="v_deleteDataSpesialis" time="0.005" />
+  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="a_insertDataSpesialis" time="0.309" />
+  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="b_insertDataJaminan" time="0.009" />
+  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="c_insertDataPerawat" time="0.016" />
+  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="d_insertDataDokter" time="0.009" />
+  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="e_insertDataStaf" time="0.007" />
+  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="f_insertDataPasien" time="0.007" />
+  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="g_insertRekamMedis" time="0.009" />
+  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="h_insertDataObat" time="0.01" />
+  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="i_insertResep" time="0.007" />
+  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="j_insertResepDt" time="0.003" />
+  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="k_updateResepDt" time="0.003" />
+  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="l_getAllResepDt" time="0.001" />
+  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="m_deleteResepDt" time="0.002" />
+  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="n_deleteResep" time="0.003" />
+  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="o_deleteDataObat" time="0.005" />
+  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="p_deleteDataRekmed" time="0.005" />
+  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="q_deleteDataJaminan" time="0.002" />
+  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="r_deleteDataPerawat" time="0.003" />
+  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="s_deleteDataDokter" time="0.002" />
+  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="t_deleteDataStaf" time="0.002" />
+  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="u_deleteDataPasien" time="0.003" />
+  <testcase classname="medrecapp.Services.T_ResepDtServiceTest" name="v_deleteDataSpesialis" time="0.003" />
   <system-out><![CDATA[1. insertDataSpesialis
 2. insertDataJaminan
 3. insertDataPerawat

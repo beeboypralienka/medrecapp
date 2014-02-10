@@ -108,7 +108,7 @@ public class P_TindakanGuiServiceTest {
         frame.optionPane().requireTitle("Insert Tindakan");
         frame.optionPane().okButton().click();
 
-        frame.textBox("txtNamaTindakan").enterText("Drae Kecil");
+        frame.textBox("txtNamaTindakan").enterText("Drae");
         frame.comboBox("pilihTindakan").selectItem("Spesialis Penyakit Dalam");
         frame.textBox("txtKeterangan").enterText("Tindakan KJS");
         frame.button("btnInsert").click();
@@ -120,6 +120,7 @@ public class P_TindakanGuiServiceTest {
     public void d_updateDataTindakanKosong() {
         System.out.println("4. UpdateDataTindakanKosong");
 
+        frame.textBox("txtCari").enterText("gv");
         frame.table("tabelTindakan").selectRows(0);
         frame.textBox("txtNamaTindakan").deleteText();
         frame.comboBox("pilihTindakan").selectItem(0);
@@ -137,6 +138,13 @@ public class P_TindakanGuiServiceTest {
         frame.textBox("txtNamaTindakan").enterText("GV Sedang");
         frame.comboBox("pilihTindakan").selectItem("Spesialis Penyakit Jantung");
         frame.textBox("txtKeterangan").enterText("Tindakan khusus untuk pasien VIP");
+        frame.button("btnUpdate").click();
+        frame.optionPane().requireTitle("Update Tindakan");
+        frame.optionPane().okButton().click();
+
+        frame.textBox("txtCari").enterText("TIND.0002");
+        frame.table("tabelTindakan").selectRows(0);
+        frame.textBox("txtNamaTindakan").enterText(" Kecil");
         frame.button("btnUpdate").click();
         frame.optionPane().requireTitle("Update Tindakan");
         frame.optionPane().okButton().click();

@@ -123,6 +123,7 @@ public class L_DokterGuiServiceTest {
     public void d_updateDataDokterKosong() {
         System.out.println("4. UpdateDataDokterKosong");
 
+        frame.textBox("txtCari").enterText("amal");
         frame.table("tabelDokter").selectRows(0);
         frame.textBox("txtNamaDokter").deleteText();
         frame.comboBox("pilihSpesialis").selectItem(0);
@@ -143,6 +144,13 @@ public class L_DokterGuiServiceTest {
         frame.comboBox("pilihSpesialis").selectItem("Spesialis Penyakit Mata");
         frame.textBox("txtTglKerja").enterText("2013-10-10");
         frame.textBox("txtAlamat").enterText("Garut - Jawa Barat");
+        frame.button("btnUpdate").click();
+        frame.optionPane().requireTitle("Update Dokter");
+        frame.optionPane().okButton().click();
+
+        frame.textBox("txtCari").enterText("dok.002");
+        frame.table("tabelDokter").selectRows(0);
+        frame.textBox("txtNamaDokter").enterText(" Khasannah");
         frame.button("btnUpdate").click();
         frame.optionPane().requireTitle("Update Dokter");
         frame.optionPane().okButton().click();

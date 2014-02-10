@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="asus-PC" name="medrecapp.Services.D_JaminanGuiServiceTest" skipped="0" tests="5" time="23.722" timestamp="2014-02-09T19:54:46">
+<testsuite errors="0" failures="0" hostname="asus-PC" name="medrecapp.Services.D_JaminanGuiServiceTest" skipped="0" tests="5" time="50.561" timestamp="2014-02-10T07:48:31">
   <properties>
     <property name="default.javac.source" value="1.7" />
     <property name="file.encoding.pkg" value="sun.io" />
@@ -40,7 +40,7 @@
     <property name="libs.TimingFramework.classpath" value="C:\Users\asus\Downloads\Compressed\[Project Eko] eMovie Rental\eMovieRental\lib\TimingFramework-1.0.jar" />
     <property name="libs.absolutelayout.javadoc" value="" />
     <property name="libs.junit_4.maven-pom" value="" />
-    <property name="ant.project.invoked-targets" value="test" />
+    <property name="ant.project.invoked-targets" value="default" />
     <property name="annotation.processing.run.all.processors" value="true" />
     <property name="manifest.file" value="manifest.mf" />
     <property name="mysqladmin" value="C:\xampp\mysql\bin\mysqladmin.exe" />
@@ -79,7 +79,7 @@
     <property name="ant.project.default-target" value="default" />
     <property name="libs.hibernate-persistence.javadoc" value="" />
     <property name="libs.ejb3-persistence.classpath" value="C:\Program Files\NetBeans 6.9.1\java\modules\ext\hibernate\ejb3-persistence.jar" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner medrecapp.Services.D_JaminanGuiServiceTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\test\results\TEST-medrecapp.Services.D_JaminanGuiServiceTest.xml crashfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junitvmwatcher3006221815718577141.properties propsfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junit1748249247512837314.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner medrecapp.Services.D_JaminanGuiServiceTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\test\results\TEST-medrecapp.Services.D_JaminanGuiServiceTest.xml crashfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junitvmwatcher3802979789879915335.properties propsfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junit7183840416032624386.properties" />
     <property name="built-jar.properties" value="C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\built-jar.properties" />
     <property name="libs.CopyLibs.displayName" value="CopyLibs Task" />
     <property name="libs.junit.src" value="" />
@@ -277,11 +277,11 @@
     <property name="sun.arch.data.model" value="64" />
     <property name="" value="======" />
   </properties>
-  <testcase classname="medrecapp.Services.D_JaminanGuiServiceTest" name="a_insertDataJaminanKosong" time="0.854" />
-  <testcase classname="medrecapp.Services.D_JaminanGuiServiceTest" name="b_insertDataJaminan" time="7.292" />
-  <testcase classname="medrecapp.Services.D_JaminanGuiServiceTest" name="c_updateDataJaminanKosong" time="2.402" />
-  <testcase classname="medrecapp.Services.D_JaminanGuiServiceTest" name="d_updateDataJaminan" time="7.435" />
-  <testcase classname="medrecapp.Services.D_JaminanGuiServiceTest" name="e_deleteDataJaminan" time="1.282" />
+  <testcase classname="medrecapp.Services.D_JaminanGuiServiceTest" name="a_insertDataJaminanKosong" time="0.586" />
+  <testcase classname="medrecapp.Services.D_JaminanGuiServiceTest" name="b_insertDataJaminan" time="27.604" />
+  <testcase classname="medrecapp.Services.D_JaminanGuiServiceTest" name="c_updateDataJaminanKosong" time="3.212" />
+  <testcase classname="medrecapp.Services.D_JaminanGuiServiceTest" name="d_updateDataJaminan" time="12.653" />
+  <testcase classname="medrecapp.Services.D_JaminanGuiServiceTest" name="e_deleteDataJaminan" time="4.107" />
   <system-out><![CDATA[1. InsertDataJaminanKosong
 2. InsertDataJaminan
 3. UpdateDataJaminanKosong

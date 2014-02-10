@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="asus-PC" name="medrecapp.Services.Q_RekamMedisServiceTest" skipped="0" tests="18" time="1.399" timestamp="2014-02-09T19:58:59">
+<testsuite errors="0" failures="0" hostname="asus-PC" name="medrecapp.Services.Q_RekamMedisServiceTest" skipped="0" tests="18" time="0.449" timestamp="2014-02-10T07:52:45">
   <properties>
     <property name="default.javac.source" value="1.7" />
     <property name="file.encoding.pkg" value="sun.io" />
@@ -40,7 +40,7 @@
     <property name="libs.TimingFramework.classpath" value="C:\Users\asus\Downloads\Compressed\[Project Eko] eMovie Rental\eMovieRental\lib\TimingFramework-1.0.jar" />
     <property name="libs.absolutelayout.javadoc" value="" />
     <property name="libs.junit_4.maven-pom" value="" />
-    <property name="ant.project.invoked-targets" value="test" />
+    <property name="ant.project.invoked-targets" value="default" />
     <property name="annotation.processing.run.all.processors" value="true" />
     <property name="manifest.file" value="manifest.mf" />
     <property name="mysqladmin" value="C:\xampp\mysql\bin\mysqladmin.exe" />
@@ -79,7 +79,7 @@
     <property name="ant.project.default-target" value="default" />
     <property name="libs.hibernate-persistence.javadoc" value="" />
     <property name="libs.ejb3-persistence.classpath" value="C:\Program Files\NetBeans 6.9.1\java\modules\ext\hibernate\ejb3-persistence.jar" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner medrecapp.Services.Q_RekamMedisServiceTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\test\results\TEST-medrecapp.Services.Q_RekamMedisServiceTest.xml crashfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junitvmwatcher1131438390223992436.properties propsfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junit4544962768043474757.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner medrecapp.Services.Q_RekamMedisServiceTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\test\results\TEST-medrecapp.Services.Q_RekamMedisServiceTest.xml crashfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junitvmwatcher5085234053878658121.properties propsfile=C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\junit6624375112962902855.properties" />
     <property name="built-jar.properties" value="C:\Users\asus\Documents\NetBeansProjects\MedRecApp\build\built-jar.properties" />
     <property name="libs.CopyLibs.displayName" value="CopyLibs Task" />
     <property name="libs.junit.src" value="" />
@@ -277,24 +277,24 @@
     <property name="sun.arch.data.model" value="64" />
     <property name="" value="======" />
   </properties>
-  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="a_insertDataSpesialis" time="0.814" />
-  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="b_insertDataJaminan" time="0.018" />
-  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="c_insertDataPerawat" time="0.03" />
-  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="d_insertDataDokter" time="0.086" />
-  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="e_insertDataStaf" time="0.014" />
-  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="f_insertDataPasien" time="0.018" />
-  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="g_insertRekamMedis" time="0.011" />
-  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="h_updatePasienMasukPoli" time="0.015" />
-  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="i_updatePemeriksaanAwal" time="0.01" />
-  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="j_updatePemeriksaanLanjutan" time="0.009" />
-  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="k_getAllRekamMedis" time="0.006" />
-  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="l_deleteDataRekmed" time="0.008" />
-  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="m_deleteDataJaminan" time="0.006" />
-  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="n_deleteDataPerawat" time="0.008" />
-  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="o_deleteDataDokter" time="0.005" />
-  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="p_deleteDataStaf" time="0.01" />
-  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="q_deleteDataPasien" time="0.007" />
-  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="r_deleteDataSpesialis" time="0.006" />
+  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="a_insertDataSpesialis" time="0.254" />
+  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="b_insertDataJaminan" time="0.007" />
+  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="c_insertDataPerawat" time="0.011" />
+  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="d_insertDataDokter" time="0.007" />
+  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="e_insertDataStaf" time="0.007" />
+  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="f_insertDataPasien" time="0.008" />
+  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="g_insertRekamMedis" time="0.005" />
+  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="h_updatePasienMasukPoli" time="0.006" />
+  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="i_updatePemeriksaanAwal" time="0.005" />
+  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="j_updatePemeriksaanLanjutan" time="0.008" />
+  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="k_getAllRekamMedis" time="0.002" />
+  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="l_deleteDataRekmed" time="0.003" />
+  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="m_deleteDataJaminan" time="0.003" />
+  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="n_deleteDataPerawat" time="0.004" />
+  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="o_deleteDataDokter" time="0.003" />
+  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="p_deleteDataStaf" time="0.006" />
+  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="q_deleteDataPasien" time="0.003" />
+  <testcase classname="medrecapp.Services.Q_RekamMedisServiceTest" name="r_deleteDataSpesialis" time="0.002" />
   <system-out><![CDATA[1. insertDataSpesialis
 2. insertDataJaminan
 3. insertDataPerawat
