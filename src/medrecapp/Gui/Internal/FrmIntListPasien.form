@@ -54,7 +54,11 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
           <Group type="102" alignment="0" attributes="0">
+=======
+          <Group type="102" alignment="0" max="-2" attributes="0">
+>>>>>>> 916dfd32c6b32561b1bca97a858deae873c54117
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
@@ -67,15 +71,25 @@
                   </Group>
                   <Component id="btnRekamMedis" min="-2" pref="42" max="-2" attributes="0"/>
               </Group>
+<<<<<<< HEAD
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jScrollPane1" pref="439" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+=======
+              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="428" max="32767" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+>>>>>>> 916dfd32c6b32561b1bca97a858deae873c54117
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="btnRefresh" min="-2" pref="49" max="-2" attributes="0"/>
                   <Component id="btnHapus" min="-2" pref="49" max="-2" attributes="0"/>
                   <Component id="btnUbah" min="-2" pref="49" max="-2" attributes="1"/>
               </Group>
+<<<<<<< HEAD
               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+=======
+              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+>>>>>>> 916dfd32c6b32561b1bca97a858deae873c54117
           </Group>
       </Group>
     </DimensionLayout>
@@ -87,6 +101,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCari">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="txtCari" noResource="true"/>
+      </Properties>
       <Events>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCariKeyReleased"/>
       </Events>
@@ -116,6 +133,7 @@
     <Component class="javax.swing.JButton" name="btnRekamMedis">
       <Properties>
         <Property name="text" type="java.lang.String" value="LIHAT REKAM MEDIS BY NO RM"/>
+        <Property name="name" type="java.lang.String" value="btnRekmedByNoRm" noResource="true"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRekamMedisActionPerformed"/>

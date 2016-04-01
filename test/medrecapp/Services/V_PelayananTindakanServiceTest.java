@@ -41,7 +41,7 @@ import static org.junit.Assert.*;
  * @author Fachrul Pralienka BM
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class W_PelayananTindakanServiceTest {
+public class V_PelayananTindakanServiceTest {
 
     private List<PelayananTindakan> list;
     private Connection connection;
@@ -52,7 +52,7 @@ public class W_PelayananTindakanServiceTest {
     private PelayananTindakan pt;
     private final String getAllPelayananTindakan = "SELECT * FROM pelayanan_tindakan";
 
-    public W_PelayananTindakanServiceTest() {
+    public V_PelayananTindakanServiceTest() {
     }
 
     @BeforeClass

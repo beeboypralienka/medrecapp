@@ -8,7 +8,6 @@
  *
  * Created on Jan 18, 2014, 12:30:58 PM
  */
-
 package medrecapp.Gui.Dialog;
 
 import java.awt.event.KeyAdapter;
@@ -28,7 +27,6 @@ public class FrmDlgAWTPeriksaLanjutan extends java.awt.Dialog {
 
     RekamMedisService rms = new RekamMedisService();
     TabelModelRekmedByNoDaftar tabelModelRekamMedisByNoDaftar = new TabelModelRekmedByNoDaftar();
-
     String noPendaftaran = FrmIntPoliklinik.noPendaftaranPoli;
 
     /** Creates new form FrmDlgAWTPeriksaLanjutan */
@@ -64,9 +62,10 @@ public class FrmDlgAWTPeriksaLanjutan extends java.awt.Dialog {
         }
 
         txtAnamnesa.addKeyListener(new KeyAdapter() {
+
             @Override
-            public void keyPressed(KeyEvent e){
-                if(e.getKeyCode()==KeyEvent.VK_TAB){
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_TAB) {
                     txtAnamnesa.transferFocus();
                     e.consume();
                 }
@@ -74,9 +73,10 @@ public class FrmDlgAWTPeriksaLanjutan extends java.awt.Dialog {
         });
 
         txtDiagnosis.addKeyListener(new KeyAdapter() {
+
             @Override
-            public void keyPressed(KeyEvent e){
-                if(e.getKeyCode()==KeyEvent.VK_TAB){
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_TAB) {
                     txtDiagnosis.transferFocus();
                     e.consume();
                 }
@@ -84,9 +84,10 @@ public class FrmDlgAWTPeriksaLanjutan extends java.awt.Dialog {
         });
 
         txtTerapi.addKeyListener(new KeyAdapter() {
+
             @Override
-            public void keyPressed(KeyEvent e){
-                if(e.getKeyCode()==KeyEvent.VK_TAB){
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_TAB) {
                     txtTerapi.transferFocus();
                     e.consume();
                 }
@@ -256,27 +257,38 @@ public class FrmDlgAWTPeriksaLanjutan extends java.awt.Dialog {
 
     private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
         // TODO add your handling code here:
-        RekamMedis rm = new RekamMedis();
-        rm.setAnamnesa(txtAnamnesa.getText());
-        rm.setDiagnosis(txtDiagnosis.getText());
-        rm.setTerapi(txtTerapi.getText());
-        rms.serviceUpdatePemeriksaanLanjutan(rm, noPendaftaran);
-        if(RekamMedisDao.hasilUpdatePemeriksaanLanjutan.equals("ok")){
-            JOptionPane.showMessageDialog(null, "Data pemeriksaan lanjutan berhasil diubah!", "Update Pemeriksaan Lanjutan", JOptionPane.INFORMATION_MESSAGE);
-            dispose();
-        }else{
-            JOptionPane.showMessageDialog(null, RekamMedisDao.hasilUpdatePemeriksaanLanjutan,"Update Pemeriksaan Lanjutan Gagal!",JOptionPane.ERROR_MESSAGE);
+        String anamnesa = txtAnamnesa.getText();
+        String diagnosis = txtDiagnosis.getText();
+        String terapi = txtTerapi.getText();
+
+        if ((anamnesa.equals("")) || (diagnosis.equals("")) || (terapi.equals(""))) {
+            JOptionPane.showMessageDialog(null, "Data tidak boleh kosong!", "Update Pemeriksaan Lanjutan Gagal!", JOptionPane.ERROR_MESSAGE);
+        } else {
+
+            RekamMedis rm = new RekamMedis();
+            rm.setAnamnesa(anamnesa);
+            rm.setDiagnosis(diagnosis);
+            rm.setTerapi(terapi);
+            rms.serviceUpdatePemeriksaanLanjutan(rm, noPendaftaran);
+            if (RekamMedisDao.hasilUpdatePemeriksaanLanjutan.equals("ok")) {
+                JOptionPane.showMessageDialog(null, "Data pemeriksaan lanjutan berhasil diubah!", "Update Pemeriksaan Lanjutan", JOptionPane.INFORMATION_MESSAGE);
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, RekamMedisDao.hasilUpdatePemeriksaanLanjutan, "Update Pemeriksaan Lanjutan Gagal!", JOptionPane.ERROR_MESSAGE);
+            }
         }
 }//GEN-LAST:event_btnOKActionPerformed
 
     /**
-    * @param args the command line arguments
-    */
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
                 FrmDlgAWTPeriksaLanjutan dialog = new FrmDlgAWTPeriksaLanjutan(new java.awt.Frame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+
                     public void windowClosing(java.awt.event.WindowEvent e) {
                         System.exit(0);
                     }
@@ -285,8 +297,6 @@ public class FrmDlgAWTPeriksaLanjutan extends java.awt.Dialog {
             }
         });
     }
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnOK;
     private javax.swing.JLabel jLabel1;
@@ -304,5 +314,4 @@ public class FrmDlgAWTPeriksaLanjutan extends java.awt.Dialog {
     private javax.swing.JTextArea txtDiagnosis;
     private javax.swing.JTextArea txtTerapi;
     // End of variables declaration//GEN-END:variables
-
 }

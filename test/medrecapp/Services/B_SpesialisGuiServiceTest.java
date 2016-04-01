@@ -2,11 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package medrecapp.Services;
 
 import javax.swing.JFrame;
-import medrecapp.Gui.FrmUtamaTest;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -54,7 +52,7 @@ public class B_SpesialisGuiServiceTest {
     @AfterClass
     public static void tearDownClass() throws Exception {
         SpesialisService ss = new SpesialisService();
-        ss.serviceDeleteSpesialis("Sp.PD");        
+        ss.serviceDeleteSpesialis("Sp.PD");
     }
 
     @Before
@@ -71,41 +69,84 @@ public class B_SpesialisGuiServiceTest {
 
         frame.button("btnInsert").click();
         frame.optionPane().requireTitle("Insert Spesialis Gagal!");
-        frame.optionPane().okButton().click();        
+        frame.optionPane().okButton().click();
+
+        frame.textBox("txtIDSpesialis").enterText("Sp.PD");
+        frame.button("btnInsert").click();
+        frame.optionPane().requireTitle("Insert Spesialis Gagal!");
+        frame.optionPane().okButton().click();
+
+        frame.textBox("txtNamaSpesialis").enterText("Penyakit Dalam");
+        frame.button("btnInsert").click();
+        frame.optionPane().requireTitle("Insert Spesialis Gagal!");
+        frame.optionPane().okButton().click();
     }
 
     @Test
     public void b_insertDataSpesialis() {
         System.out.println("2. InsertDataSpesialis");
-
-        frame.textBox("txtIDSpesialis").enterText("Sp.PD");
-        frame.textBox("txtNamaSpesialis").enterText("Penyakit Dalam");
+        
         frame.textBox("txtTarifKonsul").enterText("80000");
         frame.button("btnInsert").click();
         frame.optionPane().requireTitle("Insert Spesialis");
-        frame.optionPane().okButton().click();        
+        frame.optionPane().okButton().click();
+
+        frame.textBox("txtIDSpesialis").enterText("Sp.THT");
+        frame.textBox("txtNamaSpesialis").enterText("Penyakit THT");
+        frame.textBox("txtTarifKonsul").enterText("80000");
+        frame.button("btnInsert").click();
+        frame.optionPane().requireTitle("Insert Spesialis");
+        frame.optionPane().okButton().click();
+
+        frame.textBox("txtIDSpesialis").enterText("Sp.Jt");
+        frame.textBox("txtNamaSpesialis").enterText("Penyakit Jantung");
+        frame.textBox("txtTarifKonsul").enterText("80000");
+        frame.button("btnInsert").click();
+        frame.optionPane().requireTitle("Insert Spesialis");
+        frame.optionPane().okButton().click();
+
+        frame.textBox("txtIDSpesialis").enterText("Sp.Mt");
+        frame.textBox("txtNamaSpesialis").enterText("Penyakit Mata");
+        frame.textBox("txtTarifKonsul").enterText("80000");
+        frame.button("btnInsert").click();
+        frame.optionPane().requireTitle("Insert Spesialis");
+        frame.optionPane().okButton().click();
     }
 
     @Test
     public void c_updateDataSpesialisKosong() {
         System.out.println("3. UpdateDataSpesialisKosong");
 
+        frame.textBox("txtCari").enterText("Sp.PD");
         frame.table("tabelSpesialis").selectRows(0);
         frame.textBox("txtNamaSpesialis").deleteText();
         frame.textBox("txtTarifKonsul").deleteText();
         frame.button("btnUpdate").click();
         frame.optionPane().requireTitle("Update Spesialis Gagal!");
         frame.optionPane().okButton().click();
+
+        frame.textBox("txtNamaSpesialis").enterText("Spesialis Penyakit Dalam");
+        frame.button("btnUpdate").click();
+        frame.optionPane().requireTitle("Update Spesialis Gagal!");
+        frame.optionPane().okButton().click();
+
     }
 
     @Test
     public void d_updateDataSpesialis() {
         System.out.println("4. UpdateDataSpesialis");
 
+        frame.textBox("txtTarifKonsul").enterText("95000");
+        frame.button("btnUpdate").click();
+        frame.optionPane().requireTitle("Update Spesialis");
+        frame.optionPane().okButton().click();
+
+        frame.textBox("txtCari").enterText("jantung");
         frame.table("tabelSpesialis").selectRows(0);
         frame.textBox("txtNamaSpesialis").selectText(0, 0);
-        frame.textBox("txtNamaSpesialis").enterText("Spesialis Penyakit Dalam");
-        frame.textBox("txtTarifKonsul").enterText("95000");
+        frame.textBox("txtNamaSpesialis").enterText("Spesialis ");
+        frame.textBox("txtTarifKonsul").selectText(1, 2);
+        frame.textBox("txtTarifKonsul").enterText("5");
         frame.button("btnUpdate").click();
         frame.optionPane().requireTitle("Update Spesialis");
         frame.optionPane().okButton().click();
@@ -115,12 +156,13 @@ public class B_SpesialisGuiServiceTest {
     public void e_deleteDataSpesialis() {
         System.out.println("5. DeleteDataSpesialis");
 
-        frame.table("tabelSpesialis").selectRows(0);
-        frame.button("btnDelete").click();
-        frame.optionPane().requireTitle("Konfirmasi");
-        frame.optionPane().yesButton().click();
-        frame.optionPane().requireTitle("Delete Spesialis");
-        frame.optionPane().okButton().click();        
+        for (int i=0; i<4; i++)  {
+            frame.table("tabelSpesialis").selectRows(0);
+            frame.button("btnDelete").click();
+            frame.optionPane().requireTitle("Konfirmasi");
+            frame.optionPane().yesButton().click();
+            frame.optionPane().requireTitle("Delete Spesialis");
+            frame.optionPane().okButton().click();
+        }
     }
-
 }

@@ -43,7 +43,7 @@ public class TabelModelRekmedByNoRm extends AbstractTableModel{
             case 5:
                 return "Status";
             case 6:
-                return "Staf Pendaftar";
+                return "Staf";
         }
         return null;
     }

@@ -59,7 +59,7 @@ public class FrmIntDokter extends javax.swing.JInternalFrame {
             public void valueChanged(ListSelectionEvent e) {
                 int row = tabelDokter.getSelectedRow();
                 if (row != -1) {
-                    
+
                     String nama = tabelDokter.getValueAt(row, 1).toString();
                     String spesialis = tabelDokter.getValueAt(row, 2).toString();
                     String tglKerja = tabelDokter.getValueAt(row, 3).toString();
@@ -267,6 +267,7 @@ public class FrmIntDokter extends javax.swing.JInternalFrame {
         });
 
         btnUpdate.setText("Update");
+        btnUpdate.setName("btnUpdate"); // NOI18N
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
@@ -274,6 +275,7 @@ public class FrmIntDokter extends javax.swing.JInternalFrame {
         });
 
         btnDelete.setText("Delete");
+        btnDelete.setName("btnDelete"); // NOI18N
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
@@ -281,6 +283,7 @@ public class FrmIntDokter extends javax.swing.JInternalFrame {
         });
 
         btnRefresh.setText("Refresh");
+        btnRefresh.setName("btnRefresh"); // NOI18N
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRefreshActionPerformed(evt);
@@ -298,8 +301,10 @@ public class FrmIntDokter extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tabelDokter.setName("tabelDokter"); // NOI18N
         jScrollPane2.setViewportView(tabelDokter);
 
+        txtCariDokter.setName("txtCari"); // NOI18N
         txtCariDokter.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCariDokterKeyReleased(evt);
@@ -346,7 +351,7 @@ public class FrmIntDokter extends javax.swing.JInternalFrame {
                     .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -366,19 +371,19 @@ public class FrmIntDokter extends javax.swing.JInternalFrame {
         String alamat = txtAlamat.getText();
         int spesialis = pilihSpesialis.getSelectedIndex();
 
-        if ((nmDokter.equals("")) || (spesialis==0) || (tglKerja.equals("")) || (alamat.equals(""))) {
-            JOptionPane.showMessageDialog(rootPane, "null", "Error - Get ID Spesialis", JOptionPane.ERROR_MESSAGE);
+        if ((nmDokter.equals("")) || (spesialis == -1) || (tglKerja.equals("")) || (alamat.equals(""))) {
+            JOptionPane.showMessageDialog(rootPane, "Data tidak boleh kosong!", "Insert Dokter Gagal!", JOptionPane.ERROR_MESSAGE);
         } else {
             String id = ss.serviceGetIDSpesialis(pilihSpesialis.getSelectedItem().toString());
-            if (!SpesialisDao.hasilGetIDSpesialis.equals("ok")) {
-                JOptionPane.showMessageDialog(null, SpesialisDao.hasilGetIDSpesialis, "Error - Get ID Spesialis", JOptionPane.ERROR_MESSAGE);
-            }
+//            if (!SpesialisDao.hasilGetIDSpesialis.equals("ok")) {
+//                JOptionPane.showMessageDialog(null, SpesialisDao.hasilGetIDSpesialis, "Error - Get ID Spesialis", JOptionPane.ERROR_MESSAGE);
+//            }
             Dokter d = new Dokter();
             d.setNoDokter("DOK." + ds.serviceGetMaxNoDokter());
-            d.setNmDokter(txtNmDokter.getText().toUpperCase());
+            d.setNmDokter(nmDokter.toUpperCase());
             d.setIdSpesialis(id);
-            d.setTglKerjaDok(txtTglKerja.getText());
-            d.setAlamatDok(txtAlamat.getText());
+            d.setTglKerjaDok(tglKerja);
+            d.setAlamatDok(alamat);
             ds.serviceInsertDokter(d);
             if (DokterDao.hasilInsert.equals("ok")) {
                 JOptionPane.showMessageDialog(null, "Data dokter berhasil ditambah!", "Insert Dokter", JOptionPane.INFORMATION_MESSAGE);
@@ -391,21 +396,30 @@ public class FrmIntDokter extends javax.swing.JInternalFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        String id = ss.serviceGetIDSpesialis(pilihSpesialis.getSelectedItem().toString());
-        Dokter d = new Dokter();
-        d.setNmDokter(txtNmDokter.getText().toUpperCase());
-        d.setIdSpesialis(id);
-        d.setTglKerjaDok(txtTglKerja.getText());
-        d.setAlamatDok(txtAlamat.getText());
+        String nmDokter = txtNmDokter.getText();
+        String tglKerja = txtTglKerja.getText();
+        String alamat = txtAlamat.getText();
+        int spesialis = pilihSpesialis.getSelectedIndex();
 
-        int row = tabelDokter.getSelectedRow();
-        if (row != -1) {
-            ds.serviceUpdateDokter(d, tabelDokter.getValueAt(row, 0).toString());
-            if (DokterDao.hasilUpdate.equals("ok")) {
-                JOptionPane.showMessageDialog(null, "Data dokter berhasil diubah!", "Update Dokter", JOptionPane.INFORMATION_MESSAGE);
-                clear();
-            } else {
-                JOptionPane.showMessageDialog(null, DokterDao.hasilUpdate, "Update Dokter Gagal!", JOptionPane.ERROR_MESSAGE);
+        if ((nmDokter.equals("")) || (spesialis == -1) || (tglKerja.equals("")) || (alamat.equals(""))) {
+            JOptionPane.showMessageDialog(rootPane, "Data tidak boleh kosong!", "Update Dokter Gagal!", JOptionPane.ERROR_MESSAGE);
+        } else {
+            String id = ss.serviceGetIDSpesialis(pilihSpesialis.getSelectedItem().toString());
+            Dokter d = new Dokter();
+            d.setNmDokter(txtNmDokter.getText().toUpperCase());
+            d.setIdSpesialis(id);
+            d.setTglKerjaDok(txtTglKerja.getText());
+            d.setAlamatDok(txtAlamat.getText());
+
+            int row = tabelDokter.getSelectedRow();
+            if (row != -1) {
+                ds.serviceUpdateDokter(d, tabelDokter.getValueAt(row, 0).toString());
+                if (DokterDao.hasilUpdate.equals("ok")) {
+                    JOptionPane.showMessageDialog(null, "Data dokter berhasil diubah!", "Update Dokter", JOptionPane.INFORMATION_MESSAGE);
+                    clear();
+                } else {
+                    JOptionPane.showMessageDialog(null, DokterDao.hasilUpdate, "Update Dokter Gagal!", JOptionPane.ERROR_MESSAGE);
+                }
             }
         }
     }//GEN-LAST:event_btnUpdateActionPerformed

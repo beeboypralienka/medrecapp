@@ -4,60 +4,57 @@
  */
 
 /*
- * FrmDlgPasien.java
+ * FrmIntPasienBaru.java
  *
- * Created on Dec 29, 2013, 8:52:14 AM
+ * Created on Dec 19, 2013, 4:59:09 PM
  */
-package medrecapp.Gui.Dialog;
+package medrecapp.Gui.Internal;
 
+import com.mysql.jdbc.Connection;
+import java.awt.Dimension;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import medrecapp.Dao.PasienDao;
 import medrecapp.Entity.Pasien;
-import medrecapp.Gui.Internal.FrmIntListPasien;
 import medrecapp.Services.PasienService;
 
 /**
  *
  * @author Fachrul Pralienka BM
  */
-public class FrmDlgPasien extends javax.swing.JDialog {
+public class FrmIntPasienBaru extends javax.swing.JInternalFrame {
 
     PasienService ps = new PasienService();
-    private String noRm = null;
+    //TabelModelPasien tabelModelPasien = new TabelModelPasien();
+    Connection connection;
+    public static String ID, nama, jk, tglLahir, agama, alamat;
 
-    /** Creates new form FrmDlgPasien */
-    public FrmDlgPasien(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    /** Creates new form FrmIntPasienBaru */
+    public FrmIntPasienBaru() {
         initComponents();
-        setLocationRelativeTo(this);
-
-        this.setTitle(FrmIntListPasien.judul);
-
-        if (this.getTitle().equalsIgnoreCase("Ubah Pasien")) {
-            noRm = FrmIntListPasien.ID;
-            txtNmPasien.setText(FrmIntListPasien.nama);
-            if ((FrmIntListPasien.jk).equalsIgnoreCase("L")) {
-                radioLaki.setSelected(true);
-            } else {
-                radioPerempuan.setSelected(true);
-            }
-            txtTglLahir.setText(FrmIntListPasien.tglLahir);
-            pilihAgama.setSelectedItem(FrmIntListPasien.agama);
-            txtAlamat.setText(FrmIntListPasien.alamat);
-        }
 
         txtAlamat.addKeyListener(new KeyAdapter() {
 
             @Override
-            public void keyPressed(KeyEvent key) {
-                if (key.getKeyCode() == KeyEvent.VK_TAB) {
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_TAB) {
                     txtAlamat.transferFocus();
-                    key.consume();
+                    e.consume();
                 }
             }
         });
+    }
+
+    public void clear() {
+        txtNmPasien.setText("");
+        txtTglLahir.setText("");
+        pilihAgama.setSelectedItem("Islam");
+        txtAlamat.setText("");
+        //tabelModelPasien.setData(ps.serviceGetAllPasien());
+        txtNmPasien.requestFocus();
+
+
     }
 
     /** This method is called from within the constructor to
@@ -88,13 +85,13 @@ public class FrmDlgPasien extends javax.swing.JDialog {
         jLabel12 = new javax.swing.JLabel();
         radioLaki = new javax.swing.JRadioButton();
         radioPerempuan = new javax.swing.JRadioButton();
-        btnUpdate = new javax.swing.JButton();
+        btnInsert = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setClosable(true);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Pasien"));
 
-        pilihAgama.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Islam", "Katolik", "Protestan", "Hindu", "Budha" }));
+        pilihAgama.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Islam", "Katholik", "Protestan", "Hindu", "Budha" }));
         pilihAgama.setName("pilihAgama"); // NOI18N
 
         txtAlamat.setColumns(20);
@@ -131,9 +128,11 @@ public class FrmDlgPasien extends javax.swing.JDialog {
         grupRadio.add(radioLaki);
         radioLaki.setSelected(true);
         radioLaki.setText("Laki-laki");
+        radioLaki.setName("radioLaki"); // NOI18N
 
         grupRadio.add(radioPerempuan);
         radioPerempuan.setText("Perempuan");
+        radioPerempuan.setName("radioPerempuan"); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -171,7 +170,7 @@ public class FrmDlgPasien extends javax.swing.JDialog {
                         .addComponent(radioLaki)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(radioPerempuan)))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,11 +205,11 @@ public class FrmDlgPasien extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        btnUpdate.setText("UPDATE");
-        btnUpdate.setName("btnUpdate"); // NOI18N
-        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+        btnInsert.setText("SIMPAN");
+        btnInsert.setName("btnInsert"); // NOI18N
+        btnInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateActionPerformed(evt);
+                btnInsertActionPerformed(evt);
             }
         });
 
@@ -222,7 +221,7 @@ public class FrmDlgPasien extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -231,76 +230,68 @@ public class FrmDlgPasien extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addComponent(btnInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+    private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         // TODO add your handling code here:
-        String nama = txtNmPasien.getText();
-        String tglLahir = txtTglLahir.getText();
-        String alamat = txtAlamat.getText();
+        nama = txtNmPasien.getText();
+        tglLahir = txtTglLahir.getText();
+        alamat = txtAlamat.getText();
 
         if ((nama.equals("")) || (tglLahir.equals("")) || (alamat.equals(""))) {
             JOptionPane.showMessageDialog(null, "Data tidak boleh kosong!", "Insert Pasien Gagal!", JOptionPane.ERROR_MESSAGE);
+            ID = "";
+            nama="";
+            jk="";
+            tglLahir="";
+            agama="";
+            alamat="";
         } else {
+
             Pasien p = new Pasien();
-            p.setNmPas(nama);
+
+            ID = ps.serviceGetMaxNoRm();
+            agama = pilihAgama.getSelectedItem().toString();
             if (radioLaki.isSelected()) {
                 p.setJkPas("L");
+                jk = "Laki-laki";
             } else {
                 p.setJkPas("P");
+                jk = "Perempuan";
             }
-            p.setTglLahir(tglLahir);
-            p.setAgama(pilihAgama.getSelectedItem().toString());
-            p.setAlamatPas(alamat);
 
-            if (noRm == null) {
-                p.setNoRm(ps.serviceGetMaxNoRm());
-                ps.serviceInsertPasien(p);
-                if (PasienDao.hasilInsert.equals("ok")) {
-                    JOptionPane.showMessageDialog(null, "Data pasien berhasil diubah!", "Update Pasien", JOptionPane.INFORMATION_MESSAGE);
-                    dispose();
-                } else {
-                    JOptionPane.showMessageDialog(null, PasienDao.hasilInsert, "Update Pasien Gagal!", JOptionPane.ERROR_MESSAGE);
-                }
+            FrmIntPasienLama fip = new FrmIntPasienLama();
+            p.setNoRm(ID);
+            p.setNmPas(nama);
+            p.setTglLahir(tglLahir);
+            p.setAgama(agama);
+            p.setAlamatPas(alamat);
+            ps.serviceInsertPasien(p);
+
+            if (PasienDao.hasilInsert.equals("ok")) {
+                JOptionPane.showMessageDialog(null, "Data pasien berhasil ditambah!", "Insert Pasien", JOptionPane.INFORMATION_MESSAGE);
+                Dimension parentSize = this.getParent().getSize();
+                Dimension childSize = fip.getSize();
+                fip.setLocation((parentSize.width - childSize.width) / 2, (parentSize.height - childSize.height) / 2);
+                this.getParent().add(fip);
+                this.dispose();
+                fip.show();
+                fip.toFront();
             } else {
-                ps.serviceUpdatePasien(p, noRm);
-                if (PasienDao.hasilUpdate.equals("ok")) {
-                    JOptionPane.showMessageDialog(null, "Data pasien berhasil diubah!", "Update Pasien", JOptionPane.INFORMATION_MESSAGE);
-                    dispose();
-                } else {
-                    JOptionPane.showMessageDialog(null, PasienDao.hasilUpdate, "Update Pasien Gagal!", JOptionPane.ERROR_MESSAGE);
-                }
+                JOptionPane.showMessageDialog(null, PasienDao.hasilInsert, "Insert Pasien Gagal!", JOptionPane.ERROR_MESSAGE);
+                ID = "";
+                jk = "";
             }
         }
 
-
-}//GEN-LAST:event_btnUpdateActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-
-            public void run() {
-                FrmDlgPasien dialog = new FrmDlgPasien(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
+    }//GEN-LAST:event_btnInsertActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnInsert;
     private javax.swing.ButtonGroup grupRadio;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

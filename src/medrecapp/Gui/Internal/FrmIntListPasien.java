@@ -19,8 +19,7 @@ import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 import medrecapp.Dao.PasienDao;
 import medrecapp.Gui.Dialog.FrmDlgAWTPasien;
-import medrecapp.Gui.Dialog.FrmDlgPasien;
-import medrecapp.Gui.Dialog.FrmDlgRekMedByNoRm;
+import medrecapp.Gui.Dialog.FrmDlgAWTRekMedByNoRm;
 import medrecapp.Services.PasienService;
 import medrecapp.TabelModel.TabelModelPasien;
 
@@ -120,6 +119,7 @@ public class FrmIntListPasien extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Masukkan No RM / Nama");
 
+        txtCari.setName("txtCari"); // NOI18N
         txtCari.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCariKeyReleased(evt);
@@ -141,6 +141,7 @@ public class FrmIntListPasien extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tabelPasien);
 
         btnRekamMedis.setText("LIHAT REKAM MEDIS BY NO RM");
+        btnRekamMedis.setName("btnRekmedByNoRm"); // NOI18N
         btnRekamMedis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRekamMedisActionPerformed(evt);
@@ -210,6 +211,7 @@ public class FrmIntListPasien extends javax.swing.JInternalFrame {
                         .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnRekamMedis, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+<<<<<<< HEAD
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -217,6 +219,16 @@ public class FrmIntListPasien extends javax.swing.JInternalFrame {
                     .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnUbah, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8))
+=======
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnUbah, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)))
+                .addGap(13, 13, 13))
+>>>>>>> 916dfd32c6b32561b1bca97a858deae873c54117
         );
 
         pack();
@@ -224,7 +236,8 @@ public class FrmIntListPasien extends javax.swing.JInternalFrame {
 
     private void btnRekamMedisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRekamMedisActionPerformed
         // TODO add your handling code here:
-        FrmDlgRekMedByNoRm fDB = new FrmDlgRekMedByNoRm(null, true);
+        //FrmDlgRekMedByNoRm fDB = new FrmDlgRekMedByNoRm(null, true);
+        FrmDlgAWTRekMedByNoRm fDB = new FrmDlgAWTRekMedByNoRm(null, true);
         fDB.setVisible(true);
     }//GEN-LAST:event_btnRekamMedisActionPerformed
 

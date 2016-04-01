@@ -315,7 +315,7 @@ public class FrmIntPerawat extends javax.swing.JInternalFrame {
         String tglKerja = txtTglKerja.getText();
         int bagian = pilihBagian.getSelectedIndex();
 
-        if ((nmPerawat.equals("")) || (tglKerja.equals("")) || (bagian == 0)) {
+        if ((nmPerawat.equals("")) || (tglKerja.equals("")) || (bagian == -1)) {
             JOptionPane.showMessageDialog(null, "Data tidak boleh kosong!", "Insert Perawat Gagal!", JOptionPane.ERROR_MESSAGE);
         } else {
             String id = ss.serviceGetIDSpesialis(pilihBagian.getSelectedItem().toString());
@@ -342,7 +342,7 @@ public class FrmIntPerawat extends javax.swing.JInternalFrame {
         String tglKerja = txtTglKerja.getText();
         int bagian = pilihBagian.getSelectedIndex();
 
-        if ((nmPerawat.equals("")) || (tglKerja.equals("")) || (bagian == 0)) {
+        if ((nmPerawat.equals("")) || (tglKerja.equals("")) || (bagian == -1)) {
             JOptionPane.showMessageDialog(null, "Data tidak boleh kosong!", "Update Perawat Gagal!", JOptionPane.ERROR_MESSAGE);
         } else {
             String id = ss.serviceGetIDSpesialis(pilihBagian.getSelectedItem().toString());

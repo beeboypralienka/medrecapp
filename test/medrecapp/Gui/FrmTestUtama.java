@@ -33,12 +33,12 @@ import static org.junit.Assert.*;
  * @author Fachrul Pralienka BM
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class FrmUtamaTest {
+public class FrmTestUtama {
 
     private static FrmUtama fu;
     private static FrameFixture frame;
 
-    public FrmUtamaTest() {
+    public FrmTestUtama() {
     }
 
     @BeforeClass
@@ -46,7 +46,7 @@ public class FrmUtamaTest {
         try {
             UIManager.setLookAndFeel(new NimbusLookAndFeel());
         } catch (UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(FrmUtamaTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FrmTestUtama.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         fu = new FrmUtama();

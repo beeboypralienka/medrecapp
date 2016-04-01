@@ -95,20 +95,28 @@ public class N_PerawatGuiServiceTest {
         frame.button("btnInsert").click();
         frame.optionPane().requireTitle("Insert Perawat Gagal!");
         frame.optionPane().okButton().click();
+
+        frame.textBox("txtNamaPerawat").enterText("Fitriya Rahmawati");
+        frame.button("btnInsert").click();
+        frame.optionPane().requireTitle("Insert Perawat Gagal!");
+        frame.optionPane().okButton().click();
+
+        frame.textBox("txtTanggalKerja").enterText("2013-05-06");
+        frame.button("btnInsert").click();
+        frame.optionPane().requireTitle("Insert Perawat Gagal!");
+        frame.optionPane().okButton().click();
     }
 
     @Test
     public void c_insertDataPerawat() {
         System.out.println("3. InsertDataPerawat");
-
-        frame.textBox("txtNamaPerawat").enterText("Fitriya Rahmawati");
-        frame.textBox("txtTanggalKerja").enterText("2013-05-06");
+                
         frame.comboBox("pilihBagian").selectItem("Spesialis Penyakit Jantung");
         frame.button("btnInsert").click();
         frame.optionPane().requireTitle("Insert Perawat");
         frame.optionPane().okButton().click();
 
-        frame.textBox("txtNamaPerawat").enterText("Prima Puspitasari");
+        frame.textBox("txtNamaPerawat").enterText("Prima");
         frame.textBox("txtTanggalKerja").enterText("2009-10-06");
         frame.comboBox("pilihBagian").selectItem("Spesialis Penyakit Jantung");
         frame.button("btnInsert").click();
@@ -120,10 +128,21 @@ public class N_PerawatGuiServiceTest {
     public void d_updateDataPerawatKosong() {
         System.out.println("4. UpdateDataPerawatKosong");
 
+        frame.textBox("txtCari").enterText("fitri");
         frame.table("tabelPerawat").selectRows(0);
         frame.textBox("txtNamaPerawat").deleteText();
         frame.textBox("txtTanggalKerja").deleteText();
         frame.comboBox("pilihBagian").selectItem(0);
+        frame.button("btnUpdate").click();
+        frame.optionPane().requireTitle("Update Perawat Gagal!");
+        frame.optionPane().okButton().click();
+
+        frame.textBox("txtNamaPerawat").enterText("Intan Permata Yanti");
+        frame.button("btnUpdate").click();
+        frame.optionPane().requireTitle("Update Perawat Gagal!");
+        frame.optionPane().okButton().click();
+
+        frame.textBox("txtTanggalKerja").enterText("2010-05-10");
         frame.button("btnUpdate").click();
         frame.optionPane().requireTitle("Update Perawat Gagal!");
         frame.optionPane().okButton().click();
@@ -132,22 +151,33 @@ public class N_PerawatGuiServiceTest {
     @Test
     public void e_updateDataPerawat() {
         System.out.println("5. UpdateDataPerawat");
-
-        frame.table("tabelPerawat").selectRows(0);
-        frame.textBox("txtNamaPerawat").enterText("Intan Permata Sari");
-        frame.textBox("txtTanggalKerja").enterText("2010-05-10");
+                        
         frame.comboBox("pilihBagian").selectItem("Spesialis Penyakit Dalam");
+        frame.button("btnUpdate").click();
+        frame.optionPane().requireTitle("Update Perawat");
+        frame.optionPane().okButton().click();
+
+        frame.textBox("txtCari").enterText("per.002");
+        frame.table("tabelPerawat").selectRows(0);
+        frame.textBox("txtNamaPerawat").enterText(" Puspita Sari");
         frame.button("btnUpdate").click();
         frame.optionPane().requireTitle("Update Perawat");
         frame.optionPane().okButton().click();
     }
 
     @Test
-    public void f_deleteDataSpesialis() {
+    public void f_deleteDataSpesialisGagal() {
         System.out.println("6. DeleteDataSpesialis");
         frame.menuItem("menuDataSpesialis").click();
 
         frame.table("tabelSpesialis").selectRows(0);
+        frame.button("btnDelete").click();
+        frame.optionPane().requireTitle("Konfirmasi");
+        frame.optionPane().yesButton().click();
+        frame.optionPane().requireTitle("Delete Spesialis Gagal!");
+        frame.optionPane().okButton().click();
+
+        frame.table("tabelSpesialis").selectRows(1);
         frame.button("btnDelete").click();
         frame.optionPane().requireTitle("Konfirmasi");
         frame.optionPane().yesButton().click();
@@ -172,6 +202,21 @@ public class N_PerawatGuiServiceTest {
         frame.optionPane().requireTitle("Konfirmasi");
         frame.optionPane().yesButton().click();
         frame.optionPane().requireTitle("Delete Perawat");
-        frame.optionPane().okButton().click(); 
+        frame.optionPane().okButton().click();
+    }
+
+    @Test
+    public void h_deleteDataSpesialisBerhasil() {
+        System.out.println("7. DeleteDataSpesialis");
+        frame.menuItem("menuDataSpesialis").click();
+
+        for (int i = 1; i <= 2; i++) {
+            frame.table("tabelSpesialis").selectRows(0);
+            frame.button("btnDelete").click();
+            frame.optionPane().requireTitle("Konfirmasi");
+            frame.optionPane().yesButton().click();
+            frame.optionPane().requireTitle("Delete Spesialis");
+            frame.optionPane().okButton().click();
+        }
     }
 }

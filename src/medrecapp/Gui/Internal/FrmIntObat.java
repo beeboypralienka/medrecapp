@@ -53,6 +53,7 @@ public class FrmIntObat extends javax.swing.JInternalFrame {
                     btnInsert.setEnabled(false);
                     btnUpdate.setEnabled(true);
                     btnDelete.setEnabled(true);
+                    txtIdObat.setEnabled(false);
                 }
             }
         });
@@ -91,6 +92,7 @@ public class FrmIntObat extends javax.swing.JInternalFrame {
         btnInsert.setEnabled(true);
         btnUpdate.setEnabled(false);
         btnDelete.setEnabled(false);
+        txtIdObat.setEnabled(true);
     }
 
     /**

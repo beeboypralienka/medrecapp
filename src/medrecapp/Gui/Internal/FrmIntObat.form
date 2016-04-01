@@ -84,7 +84,7 @@
                   <Component id="btnInsert" alignment="0" pref="38" max="32767" attributes="1"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane3" pref="279" max="32767" attributes="0"/>
+              <Component id="jScrollPane3" pref="283" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
