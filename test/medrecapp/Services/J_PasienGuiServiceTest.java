@@ -48,6 +48,15 @@ public class J_PasienGuiServiceTest {
         fu.setExtendedState(fu.getExtendedState() | JFrame.MAXIMIZED_BOTH);
         frame = new FrameFixture(fu);
         frame.show();
+        
+        /***          
+         * Mempercepat waktu testing GUI
+         */
+        frame.robot.settings().delayBetweenEvents(0);
+        frame.robot.settings().dragDelay(0);
+        frame.robot.settings().dropDelay(0);
+        frame.robot.settings().eventPostingDelay(0);
+        
         frame.menuItem("menuDataPasienBaru").click();
     }
 
